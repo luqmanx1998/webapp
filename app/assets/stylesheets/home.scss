@@ -24,6 +24,7 @@
             margin: 1rem 0;
             font-size: 1em;
             max-width: 300px;
+            color: #343434
         }
 
         .button-wrapper{
@@ -39,8 +40,14 @@
             color: white !important;
         }
 
-        .learn-button:hover{
-            color: blue !important;
+        .learn-button{
+            color: #343434 !important;
+            border-color: #c7c7c7;
+
+            &:hover{
+                color: black !important;
+                border-color: black
+            }
 
         }
 
