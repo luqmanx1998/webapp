@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'pg', '>= 0.18', '< 2.0'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -24,7 +25,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   gem 'guard', '~> 2.8', require: false
   gem 'rack-livereload', '~> 0.3.16'

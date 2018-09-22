@@ -135,7 +135,7 @@ input[type="reset"],
 input[type="button"],
 button a, .button a {
   background: white;
-  color: #343434 !important;
+  color: #585858!important;
   padding: 0.5em 2.3em;
   font-family: $sans-serif;
   font-weight: 300;
@@ -145,6 +145,7 @@ button a, .button a {
   -webkit-appearance: none!important;
   font-size: 1em;
   border: $border;
+  border-color: #b9b9b9 !important;
   cursor: pointer; }
 .button:hover,
 button:hover,
@@ -156,10 +157,9 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  border-color: #1B1B1B;
+  border-color: #1B1B1B !important;
   box-shadow: none;
   outline: none;
-
 }
 
 .actions{

@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     get 'policies/terms'
     get 'policies/privacy'
   end
+
+  post 'join',                              to: 'requests#create'
+  get 'join',                               to: 'requests#new',                         as: :new_requests
+  get 'requested',                          to: 'requests#requested',                   as: :requested
 end

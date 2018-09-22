@@ -1,0 +1,16 @@
+<%= form_for @request, url: new_requests_path do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explaination">
+      <%- @request.errors.full_messages.each do |message| %>
+        <%= message %>
+      <%end%>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.email_field :email, class: "input", placeholder: "Email", required: true, autocomplete: "off" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "I want in!", class: 'btn btn-highlight' %>
+  </div>
+<% end %>
