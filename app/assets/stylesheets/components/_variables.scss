@@ -1,0 +1,36 @@
+
+
+
+/* 1.Media Queries
+––––––––––––––– */
+  $small-screen-up: 40em !default;
+  $medium-screen-up: 80em !default;
+  $large-screen-up: 120em !default;
+  $small-screen: 40rem !default;
+  $medium-screen: 80rem !default;
+  $large-screen: 120rem !default;
+
+  $medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+  $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+  $extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+  $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+  $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+  $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+
+/* 2. Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+  $sans-serif: 'Heebo', sans-serif;
+  $monospace:  "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+
+  /* 3.Border
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+$border: 2px solid #1B1B1B;
+
+/* 4.Heights
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+$height-nav : 50px;
+
+$height-full: calc(100vh - #{$height-nav} - #{$height-nav});
+
+

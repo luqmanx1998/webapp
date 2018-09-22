@@ -1,0 +1,15 @@
+@import 'components/*';
+@import '*';
+@import 'navigation/*';
+
+
+body{
+    min-height: $height-full;
+    position: relative;
+}
+
+#indielab{
+    padding-top: $height-nav;
+    padding-bottom: $height-nav;
+}
+

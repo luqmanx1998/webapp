@@ -1,0 +1,107 @@
+
+#root {
+
+    @media only screen{
+        .main{
+            min-height: $height-full;
+        }
+        .content{
+            padding: 1em;
+        }
+
+        .heading{
+            font-family: $sans-serif;
+            font-size: 3em;
+            line-height: 0.9em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            max-width: 350px;
+        }
+
+        .text{
+            font-family: $monospace;
+            letter-spacing: 2px;
+            margin: 1rem 0;
+            font-size: 1em;
+            max-width: 300px;
+        }
+
+        .button-wrapper{
+            max-width: 350px;
+        }
+
+        button{
+            width: 250px;
+        }
+
+        .join-button{
+            background:black;
+            color: white !important;
+        }
+
+        .learn-button:hover{
+            color: blue !important;
+
+        }
+
+        .learn-button, .join-button{
+            margin: .5rem 0;
+            
+        }
+
+        
+  
+    }
+  
+    @media #{$medium-and-up}{
+
+        .heading{
+            font-size: 3.4em;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .text{
+            letter-spacing: 2px;
+            margin: 1rem auto;
+            font-size: 1.2em;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .button-wrapper{
+            margin: 0 auto;
+            max-width: 420px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button{
+            width: 200px;
+        }
+    }
+    @media #{$large-and-up}{
+
+        .heading{
+            font-size: 5em;
+        }
+
+        .text{
+            font-size: 1.4em;
+            max-width: 800px;
+        }
+
+        .button-wrapper{
+            margin: 0 auto;
+            max-width: 420px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button{
+            width: 200px;
+        }
+    }
+  
+  }
+  
