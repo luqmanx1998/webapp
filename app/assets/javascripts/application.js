@@ -1,6 +1,7 @@
 //= require rails-ujs
 //= require jquery
 //= require dropdown.js
+//= require medium-editor.min.js
 //= require activestorage
 //= require turbolinks
 //= require_tree .

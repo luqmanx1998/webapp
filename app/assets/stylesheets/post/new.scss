@@ -11,7 +11,7 @@
             min-height: 200px;
         }
 
-        .content, .video-ready{
+        .content{
             min-height: 240px;
         }
 
@@ -43,34 +43,39 @@
         }
 
 
-        
-        
-
         .options{
             margin: 1rem 0;
             padding: 1rem;
         }
 
 
-
-
-          .bar {
-            position: absolute;
-            left: 0;
-            top: $height-nav;
-            height: $height-full;
-            z-index: 3;
-            background: #d7d7d7;
-            font-size: 4em;
-            text-align: center;
-            line-height: $height-full;
-          }
-
-
           .hidden{
               display: none;
           }
+          .content .medium-editor-element{
+            min-height: 200px !important;
+            max-width: 500px;
+            border: none;
+            background: #f7f7f7 !important;
+            overflow: scroll;
+            &:focus{
+              background-color: transparent;
+              outline: none;
+            }
+            margin: 0 auto;
+          }
       
+
+          .info .medium-editor-element{
+            min-height: 100px !important;
+            border: none;
+            overflow: scroll;
+            background: #f7f7f7 !important;
+            border-radius: 0 !important;
+            &:focus{
+              outline: none;
+            }
+          }
   
     }
   
