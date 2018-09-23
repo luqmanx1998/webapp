@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_201918) do
+ActiveRecord::Schema.define(version: 2018_09_23_215255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(version: 2018_09_23_201918) do
     t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "from_user_id"
+    t.datetime "read_at"
+    t.string "action"
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["from_user_id"], name: "index_notifications_on_from_user_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -99,5 +113,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_201918) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "notifications", "users", column: "from_user_id"
   add_foreign_key "posts", "users"
 end

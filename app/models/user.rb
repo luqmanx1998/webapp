@@ -15,12 +15,13 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   ## => Rememberable by default
   def remember_me
    true
   end
-  
+
   validates_uniqueness_of :username
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password

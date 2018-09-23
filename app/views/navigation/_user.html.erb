@@ -11,8 +11,19 @@
       <li>
         <a href="/create"> Create </a>
       </li>
+      
     </ul>
     <ul class="user-links">
+      <li class="hide-on-small-only notification">
+        <a href="/search">
+          <%= image_tag 'icons/search' %>
+        </a>
+      </li>
+      <li data-behavior="notifications" class="hide-on-small-only notification">
+        <a data-behavior="unread-notification" href="/notifications">
+          <%= image_tag 'icons/notification' %>
+        </a>
+      </li>
       <li>
         <a onclick="dropdownDesktop()" class="dropbtn">@<%= current_user.username %></a>
 
@@ -44,13 +55,31 @@
   <div class="nav-wrapper">
     <ul class="mobile-links flex flex-space-around " >
       <li>
-        <a href="/discover"> Discover</a>
+        <a href="/">
+          <%= image_tag 'icons/home' %>
+        </a>
       </li>
       <li>
-        <a href="/followings"> Followings</a>
+        
+        <a  href="/discover">
+          <%= image_tag 'icons/explore-tool' %>
+        </a>
       </li>
       <li>
-        <a href="/create"> Create </a>
+        
+        <a href="/create">
+          <%= image_tag 'icons/add' %>
+        </a>
+      </li>
+      <li>
+        <a href="/search">
+          <%= image_tag 'icons/search' %>
+        </a>
+      </li>
+      <li data-behavior="notifications" class="notification">
+        <a data-behavior="unread-notification" href="/notifications">
+          <%= image_tag 'icons/notification' %>
+        </a>
       </li>
     </ul>
   </div>

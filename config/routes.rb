@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
+
+  namespace :api , defaults: {format: 'json'} do
+    get 'notifications',                     to: 'notifications#index'
+   end
+
   namespace :wtf do
     get '/', to: '/wtf#index'
     get 'about', to: 'about#index'
@@ -92,5 +97,11 @@ Rails.application.routes.draw do
 
     require 'sidekiq/web'
    mount Sidekiq::Web => '/sidekiq'
+
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 end

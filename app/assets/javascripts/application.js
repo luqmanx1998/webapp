@@ -6,6 +6,7 @@
 //= require plyr-custom.js
 //= require masonry/imageloaded.pkgd.min.js
 //= require masonry/masonry.pkgd.min.js
+//= require notifications.js.coffee
 //= require jquery-fileupload/basic
 //= require activestorage
 //= require turbolinks

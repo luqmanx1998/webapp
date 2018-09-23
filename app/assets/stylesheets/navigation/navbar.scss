@@ -62,10 +62,29 @@
         background: white;
     }
 
+    .noti-dot {
+      height: 7px;
+      width: 7px;
+      background-color: black;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+
+
+
+
   
     }
   
     @media #{$medium-and-up}{
+      li{
+        img{
+          width: 24px;
+          height: 24px;
+          margin-top: 13px;
+        }
+      }
       .nav-wrapper{
         height:$height-nav;
         line-height: $height-nav;
@@ -82,7 +101,7 @@
       }
 
       .user-links, .brand{
-        width: 200px;
+        width: 220px;
         display:flex;
       }
 
@@ -125,5 +144,24 @@
         overflow: auto;
         background: white;
       }
+
+      img{
+        width: 24px;
+        height: 24px;
+        margin-top: 13px;
+      }
+
+      .noti-dot {
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        display: inline-block;
+      }
+  
+      li{
+        height: 50px;
+      }
   
   }
+
