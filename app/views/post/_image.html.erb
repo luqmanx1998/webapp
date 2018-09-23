@@ -1,0 +1,26 @@
+<% if controller_name == 'images' %>
+  <div class="image-content">
+    <div class="content">
+      <div class="image-preview">
+          <img  id="image-prev"  class="hidden">
+      </div>
+      <div id="upload-wrapper" class="image_upload">
+        <%= f.file_field :content, id:"image-upload", class: "inputfile", :required => 'required', accept: 'image/png,image/gif,image/jpeg' %>
+        <label for="image-upload" class="uploadButton">
+          <span> Upload Image</span>
+        </label>
+      </div>
+    </div>
+    <div id="progress">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+  </div>
+<% elsif controller_name == "post" && @post.type == "Post::Image" && action_name == "edit" %>
+<div class="image-content">
+  <div class="content">
+    <div class="image-preview">
+      <%= image_tag @post.content.url %>
+    </div>
+  </div>
+</div>
+<% end %>

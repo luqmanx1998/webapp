@@ -68,4 +68,26 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'discover',                           to: 'post#index',            as: :discover
+  get 'create',                             to: 'post#new',              as: :new_post
+  get 'post/:url/edit',                     to: 'post#edit',             as: :edit_post
+  get 'post/:url',                          to: 'post#show',             as: :post
+  delete 'post/:url',                       to: 'post#destroy'
+
+  post 'texts',                             to: 'post/texts#create',      as: :post_texts
+  get 'new/text',                           to: 'post/texts#new',         as: :new_text
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_text
+
+  post 'images',                            to: 'post/images#create',     as: :post_images
+  get 'new/image',                          to: 'post/images#new',        as: :new_image
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_image
+
+  post 'audios',                            to: 'post/audios#create',     as: :post_audios
+  get 'new/audio',                          to: 'post/audios#new',        as: :new_audio
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_audio
+
+
+    require 'sidekiq/web'
+   mount Sidekiq::Web => '/sidekiq'
+
 end
