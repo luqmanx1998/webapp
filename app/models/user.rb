@@ -20,7 +20,8 @@ class User < ApplicationRecord
   def remember_me
    true
   end
-
+  
+  validates_uniqueness_of :username
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password
   
