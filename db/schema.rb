@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_145312) do
+ActiveRecord::Schema.define(version: 2018_09_23_183250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 2018_09_23_145312) do
     t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "caption"
+    t.text "content"
+    t.string "type"
+    t.string "url"
+    t.boolean "content_processing", default: false, null: false
+    t.jsonb "preferences", default: {}, null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_posts_on_type"
+    t.index ["url"], name: "index_posts_on_url", unique: true
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -72,4 +87,5 @@ ActiveRecord::Schema.define(version: 2018_09_23_145312) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "posts", "users"
 end
