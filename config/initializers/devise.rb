@@ -6,7 +6,7 @@ Devise.setup do |config|
   config.mailer_sender = 'noreply@indielab.xyz'
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'Devise::Mailer'
+  config.mailer = 'UserMailer'
 
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = 'ActionMailer::Base'
@@ -35,6 +35,17 @@ Devise.setup do |config|
 
   config.send_email_changed_notification = false
   config.send_password_change_notification = false
+
+  # ==> Configuration for :invitable
+  config.invite_for = 0
+  config.invitation_limit = 5
+  config.invite_key = {:email => /\A[^@]+@[^@]+\z/}
+  config.validate_on_invite = true
+  config.resend_invitation = true
+  config.invited_by_class_name = 'User'
+  config.invited_by_foreign_key = :invited_by_id
+  config.invited_by_counter_cache = :invitations_count
+  config.allow_insecure_sign_in_after_accept = true
 
   # ==> Configuration for :confirmable
   config.allow_unconfirmed_access_for = 0.days

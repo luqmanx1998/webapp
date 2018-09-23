@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     passwords: 'devise/users/passwords',
     registrations: 'devise/users/registrations',
     confirmations: 'devise/users/confirmations',
+    invitations: 'devise/users/invitations',
   }
 
   devise_scope :user do
@@ -43,6 +44,13 @@ Rails.application.routes.draw do
 
   get 'users/confirm',                    to: 'devise/users/confirmations#show',    as: :user_confirmation
   post 'users/confirm',                   to: 'devise/users/confirmations#create'
+
+  get 'chosen-one/accept',                to: 'devise/users/invitations#edit',      as: :accept_user_invitation
+  get 'chosen-one/decline',               to: 'devise/users/invitations#destroy',   as: :remove_user_invitation
+  get 'invite',                           to: 'devise/users/invitations#new',       as: :new_user_invitation
+  patch 'users/invitation',               to: 'devise/users/invitations#update',    as: :user_invitation
+  put 'users/invitation',                 to: 'devise/users/invitations#update'
+  post 'invite',                          to: 'devise/users/invitations#create'
 
   end
 end

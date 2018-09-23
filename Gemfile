@@ -17,6 +17,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'pg', '>= 0.18', '< 2.0'
 
 gem 'devise', '~> 4.5'
+gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
 
 
 group :development, :test do

@@ -58,6 +58,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_invitable (1.7.4)
+      actionmailer (>= 4.1.0)
+      devise (>= 4.0.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -215,6 +218,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   devise (~> 4.5)
+  devise_invitable (~> 1.7, >= 1.7.4)
   guard (~> 2.8)
   guard-livereload (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.5)
