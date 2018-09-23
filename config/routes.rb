@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user/index'
+  get 'user/show'
   root 'home#index'
 
   namespace :wtf do
@@ -51,6 +53,16 @@ Rails.application.routes.draw do
   patch 'users/invitation',               to: 'devise/users/invitations#update',    as: :user_invitation
   put 'users/invitation',                 to: 'devise/users/invitations#update'
   post 'invite',                          to: 'devise/users/invitations#create'
-
   end
+
+  get 'user/:username' => 'user#show',      :constrain => { :username => /[a-zA-Z-]+/ }, as: :profile
+  get 'followings',                          to: 'user#index'
+
+  resources :user, :only => [:show] do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
+  
 end

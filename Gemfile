@@ -19,6 +19,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
 
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

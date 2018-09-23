@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_081402) do
+ActiveRecord::Schema.define(version: 2018_09_23_144221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.string "followable_type", null: false
+    t.bigint "followable_id", null: false
+    t.string "follower_type", null: false
+    t.bigint "follower_id", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followable_id", "followable_type"], name: "fk_followables"
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
+    t.index ["follower_id", "follower_type"], name: "fk_follows"
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+  end
 
   create_table "requests", force: :cascade do |t|
     t.string "email"
@@ -43,6 +57,8 @@ ActiveRecord::Schema.define(version: 2018_09_23_081402) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "name"
+    t.text "bio"
     t.index ["access_level"], name: "index_users_on_access_level"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -50,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_081402) do
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

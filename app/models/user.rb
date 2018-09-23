@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
   enum access_level: { user: 0, admin: 1, super_admin: 2}
 
+  
+  acts_as_follower
+  acts_as_followable
+
 
   ## => Rememberable by default
   def remember_me
