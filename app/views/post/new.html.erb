@@ -1,3 +1,6 @@
+
+
+<% unless @media.present?%>
 <div id="create">
     <div class="create-navigation flex flex-center-xy">
       <div class="media flex flex-center-xy">
@@ -7,3 +10,11 @@
       </div>
     </div>
   </div>
+<% else %> 
+<div id="post-new">
+  <%= form_for @post do |f| %>
+    <%= render 'post/form', f: f %>
+  <% end %>
+</div>
+
+<% end %>

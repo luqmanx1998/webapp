@@ -1,0 +1,118 @@
+
+#post-new {
+    @media only screen{
+    
+        .form{
+            max-width: 40em;
+            margin: 1rem auto;
+        }
+
+        .content textarea{
+            min-height: 200px;
+        }
+
+        .content{
+            min-height: 240px;
+        }
+
+        .actions{
+            padding: 1rem;
+        }
+
+        .delete{
+            margin-right: 1rem;
+            border: $border;
+            border-color: #575757 !important;
+            width: 44px;
+
+        }
+        .btn{
+            height: 44px;
+        }
+
+        .delete:hover{
+            border-color: black !important;
+            img{
+                -webkit-animation:spin 0.2s linear ;
+                -moz-animation:spin 0.2s linear;
+                animation:spin 0.2s linear ;
+            }
+            @-moz-keyframes spin { 100% { -moz-transform: rotate(90deg); } }
+            @-webkit-keyframes spin { 100% { -webkit-transform: rotate(90deg); } }
+            @keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
+        }
+
+
+        .options{
+            margin: 1rem 0;
+            padding: 1rem;
+        }
+
+
+          .hidden{
+              display: none;
+          }
+          .content .medium-editor-element{
+            min-height: 200px !important;
+            max-width: 500px;
+            border: none;
+            background: #f7f7f7 !important;
+            overflow: scroll;
+            &:focus{
+              background-color: transparent;
+              outline: none;
+            }
+            margin: 0 auto;
+          }
+      
+
+          .info .medium-editor-element{
+            min-height: 100px !important;
+            border: none;
+            overflow: scroll;
+            background: #f7f7f7 !important;
+            border-radius: 0 !important;
+            &:focus{
+              outline: none;
+            }
+          }
+  
+    }
+  
+    @media #{$medium-and-up}{
+        .form{
+            display: flex;
+            max-width: 65em;
+        }
+
+        .content, .info{
+            padding: 0 1rem ;
+        }
+
+        .content{
+            width: 40em;
+        }
+
+        .info{
+            border-left: $border;
+            border-color: #d9d9d9;
+            width: 25em;
+        }
+
+        .content textarea{
+            min-height: 300px;
+        }
+
+        .field{
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+        .actions{
+            padding:  0;
+        }
+
+    }
+  
+
+  }
+  
