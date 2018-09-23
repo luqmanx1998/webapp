@@ -13,6 +13,11 @@ class UserController < ApplicationController
 
   def show
       raise ActionController::RoutingError.new('Not Found') if @user.blank?
+      if current_user.hide_nsfw == true && current_user != @user
+        @posts = @user.posts.order("created_at DESC").where(preferences: {"nsfw"=>false})
+      else
+        @posts = @user.posts.order("created_at DESC")
+      end
 
       def follow
         @user = User.find(params[:id])

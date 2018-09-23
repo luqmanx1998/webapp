@@ -13,6 +13,7 @@ class User < ApplicationRecord
   acts_as_follower
   acts_as_followable
 
+  has_many :posts, dependent: :destroy
 
   ## => Rememberable by default
   def remember_me
