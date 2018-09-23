@@ -6,6 +6,8 @@
                     <div class="text">
                         <%= raw(@post.content) %>
                     </div>
+                <% elsif @post.type == "Post::Image"%>
+                    <%= image_tag @post.content.url %>    
                 <% end %>
             <% else %>    
                 <div class="processing">

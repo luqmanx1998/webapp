@@ -66,6 +66,8 @@ class PostController < ApplicationController
       @post = Post.find_by_url(params[:url])
       if  @post.type == "Post::Text"
         params.require(:post_text).permit( :caption  , :type, :user_id, :content, :nsfw)
+      elsif @post.type == "Post::Image"
+        params.require(:post_image).permit( :caption  , :type, :user_id, :content, :nsfw)  
       end
     end
 

@@ -76,6 +76,38 @@
               outline: none;
             }
           }
+
+          .bar {
+            position: absolute;
+            left: 0;
+            top: $height-nav;
+            height: $height-full;
+            z-index: 3;
+            background: #d7d7d7;
+            font-size: 4em;
+            text-align: center;
+            line-height: $height-full;
+          }
+
+          input[type="file"]{
+            display: none;
+          }
+          .inputfile + label {
+          font-size: 1.25em;
+          font-weight: 700;
+          color: black;
+          display: inline-block;
+      
+          width: 100%;
+          height: 300px;
+          text-align: center;
+          line-height: 300px;
+      
+            &:hover{
+              cursor: pointer;
+            }
+      
+          }
   
     }
   

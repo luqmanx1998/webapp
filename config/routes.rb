@@ -78,5 +78,9 @@ Rails.application.routes.draw do
   get 'new/text',                           to: 'post/texts#new',         as: :new_text
   patch 'post/:url',                         to: 'post#update' ,          as: :post_text
 
+  post 'images',                            to: 'post/images#create',     as: :post_images
+  get 'new/image',                          to: 'post/images#new',        as: :new_image
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_image
+
 
 end
