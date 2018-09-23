@@ -1,3 +1,14 @@
 <div id="following">
-
+<% unless @posts.blank? %>
+    <div class="posts">
+    <% @posts.each do |post| %>
+        <%= render 'post/post', post: post%>
+    <% end %>
+    </div>
+<% else %>
+    <div class="empty flex flex-center-xy">
+        This page is empty. <br/> 
+        Start following people that inspire you !
+    </div>
+<% end %>
 </div>

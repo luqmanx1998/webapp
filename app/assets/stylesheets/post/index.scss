@@ -1,0 +1,76 @@
+#post-all{
+  background: white;
+  
+  padding: 0.5rem;
+
+  @media only screen{
+
+    .post{
+      width:  calc(( 100% / 2) - 0.3rem);
+      background: white;
+      margin: 1rem 0;
+    }
+
+
+    .body, .info{
+      padding-top: 0.5rem ;
+    }
+
+    .text{
+      min-height: 100px;
+      background: #e7e7e7;
+      padding: 1rem;
+    }
+
+    .user-and-time, .body, .foot{
+      font-size: 0.7em
+    }
+
+
+
+    .blank{
+      min-height: $height-full;
+    }
+
+    .blank-2{
+      height: 200px;
+    }
+
+    video{
+      width: 100%;
+    }
+
+    .box{
+      background-color:black;
+      width: 100%;
+      padding-top: 56.25%;
+      position: relative; /* If you want text inside of it */
+    }
+
+    .plyr--video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 101%;
+    }
+
+
+
+  }
+  @media #{$medium-and-up}{
+    .post{
+      width:  calc(( 100% / 3) - 0.5rem);
+    }
+    .user-and-time, .body, .foot{
+      font-size: 0.85em
+    }
+
+  }
+    @media #{$large-and-up}{
+      .post{
+        width:  calc(( 100% / 4) - 0.5rem);
+      }
+    }
+}

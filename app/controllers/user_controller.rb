@@ -3,8 +3,12 @@ class UserController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
-
+    @users = current_user.all_following
+    if current_user.hide_nsfw == true
+      @posts = Post.all.where.not(user: current_user, preferences: {"nsfw"=>true}).where( user: @users ).order('created_at DESC')
+    else
+      @posts = Post.all.where.not(user: current_user).where( user: @users ).order('created_at DESC')
+    end
   end
 
   def show

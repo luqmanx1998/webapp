@@ -29,6 +29,7 @@ gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
 gem 'carrierwave-audio'
 gem 'mini_magick', '~> 4.8'
 
+gem 'nokogiri_truncate_html', '~> 0.0.5'
 gem 'sidekiq', '~> 5.2', '>= 5.2.1'
 
 

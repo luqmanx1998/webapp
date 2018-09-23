@@ -1,0 +1,38 @@
+<script type="text/javascript">
+  document.addEventListener("turbolinks:load", function() {
+    // init Masonry
+    var $grid = $('.masonry').masonry({
+        itemSelector: '.post',
+        columnWidth: '.post',
+        horizontalOrder: true,
+        percentPosition: true,
+        gutter: 10
+    });
+    // layout Masonry after each image loads
+    $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+    });
+
+  });
+</script>
+<div id="post-all">
+    <% if @posts.blank? %>
+        <% if controller_name == "post"%>
+            <div class="blank flex flex-center-xy">
+                There are nothing to discover. Start creating !
+            </div>
+        <% else %>   
+             <div class="blank-2 flex flex-center-xy">
+                This user has not posted anything
+            </div>
+        <% end %>
+    <% else %>
+        <div class="posts masonry transitions-enabled">
+            <% @posts.each do |post| %>
+                <%= render 'post/post', post: post%>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+

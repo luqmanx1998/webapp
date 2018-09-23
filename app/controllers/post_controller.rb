@@ -4,7 +4,13 @@ class PostController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    if current_user.hide_nsfw == true
+      @posts = Post.all.where.not(user: current_user, preferences: {"nsfw"=>true}).order('created_at DESC')
+    else
+      @posts = Post.all.where.not(user: current_user).order('created_at DESC')
+    end
   end
+
 
   def show
     raise ActionController::RoutingError.new('Not Found') if @post.blank?

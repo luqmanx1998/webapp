@@ -1,0 +1,42 @@
+<% unless post.content_processing? %>
+    <div class="post">
+        <div class="header">
+            <div class="user-and-time flex flex-space-between">
+                <div class="user">
+                    <a href="/user/<%= post.user.username %> ">
+                        @<%= post.user.username %>
+                    </a>
+                </div>
+                <div class="time">
+                <%= "#{time_ago_in_words(post.created_at)} " %>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <% if post.type == "Post::Text"%>
+                <a href="/post/<%= post.url %>" >
+                    <div class="content text">
+                        <%= ((truncate_html post.content, :length => 480)) %>
+                    </div>
+                </a>
+            <% elsif post.type == "Post::Image"%>
+                <a href="/post/<%= post.url %>" >
+                    <%= image_tag post.content.url %>    
+                </a>    
+            <% elsif post.type == "Post::Audio" %>
+                <% if post.content.url.present? %>
+                    <audio id="playerAudio" >
+                        <source src="<%= post.content.url %>" type="audio/mp3">
+                    </audio>    
+                <% end %> 
+            <% end %>   
+        </div>
+        <div class="foot">
+            <% if post.caption? %>
+                <div class="info">
+                    <%= ((truncate_html post.caption, length: 200)) %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<% end %>
