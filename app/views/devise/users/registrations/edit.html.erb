@@ -1,0 +1,69 @@
+<div id="settings">
+  <div class="user-settings">
+    <div class="wrapper">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "profile"}) do |f| %>
+        <div class="heading">
+          Profile
+        </div>
+        <div class="field">
+          <%= f.text_field :username, class: "input", placeholder: "Username" , pattern: "[A-Za-z0-9]+",  required: true%>
+          <span class="form-label">
+            Username
+          </span>
+        </div>
+        <div class="actions">
+          <%= f.submit "Update", class: 'btn' %>
+        </div>
+      <% end %>
+      <div class="collapsible">
+        Account Settings
+      </div>
+      <div class="collapse-content">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "account"}) do |f| %>
+          <div class="field">
+            <%= f.email_field :email, class: "input", placeholder: "Email" %>
+            <span class="form-label">
+              Email
+            </span>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", class: "input", placeholder: "New Password" %>
+            <span class="form-label">
+              New Password
+            </span>
+          </div>
+          <div class="field">
+            <span>
+              Enter current password to change email/password.
+            </span>
+            <%= f.password_field :current_password, autocomplete: "off", class: "input", placeholder: "Current Password" %>
+            <span class="form-label">
+              Current Password
+            </span>
+          </div>
+            <div class="actions">
+              <%= f.submit "Update", class: 'btn' %>
+            </div>
+        <% end %>
+      </div>
+      <div class="collapsible">
+        Do Not Open.
+      </div>
+      <div class="collapse-content">
+        <div class="warning">
+          By deleting your account, you are removing your personal information from Indielab.
+          <br/>
+          Your account cannot be restored.
+        </div>
+        <div class="cancel">
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  var coll = document.getElementsByClassName("collapsible"); var i; for (i = 0; i < coll.length; i++) { coll[i].addEventListener("click", function() { this.classList.toggle("collapse-active"); var content = this.nextElementSibling; if (content.style.display === "block") { content.style.display = "none"; } else { content.style.display = "block"; } }); }
+</script>

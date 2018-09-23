@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   devise_for :users, skip: :all, controllers: {
     sessions: 'devise/users/sessions',
     passwords: 'devise/users/passwords',
+    registrations: 'devise/users/registrations',
+    confirmations: 'devise/users/confirmations',
   }
 
   devise_scope :user do
@@ -32,7 +34,15 @@ Rails.application.routes.draw do
   put 'secret',                           to: 'devise/users/passwords#update'
   post 'secret',                          to: 'devise/users/passwords#create'
 
+  get 'userinfo',                         to: 'devise/users/registrations#edit',    as: :edit_user_registration
+  patch 'userinfo',                       to: 'devise/users/registrations#update',  as: :user_registration
+  put 'userinfo',                         to: 'devise/users/registrations#update',  as: :user
+  delete 'userinfo',                      to: 'devise/users/registrations#destroy'
+  post 'userinfo',                        to: 'devise/users/registrations#create'
 
+
+  get 'users/confirm',                    to: 'devise/users/confirmations#show',    as: :user_confirmation
+  post 'users/confirm',                   to: 'devise/users/confirmations#create'
 
   end
 end

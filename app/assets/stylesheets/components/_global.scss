@@ -252,8 +252,7 @@ textarea:not(:placeholder-shown) + span.form-label{
   }
   
   .collapsible:before{
-  font-family: "Material Icons";
-  content: "\E315";
+  content: image-url("icons/arrow-right.svg");
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -267,8 +266,7 @@ textarea:not(:placeholder-shown) + span.form-label{
   }
   
   .collapse-active:before{
-  font-family: "Material Icons";
-  content: "\E313";
+    content: image-url("icons/arrow-down.svg");
   }
   /* Style the collapsible content. Note: hidden by default */
   .collapse-content {
