@@ -67,7 +67,9 @@ class PostController < ApplicationController
       if  @post.type == "Post::Text"
         params.require(:post_text).permit( :caption  , :type, :user_id, :content, :nsfw)
       elsif @post.type == "Post::Image"
-        params.require(:post_image).permit( :caption  , :type, :user_id, :content, :nsfw)  
+        params.require(:post_image).permit( :caption  , :type, :user_id, :content, :nsfw)
+      elsif @post.type == "Post::Audio"
+        params.require(:post_audio).permit( :caption  , :type, :user_id, :content, :nsfw)  
       end
     end
 

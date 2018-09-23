@@ -82,5 +82,12 @@ Rails.application.routes.draw do
   get 'new/image',                          to: 'post/images#new',        as: :new_image
   patch 'post/:url',                         to: 'post#update' ,          as: :post_image
 
+  post 'audios',                            to: 'post/audios#create',     as: :post_audios
+  get 'new/audio',                          to: 'post/audios#new',        as: :new_audio
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_audio
+
+
+    require 'sidekiq/web'
+   mount Sidekiq::Web => '/sidekiq'
 
 end

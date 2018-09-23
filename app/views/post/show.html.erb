@@ -8,11 +8,17 @@
                     </div>
                 <% elsif @post.type == "Post::Image"%>
                     <%= image_tag @post.content.url %>    
+                <% elsif @post.type == "Post::Audio" %>
+                    <% if @post.content.url.present? %>
+                        <audio id="playerAudio" >
+                            <source src="<%= @post.content.url %>" type="audio/mp3">
+                        </audio>    
+                    <% end %>    
                 <% end %>
             <% else %>    
                 <div class="processing">
                     Your content is processing. <br/>It may take a while... <br/> Come back later !
-                </div>
+                </div>    
             <% end %>
         </div>
         <div class="info">
