@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-
+  layout 'home'
   def new
     @request = Request.new
   end

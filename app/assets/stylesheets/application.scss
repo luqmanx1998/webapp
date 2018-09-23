@@ -1,17 +1,3 @@
 @import 'components/*';
-@import '*';
 @import 'navigation/*';
-@import 'forms/*';
-@import 'static/*';
-
-
-body{
-    min-height: $height-full;
-    position: relative;
-}
-
-#indielab{
-    padding-top: $height-nav;
-    padding-bottom: $height-nav;
-}
 
