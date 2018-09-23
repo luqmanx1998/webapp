@@ -1,0 +1,5 @@
+<div id="post-new">
+  <%= form_for @post, :url => post_path(@post.url), :method => :patch do |f| %>
+    <%= render 'post/form', f: f %>
+  <% end %>
+</div>

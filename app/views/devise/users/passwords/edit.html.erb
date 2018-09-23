@@ -1,0 +1,27 @@
+<div id="home-form">
+  <div class="password-wrapper flex flex-center-xy">
+    <div class="form-wrapper">
+      <div class="heading">
+        Told you we got you !
+      </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <% if alert%>
+          <p class="error-message">
+            <%= alert %>
+          </p>
+        <% end %>
+        <%= f.hidden_field :reset_password_token %>
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", class: 'input', placeholder: 'New Password', required: true, autocomplete: "off" %>
+        </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", placeholder: "One more time " %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Update", class: 'btn btn-highlight' %>
+        </div>
+      <% end %>
+      <%= link_to '← Back To Homepage', root_path %>
+    </div>
+  </div>
+</div>

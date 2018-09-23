@@ -1,0 +1,27 @@
+<% if controller_name == 'audios' %>
+  <div class="audio-content">
+    <div class="content flex flex-center-xy">
+      <div class="audio-preview hidden flex flex-center-xy">
+        <audio id="playerAudio" >
+      </div>
+      <div id="upload-wrapper" class="audio_upload">
+        <%= f.file_field :content, id:"audio-upload", class: "inputfile", :required => 'required', accept: 'audio/mp3, audio/ogg, audio/mpeg, audio/x-aiff' %>
+        <label for="audio-upload" class="uploadButton">
+          <span> Upload audio</span>
+        </label>
+      </div>
+    </div>
+    <div id="progress">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+  </div>
+  
+<% elsif controller_name == "post" && @post.type == "Post::Audio" && action_name == "edit" %>
+  <div class="audio-content">
+    <div class="content flex flex-center-xy">
+      <div class="audio-preview flex flex-center-xy">
+        <audio id="playerAudio" src="<%= @post.content.url %>">
+      </div>
+    </div>
+  </div>
+<% end %>

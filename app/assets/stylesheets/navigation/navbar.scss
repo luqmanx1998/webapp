@@ -1,0 +1,110 @@
+#nav{
+    @media only screen{
+      position: fixed;
+      top:0;
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 999;
+      box-sizing: border-box !important;
+      -moz-box-sizing: border-box!important;
+      -webkit-box-sizing: border-box!important;
+  
+      ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+  
+      li{
+        display: inline;
+        font-size: 1rem;
+      }
+  
+      .nav-wrapper{
+        height:$height-nav;
+        line-height: $height-nav;
+        padding: 0 0.5em;
+        overflow: auto;
+        background: white;
+      }
+  
+      .brand{
+        font-family: $sans-serif;
+        font-weight: 600;
+        font-size: 1.5em;
+        height:$height-nav;
+        line-height: $height-nav;
+      }
+  
+      .main-nav li{
+          font-family: $sans-serif;
+          margin-left: 1rem;
+      }
+
+      
+  
+    }
+  
+    @media #{$medium-and-up}{
+      .nav-wrapper{
+        height:$height-nav;
+        line-height: $height-nav;
+        padding: 0 2em;
+        overflow: auto;
+        background: white;
+      }
+
+      .user-links{
+        justify-content: flex-end
+      }
+      .user-links li{
+          margin: 0 0.5rem !important;
+      }
+
+      .user-links, .brand{
+        width: 200px;
+        display:flex;
+      }
+
+      .main-links a, .user-links a, i{
+        cursor: pointer;
+        color: #585858;
+        font-size: 0.9rem;
+        &:hover{
+          color: black;
+        }
+      }
+  
+      .main-links li,  .user-links li{
+        margin: 0 0.5rem
+      }
+
+  
+    }
+  }
+  
+  
+
+
+  #mobile{
+    position: fixed;
+      bottom:0;
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 999;
+      box-sizing: border-box !important;
+      -moz-box-sizing: border-box!important;
+      -webkit-box-sizing: border-box!important;
+      border-top: $border;
+
+      .nav-wrapper{
+        height:$height-nav;
+        line-height: $height-nav;
+        padding: 0 0.5em;
+        overflow: auto;
+        background: white;
+      }
+  
+  }

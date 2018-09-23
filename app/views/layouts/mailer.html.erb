@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body{
+        font-family: 'Heebo', sans-serif;
+        text-align: center;
+      }
+      img{
+        width: 12rem;
+        height auto;
+        line-height: 1em; 
+      }
+      h1{
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 3rem;
+        line-height: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+    <p>- The Indielab Team</p>
+  </body>
+</html>

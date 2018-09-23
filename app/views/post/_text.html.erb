@@ -1,0 +1,15 @@
+
+<% if controller_name == 'texts' || controller_name == "post" && @post.type == "Post::Text" && action_name == "edit" %>
+  <div class="field">
+    <%= f.text_area :content, class: "input editor", :required => 'required' %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+var editor = new MediumEditor('.editor', {
+  toolbar: {
+   buttons: ['bold', 'italic', 'underline', 'strikethrough']
+  }
+});
+</script>

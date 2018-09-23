@@ -1,0 +1,69 @@
+<script>
+$(function() {
+	$('#button').click(function(event) {
+		$('#image-prev').addClass('hidden');
+	});
+
+	$('#upload-wrapper').fileupload({
+		add: function(e, data) {
+			$('#button').click(function(event) {
+				data.submit();
+			});
+		},
+		progressall: function(e, data) {
+			var progress = parseInt(data.loaded / data.total * 100);
+			$('#progress .bar').css('width', progress + '%');
+			$('#progress .bar').html(progress+ '%');
+			if (progress == 100){
+				$('#progress .bar').html('Processing');
+			}
+		},
+	});
+});
+</script>
+
+<div class="form">
+  <div class="content">
+    <%= render 'post/text', f: f %>
+    <%= render 'post/image', f: f %>
+    <%= render 'post/audio', f: f %>
+  </div>
+  <div class="info">
+    <div class="field">
+      <%= f.text_area :caption, placeholder: "caption", class: "input captionEditor" %>
+    </div>
+    <div class="options">
+      <div class="view-nsfw flex flex-space-between">
+        <div class="wrapper">
+          <div class="heading"> NSFW Content</div> <br/>
+        </div>
+        <label class="switch">
+          <%= f.check_box :nsfw, id: "hide_nsfw" %>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="actions">
+        <% if action_name == 'edit' %>
+          <a href="/post/<%= @post.url%>" data-method="delete" class="delete flex flex-center-xy">
+            <%= image_tag 'icons/clear' %>
+          </a>
+        <% end %>  
+        <%= f.submit "Upload", class: "btn ", id: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+var editor = new MediumEditor('.captionEditor', {
+placeholder: {
+  text: 'Add Description'
+},
+toolbar: {
+  buttons: ['bold', 'italic', 'underline', 'strikethrough']
+}
+});
+</script>
