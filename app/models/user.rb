@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password
+  
   def update_with_password(params={})
     if params[:password].blank?
       params.delete(:current_password)

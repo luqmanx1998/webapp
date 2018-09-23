@@ -1,0 +1,62 @@
+
+#settings{
+
+  @media only screen{
+    .user-settings{
+      padding: 2rem 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .input{
+      background: #f2f2f2;
+      &:focus{
+        background: white;
+      }
+    }
+
+    .field{
+      margin: 1rem 0;
+    }
+ 
+
+    .heading, .collapsible{
+      font-size: 1.5rem;
+      font-weight: 900;
+      font-family: $sans-serif
+    }
+
+
+    .label{
+      width: 150px
+    }
+
+    .warning, .span{
+      font-size: 0.8rem
+    }
+    .cancel  input[type="submit"]{
+      background: red !important
+    }
+
+
+    .nsfw .heading{
+      font-family: $sans-serif;
+      font-size: 1rem;
+      line-height: 28px;
+      font-weight: 400;
+    }
+
+    .cancel{
+      .btn{
+        border-color: red !important;
+        color: black !important;
+        margin-top: 1rem;
+        &:hover{
+          border-color: black !important;
+        }
+      }
+    }
+
+  }
+
+}
