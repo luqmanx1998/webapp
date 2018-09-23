@@ -5,7 +5,11 @@ class User < ApplicationRecord
 
   enum access_level: { user: 0, admin: 1, super_admin: 2}
 
-  
+  include Storext.model
+  store_attributes :preferences do
+    hide_nsfw Boolean, default: true
+  end
+
   acts_as_follower
   acts_as_followable
 

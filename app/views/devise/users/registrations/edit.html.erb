@@ -30,6 +30,24 @@
         </div>
       <% end %>
       <div class="collapsible">
+        NSFW
+      </div>
+      <div class="collapse-content">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "preference"}, remote: true, :authenticity_token => true) do |f| %>
+          <div class="nsfw ">
+            <div class="view-nsfw flex flex-space-between">
+              <div class="wrapper">
+              <div class="heading"> Hide adult content </div> <br/>
+              </div>
+              <label class="switch">
+                <%= f.check_box :hide_nsfw, id: "hide_nsfw" %>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="collapsible">
         Account Settings
       </div>
       <div class="collapse-content">
@@ -77,6 +95,7 @@
   </div>
 </div>
 
+<%= javascript_include_tag 'user/preferences', 'data-turbolinks-track': 'reload'%>
 
 <script type="text/javascript">
   var coll = document.getElementsByClassName("collapsible"); var i; for (i = 0; i < coll.length; i++) { coll[i].addEventListener("click", function() { this.classList.toggle("collapse-active"); var content = this.nextElementSibling; if (content.style.display === "block") { content.style.display = "none"; } else { content.style.display = "block"; } }); }

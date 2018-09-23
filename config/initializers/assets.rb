@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w(
     home.js
     home.css
     wtf.css
+    user/preferences.js
 )

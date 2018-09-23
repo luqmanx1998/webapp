@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_144221) do
+ActiveRecord::Schema.define(version: 2018_09_23_145312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2018_09_23_144221) do
     t.integer "invitations_count", default: 0
     t.string "name"
     t.text "bio"
+    t.jsonb "preferences", default: {}, null: false
     t.index ["access_level"], name: "index_users_on_access_level"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

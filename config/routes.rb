@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'user/index'
-  get 'user/show'
+
+  authenticated :user do
+    root 'user#index' ,                     as: :authenticated_root
+  end
+  
   root 'home#index'
 
   namespace :wtf do
@@ -64,5 +67,5 @@ Rails.application.routes.draw do
       get :unfollow
     end
   end
-  
+
 end

@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
 
 protected
 
-    def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:account_update, keys: [:username ,:name,:avatar,:bio, :password, :password_confirmation, :post_nsfw, :hide_nsfw])
-        devise_parameter_sanitizer.permit(:accept_invitation, keys: [ :username, :name,])
-    end
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:account_update, keys: [:username ,:name, :bio, :password, :password_confirmation, :hide_nsfw])
+  devise_parameter_sanitizer.permit(:accept_invitation, keys: [ :username, :name])
+end
 
 private
 
