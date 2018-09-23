@@ -13,7 +13,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'storext'
+
+gem 'devise', '~> 4.5'
+gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
+
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 
 group :development, :test do

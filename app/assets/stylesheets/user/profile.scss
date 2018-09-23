@@ -1,0 +1,61 @@
+
+#profile {
+  @media only screen{
+    .sections{
+      min-height: $height-full
+    }
+
+    .section-1{
+      padding:  1rem;
+    }
+
+    .name{
+      font-size: 2em;
+      font-family: $sans-serif;
+      font-weight: 700;
+      line-height: 1em;
+      letter-spacing: 3px;
+    }
+
+    .username{
+      font-size: 1em;
+      color: #b1b1b1;
+      letter-spacing: 3px;
+    }
+
+    .bio{
+      font-size: 0.8em;
+      margin: 1.5em 0;
+    }
+
+    hr{
+      width: 150px;
+      border-color: #343434;
+    }
+
+    button{
+      font-size: 0.8rem !important;
+    }
+
+
+  }
+
+  @media #{$medium-and-up}{
+    .name{
+      font-size: 5em;
+    }
+
+    .username{
+      font-size: 2em;
+    }
+
+    .bio{
+      margin: 1.5em 0;
+      font-size: 1em;
+    }
+    button{
+      font-size: 1rem !important;
+    }
+
+  }
+}

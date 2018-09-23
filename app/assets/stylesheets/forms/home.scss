@@ -2,7 +2,7 @@
 #home-form {
 
   @media only screen{
-    .request-wrapper{
+    .request-wrapper, .password-wrapper, .login-wrapper, .invite-wrapper{
       height: $height-full;
     }
 
