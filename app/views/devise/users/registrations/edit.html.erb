@@ -1,6 +1,8 @@
+
 <div id="settings">
   <div class="user-settings">
     <div class="wrapper">
+      <%= devise_error_messages! %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "profile"}) do |f| %>
         <div class="heading">
           Profile
@@ -32,11 +34,11 @@
               New Password
             </span>
           </div>
+          <span>
+            Enter current password to change email/password.
+          </span>
           <div class="field">
-            <span>
-              Enter current password to change email/password.
-            </span>
-            <%= f.password_field :current_password, autocomplete: "off", class: "input", placeholder: "Current Password" %>
+            <%= f.password_field :current_password, autocomplete: "off", class: "input", placeholder: "Current Password" ,  required: true%>
             <span class="form-label">
               Current Password
             </span>
