@@ -1,0 +1,57 @@
+<nav id="nav" >
+  <div class="nav-wrapper flex flex-space-between">
+    <a href="/" class="brand"> Indielab.</a>
+    <ul class="main-links flex flex-space-around hide-on-small-only" >
+      <li>
+        <a href="/discover"> Discover</a>
+      </li>
+      <li>
+        <a href="/followings"> Followings</a>
+      </li>
+      <li>
+        <a href="/create"> Create </a>
+      </li>
+    </ul>
+    <ul class="user-links">
+      <li>
+        <a onclick="dropdownDesktop()" class="dropbtn">@<%= current_user.username %></a>
+
+        <div class="dropdown-content right" id="desktopDropdown">
+          <a href="/user/<%= current_user.username %>" >
+            Profile
+          <a href="/userinfo">
+            settings
+          </a>
+          <a href="/invite">
+            invite
+          </a>
+          <hr />
+          <a href="/wtf">
+            help
+          </a>
+          <a href="/logout">
+            logout
+          </a>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<nav id="mobile" class="hide-on-med-and-up">
+  <div class="nav-wrapper">
+    <ul class="mobile-links flex flex-space-around " >
+      <li>
+        <a href="/discover"> Discover</a>
+      </li>
+      <li>
+        <a href="/followings"> Followings</a>
+      </li>
+      <li>
+        <a href="/create"> Create </a>
+      </li>
+    </ul>
+  </div>
+</nav>

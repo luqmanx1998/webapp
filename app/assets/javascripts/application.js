@@ -1,5 +1,6 @@
 //= require rails-ujs
 //= require jquery
+//= require dropdown.js
 //= require activestorage
 //= require turbolinks
 //= require_tree .
