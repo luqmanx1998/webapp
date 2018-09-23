@@ -1,0 +1,44 @@
+<div id="post-show">
+    <div class="wrapper">
+        <div class="content flex flex-center-y">
+            <% unless @post.content_processing? %>
+                <% if @post.type == "Post::Text"%>
+                    <div class="text">
+                        <%= raw(@post.content) %>
+                    </div>
+                <% end %>
+            <% else %>    
+                <div class="processing">
+                    Your content is processing. <br/>It may take a while... <br/> Come back later !
+                </div>
+            <% end %>
+        </div>
+        <div class="info">
+            <div class="user-and-time flex flex-space-between">
+                <a href="/user/<%= @post.user.username %> ">
+                    @<%= @post.user.username %>
+                </a>
+                <div class="time">
+                <%= "#{time_ago_in_words(@post.created_at)} " %>
+                </div>
+            </div>
+            <% if @post.caption? %>
+                <div class="details">
+                    <%= raw(@post.caption) %>
+                </div>
+            <% end %>
+            <% if @post.user == current_user %>
+                <div class="buttons">
+                    <div class="edit">
+                        <a href="/post/<%= @post.url %>/edit">
+                            <button type="button" name="button">edit</button>
+                        </a>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+

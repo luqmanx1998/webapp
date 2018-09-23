@@ -1,0 +1,7 @@
+
+<% if controller_name == 'texts' || controller_name == "post" && @post.type == "Post::Text" && action_name == "edit" %>
+  <div class="field">
+    <%= f.text_area :content, class: "input", :required => 'required' %>
+  </div>
+<% end %>
+

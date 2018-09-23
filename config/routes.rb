@@ -70,5 +70,13 @@ Rails.application.routes.draw do
 
   get 'discover',                           to: 'post#index',            as: :discover
   get 'create',                             to: 'post#new',              as: :new_post
+  get 'post/:url/edit',                     to: 'post#edit',             as: :edit_post
+  get 'post/:url',                          to: 'post#show',             as: :post
+  delete 'post/:url',                       to: 'post#destroy'
+
+  post 'texts',                             to: 'post/texts#create',      as: :post_texts
+  get 'new/text',                           to: 'post/texts#new',         as: :new_text
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_text
+
 
 end
