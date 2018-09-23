@@ -37,6 +37,9 @@
                     <%= ((truncate_html post.caption, length: 200)) %>
                 </div>
             <% end %>
+            <div class="icons">
+                <a href="/post/<%= post.url %>" class="comment"></a>
+            </div>
         </div>
     </div>
 <% end %>

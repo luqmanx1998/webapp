@@ -42,7 +42,26 @@
           margin-left: 1rem;
       }
 
-      
+        /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        z-index: 99999999;
+        right: 1rem;
+        border: $border;
+        background: white;
+        top: 40px;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: #1B1B1B;
+        padding: 0 16px;
+        display: block;
+        background: white;
+    }
+
   
     }
   

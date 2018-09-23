@@ -5,8 +5,8 @@ function dropdownDesktop() {
     document.getElementById("desktopDropdown").classList.toggle("show");
 }
 
-function dropdownMobile() {
-    document.getElementById("mobileDropdown").classList.toggle("show");
+function dropdownIcon() {
+  document.getElementById("iconDropdown").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -36,4 +36,6 @@ window.ontouchmove  = function(event) {
       }
     }
   }
+
+
 }

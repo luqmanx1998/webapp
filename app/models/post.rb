@@ -1,12 +1,14 @@
 class Post < ApplicationRecord
-    before_create :set_url
-  
-    belongs_to :user
+  before_create :set_url
 
-    include Storext.model
-    store_attributes :preferences do
-      nsfw Boolean, default: false
-    end
+  belongs_to :user
+  
+  has_many :comments, as: :commentable
+
+  include Storext.model
+  store_attributes :preferences do
+    nsfw Boolean, default: false
+  end
   
   
   

@@ -26,6 +26,14 @@
             font-size: 0.8rem;
         }
 
+        .comment{
+            content: image-url("icons/comment");
+            display: inline;
+            &:hover{
+                content: image-url("icons/comment-filled");
+            }
+        }
+
         hr{
             border-color: #fff;
         }

@@ -55,6 +55,14 @@
     right: 0;
     height: 101%;
     }
+    
+    .comment{
+      content: image-url("icons/comment");
+      display: inline;
+      &:hover{
+          content: image-url("icons/comment-filled");
+      }
+  }
 
 
 
