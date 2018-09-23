@@ -8,13 +8,13 @@
           Profile
         </div>
         <div class="field">
-          <%= f.text_field :name, class: "input", placeholder: "Name" ,  required: true%>
+          <%= f.text_field :name, class: "input", placeholder: "Name" ,  required: true, :maxlength => 24%>
           <span class="form-label">
             Name
           </span>
         </div>
         <div class="field">
-          <%= f.text_field :username, class: "input", placeholder: "Username" , pattern: "[A-Za-z0-9]+",  required: true%>
+          <%= f.text_field :username, class: "input", placeholder: "Username" , pattern: "[A-Za-z0-9]+",  required: true,:maxlength => 14%>
           <span class="form-label">
             Username
           </span>
