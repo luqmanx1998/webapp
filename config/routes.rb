@@ -68,4 +68,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'discover',                           to: 'post#index',            as: :discover
+  get 'create',                             to: 'post#new',              as: :new_post
+
 end
