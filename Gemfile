@@ -41,6 +41,8 @@ gem 'sidekiq', '~> 5.2', '>= 5.2.1'
 gem 'sinatra', require: false #used for web interface
 gem 'fog-aws', '~> 2.0', '>= 2.0.1'
 
+gem 'rack-cors'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
