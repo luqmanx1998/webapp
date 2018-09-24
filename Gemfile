@@ -38,6 +38,8 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'nokogiri_truncate_html', '~> 0.0.5'
 gem 'sidekiq', '~> 5.2', '>= 5.2.1'
+gem 'sinatra', require: false #used for web interface
+gem 'fog-aws', '~> 2.0', '>= 2.0.1'
 
 
 group :development, :test do
