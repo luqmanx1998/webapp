@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
@@ -100,6 +101,8 @@ Rails.application.routes.draw do
   delete 'post/:url/comment/:comment_id',    to: 'comments#destroy',  as: :post_comment
 
   get "hashtags/:hashtag",                  to: "hashtags#show",          as: :hashtag
+
+  get 'search',                             to: "search#index",           as: :search
 
 
 

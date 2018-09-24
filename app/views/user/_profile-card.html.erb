@@ -1,0 +1,51 @@
+<% unless @users.blank? %>	
+	<div id="user-all">
+		<div class="profiles masonry transitions-enabled">
+			<% users.each do |user| %>
+			<div id="profile-card">
+				<div class="profile-card">
+					<a href="/user/<%= user.username %>">
+                        <div class="body">
+                            <div class="name">
+                                <%= user.name%>
+                            </div>
+                            <div class="username">
+                                @<%= user.username %>
+                            </div>
+                            <% if user.bio? %>
+                                <div class="bio">
+                                    <%= user.bio %>
+                                </div>
+                            <% end %>
+                        </div>
+                    </a>
+					<div class="footer">
+						<div class="buttons">
+                            <% if user_signed_in? %>
+                            <% unless user != current_user %>
+                                <a class="settings" href="/userinfo">
+                                <button type="button" name="button"> Settings </button>
+                                </a>
+                            <% else %>
+                                <% if current_user.following?(user) %>
+                                <a class="settings" href="<%= unfollow_user_path(user) %>">
+                                    <button type="button" name="button"> Unfollow </button>
+                                </a>
+                                <% else %>
+                                <a class="settings" href="<%= follow_user_path(user) %>">
+                                    <button type="button" name="button"> Follow </button>
+                                </a>
+                                <% end %>
+                            <% end %>
+                            <% end %>
+                        </div>
+					</div>
+				</div>
+			</div>
+			<%end %>
+		</div>
+	</div>
+<% end %>					
+	<script>
+		var $grid = $('.masonry').imagesLoaded( function() { $grid.masonry({ itemSelector: '.profile-card', columnWidth: '.profile-card', horizontalOrder: true, percentPosition: true, gutter: 25}); });
+	</script>

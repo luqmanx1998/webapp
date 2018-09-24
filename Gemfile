@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'addressable', '~> 2.5', '>= 2.5.2'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-atwho-rails'
@@ -21,6 +22,7 @@ gem 'coffee-rails'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'storext'
+gem 'ransack'
 
 gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.4'

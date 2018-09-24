@@ -1,0 +1,25 @@
+@import 'components/*';
+
+#search{
+  .search-wrapper{
+    width: 100%;
+    min-height: $height-full;
+    padding: 2rem 0;
+  }
+  .search-bar, .search-type{
+    margin: 0 auto;
+    max-width: 400px;
+  }
+  .type{
+    width: 50%;
+    text-align: center;
+    border-bottom: $border;
+    border-color: #d7d7d7;
+    margin: 1rem auto;
+    font-size: 1.5em;
+    overflow: auto;
+  }
+  .isActive{
+    border-color: black !important;
+  }
+}
