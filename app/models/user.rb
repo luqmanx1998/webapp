@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,:async
 
 
   enum access_level: { user: 0, admin: 1, super_admin: 2}

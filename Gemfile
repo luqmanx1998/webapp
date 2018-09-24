@@ -26,6 +26,7 @@ gem 'ransack'
 
 gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
+gem 'devise-async'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'simple_hashtag'
