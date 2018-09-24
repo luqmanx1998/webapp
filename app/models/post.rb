@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   before_create :set_url
+  after_create :notified_users
 
   belongs_to :user
   
@@ -10,9 +11,28 @@ class Post < ApplicationRecord
     nsfw Boolean, default: false
   end
   
-  
-  
+  def mention
+    @mentions ||= begin
+      regex = /@([\w]+)/i
+      caption.scan(regex).flatten
+    end
+  end
+
+
+
   private
+
+    def notified_users
+      mentioned_users.each do |mention|
+        return if mention.id == self.user.id
+        Notification.create(user_id: mention.id,
+        from_user_id: self.user.id, action: "mentioned", notifiable: self )
+      end
+    end
+
+    def mentioned_users
+      @mentioned_users ||= User.where(username: mention)
+    end
     def set_url
        self.url = "#{ SecureRandom.hex(4)}"
     end

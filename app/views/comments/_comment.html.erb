@@ -19,7 +19,7 @@
                     <a href="/user/<%= comment.user.username %>" class="username">
                         @<%= comment.user.username %>
                     </a> 
-                    <%= comment.body %>
+                    <%= (render_with_mention comment.body) %>
                 </div>
                 <% if comment.user == current_user || @post.user == current_user %>
                     <div>

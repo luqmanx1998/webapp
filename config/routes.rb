@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api , defaults: {format: 'json'} do
     get 'notifications',                     to: 'notifications#index'
+    get 'following',                          to: 'user#index'
    end
 
   namespace :wtf do

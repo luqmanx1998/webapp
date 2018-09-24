@@ -11,6 +11,12 @@
                   <%= notification.notifiable.body %>
                 </p>
               </div>
+            <% elsif notification.action == "mentioned" %>
+              <% if notification.notifiable_type == "Post" %>
+                <a href="/user/<%= notification.from_user.username %>">@<%= notification.from_user.username %></a> <%= notification.action %> you on a <a href=" <%= post_path(notification.notifiable.url) %>">post</a>
+              <% elsif notification.notifiable_type == "Comment" %>
+                <a href="/user/<%= notification.from_user.username %>">@<%= notification.from_user.username %></a> <%= notification.action %> you in a <a href=" <%= post_path(notification.notifiable.commentable.url) %>">comment </a>
+              <% end %>
             <% end %>
           </p>
         </div>

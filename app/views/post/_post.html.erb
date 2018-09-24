@@ -34,7 +34,7 @@
         <div class="foot">
             <% if post.caption? %>
                 <div class="info">
-                    <%= ((truncate_html post.caption, length: 200)) %>
+                    <%= ((truncate_html ( render_with_mention(post.caption)).html_safe, length: 200)) %>
                 </div>
             <% end %>
             <div class="icons">
