@@ -35,6 +35,22 @@ fill: #d3d3d3;
   }
 }
 
+#error-code{
+  .error{
+    padding: 1em;
+    height: $height-full;
+
+    p{
+      max-width: 400px;
+    }
+
+    .button-wrapper{
+      margin: 1rem 0;
+    }
+}
+}
+
+
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
