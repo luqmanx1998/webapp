@@ -16,7 +16,7 @@
   });
 </script>
 <div id="post-all">
-    <% if @posts.blank? %>
+    <% if posts.blank? %>
         <% if controller_name == "post"%>
             <div class="blank flex flex-center-xy">
                 There are nothing to discover. Start creating !
@@ -28,7 +28,7 @@
         <% end %>
     <% else %>
         <div class="posts masonry transitions-enabled">
-            <% @posts.each do |post| %>
+            <% posts.each do |post| %>
                 <%= render 'post/post', post: post%>
             <% end %>
         </div>

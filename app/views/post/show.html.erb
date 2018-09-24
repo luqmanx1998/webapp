@@ -32,7 +32,7 @@
             </div>
             <% if @post.caption? %>
                 <div class="details">
-                    <%= raw(@post.caption) %>
+                    <%= (render_with_hashtags render_with_mention(@post.caption).html_safe) %>
                 </div>
             <% end %>
             <% if @post.user == current_user %>
@@ -45,6 +45,7 @@
                 </div>
             <% end %>
         </div>
+        <%= render 'comments/comment'%>
     </div>
 </div>
 

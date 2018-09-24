@@ -1,0 +1,32 @@
+<div id="comment">
+    <div class="comment-form">
+        <div class="header">
+            Comments [<%= @post.comments.count%>]
+        </div>
+        <%= form_for [@post, Comment.new], :url => post_comments_path(@post.url) do |f|%>
+            <div class="field">
+                <%= f.text_area :body, class: "input", placeholder: "Add a comment", data: {behavior: "autocomplete"}%>
+            </div>
+            <div class="action flex">
+                <%= f.submit class: "btn"%>
+            </div>
+        <% end %>
+    </div>
+    <div class="comments">
+        <% @post.comments.each do |comment| %>
+            <div class="block flex">
+                <div class="body">
+                    <a href="/user/<%= comment.user.username %>" class="username">
+                        @<%= comment.user.username %>
+                    </a> 
+                    <%= (render_with_mention comment.body) %>
+                </div>
+                <% if comment.user == current_user || @post.user == current_user %>
+                    <div>
+                        <a href="/post/<%= @post.url %>/comment/<%= comment.id%>" data-method="delete" class="delete"></a>
+                    </div>
+                <% end %>    
+            </div>  
+        <%end%>
+    </div>
+</div>

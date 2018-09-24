@@ -1,6 +1,6 @@
 <% unless post.content_processing? %>
     <div class="post">
-        <div class="header">
+        <div class="head">
             <div class="user-and-time flex flex-space-between">
                 <div class="user">
                     <a href="/user/<%= post.user.username %> ">
@@ -34,9 +34,12 @@
         <div class="foot">
             <% if post.caption? %>
                 <div class="info">
-                    <%= ((truncate_html post.caption, length: 200)) %>
+                    <%= ((truncate_html (render_with_hashtags render_with_mention(post.caption)).html_safe, length: 200)) %>
                 </div>
             <% end %>
+            <div class="icons">
+                <a href="/post/<%= post.url %>" class="comment"></a>
+            </div>
         </div>
     </div>
 <% end %>

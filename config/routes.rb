@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
 
+  match "/404",                             :to => "errors#not_found",              :via => :all
+  match "/500",                             :to => "errors#internal_server_error",  :via => :all
+  match "/422",                             :to => "errors#denied",       :via => :all
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
 
   authenticated :user do
     root 'user#index' ,                     as: :authenticated_root
   end
   
   root 'home#index'
+
+
+  namespace :api , defaults: {format: 'json'} do
+    get 'notifications',                     to: 'notifications#index'
+    get 'following',                          to: 'user#index'
+   end
 
   namespace :wtf do
     get '/', to: '/wtf#index'
@@ -78,6 +91,7 @@ Rails.application.routes.draw do
   get 'new/text',                           to: 'post/texts#new',         as: :new_text
   patch 'post/:url',                         to: 'post#update' ,          as: :post_text
 
+
   post 'images',                            to: 'post/images#create',     as: :post_images
   get 'new/image',                          to: 'post/images#new',        as: :new_image
   patch 'post/:url',                         to: 'post#update' ,          as: :post_image
@@ -86,8 +100,19 @@ Rails.application.routes.draw do
   get 'new/audio',                          to: 'post/audios#new',        as: :new_audio
   patch 'post/:url',                         to: 'post#update' ,          as: :post_audio
 
+  post 'post/:url/comments',                 to: 'comments#create',   as: :post_comments
+  delete 'post/:url/comment/:comment_id',    to: 'comments#destroy',  as: :post_comment
 
-    require 'sidekiq/web'
-   mount Sidekiq::Web => '/sidekiq'
+  get "hashtags/:hashtag",                  to: "hashtags#show",          as: :hashtag
+
+  get 'search',                             to: "search#index",           as: :search
+
+
+
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 end

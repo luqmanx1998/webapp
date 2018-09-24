@@ -1,0 +1,44 @@
+class Notifications
+  constructor: ->
+    @notifications = $("[data-behavior='notifications']")
+    @setup()
+
+  setup: ->
+    setInterval (=>
+      @getNewNotifications()
+      ), 10000
+
+  getNewNotifications: ->
+    $("[data-behavior='unread-notification']").on 'click', @handleClick
+
+    $.ajax(
+      url: "/api/notifications.json"
+      headers: {
+        "Authorization": "Token wsredts85dsd89s0odpl"
+      }
+      dataType: "JSON"
+      method: "GET"
+      success: @handleSuccess
+      )
+
+
+
+  handleClick:  (e) =>
+    $.ajax(
+      url: "/notifications/mark_as_read"
+      dataType: "JSON"
+      method: "POST"
+
+  )
+
+  handleSuccess: (data) =>
+    console.log(data)
+    unread = $.map data, (notification) ->
+      "<img src='<%= asset_path 'icons/notification' %>' ><sup class='noti-dot'></sup>"
+
+    $("[data-behavior='unread-notification']").html(unread)  if data.unread_count > 0
+
+jQuery(document).ready ->
+  document.addEventListener 'turbolinks:load', ->
+    new Notifications
+    return

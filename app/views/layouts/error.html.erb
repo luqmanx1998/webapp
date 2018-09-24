@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <head>
+    <title>Indielab. | The Artist Playground</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Heebo:100,300,400,700,900" rel="stylesheet">
+    <%= favicon_link_tag 'brand/favicon' %>
+  </head>
+    <body>
+      <div id="indielab">
+        <%= yield %>
+      </div>
+    </body>
+</html>

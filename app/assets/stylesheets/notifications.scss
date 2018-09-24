@@ -1,0 +1,48 @@
+
+#notifications{
+
+
+  padding: 1rem;
+  max-width: 40rem;
+
+
+  @media only screen{
+    p{
+      line-height: 1.2rem
+    }
+    a{
+      text-decoration: underline;
+      text-underline-position: under;
+      color: rgb(170, 170, 170);
+      line-height: 1.2em;
+      &:hover{
+      color: black}
+    }
+    .notification{
+      color: rgb(170, 170, 170);
+      font-size: 0.7rem;
+      
+      justify-content: space-between
+    }
+    .comment{
+      color: black
+    }
+
+
+  }
+  @media #{$medium-and-up}{
+    p{
+      line-height: 1.5rem
+    }
+    .notification{
+      font-size: 1rem;
+      padding: 0 2rem;
+
+
+    }
+
+
+
+  }
+
+}

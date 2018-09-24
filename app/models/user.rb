@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,:async
 
 
   enum access_level: { user: 0, admin: 1, super_admin: 2}
@@ -14,12 +14,15 @@ class User < ApplicationRecord
   acts_as_followable
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   ## => Rememberable by default
   def remember_me
    true
   end
 
+  validates_uniqueness_of :username
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password
   

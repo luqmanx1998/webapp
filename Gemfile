@@ -12,17 +12,24 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'addressable', '~> 2.5', '>= 2.5.2'
+
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-atwho-rails'
 gem "jquery-fileupload-rails"
+gem 'coffee-rails'
 
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'storext'
+gem 'ransack'
 
 gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
+gem 'devise-async'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+gem 'simple_hashtag'
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
@@ -31,6 +38,10 @@ gem 'mini_magick', '~> 4.8'
 
 gem 'nokogiri_truncate_html', '~> 0.0.5'
 gem 'sidekiq', '~> 5.2', '>= 5.2.1'
+gem 'sinatra', require: false #used for web interface
+gem 'fog-aws', '~> 2.0', '>= 2.0.1'
+
+gem 'rack-cors'
 
 
 group :development, :test do

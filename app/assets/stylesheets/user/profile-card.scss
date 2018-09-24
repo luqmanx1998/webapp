@@ -1,0 +1,86 @@
+@import '../components/*';
+#user-all{
+  @media only screen{
+
+    .profiles{
+      padding: 10px
+    }
+    .profile-card{
+      width: calc( 100% - 23px);
+      margin-bottom: 30px;
+      border: $border;
+      padding: 1rem 1rem 0 1rem;
+    }
+
+    .body{
+      text-align: center;
+      margin-top: 1rem ;
+    }
+
+    .name{
+      font-weight: 700;
+      font-size: 1.3rem;
+      overflow: auto;
+    }
+
+    .username{
+      font-size: 0.8rem;
+      overflow: auto;
+      margin: 1rem 0;
+    }
+
+
+    .bio{
+      text-align: left;
+      margin-top: 0.4rem;
+      height: 115px;
+      overflow: auto;
+      font-size: 0.7rem;
+    }
+
+    .footer{
+      width: 100%;
+        button{
+          width: 100% !important;
+          height: 60px;
+          border: none !important;
+          border-top: $border !important;
+          font-size: 0.8rem !important;
+          padding: 0 !important;
+          height: 40px;
+        }
+
+  
+    }
+
+
+
+  }
+  @media #{$medium-and-up}{
+    .profile-card{
+      width:  calc( (100% / 3) - 37px);
+    }
+    .profiles{
+      padding: 30px;
+      margin: 0 auto;
+    }
+
+    .bio{
+      font-size: 1rem;
+    }
+    .name{
+      font-weight: 700;
+      font-size: 1.5rem
+    }
+
+    .username{
+      font-size: 1rem;
+    }
+
+  }
+  @media #{$large-and-up}{
+    .profile-card{
+      width:  calc( (100% / 4) - 37px);
+    }
+  }
+}

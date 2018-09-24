@@ -30,7 +30,7 @@ $(function() {
   </div>
   <div class="info">
     <div class="field">
-      <%= f.text_area :caption, placeholder: "caption", class: "input captionEditor" %>
+      <%= f.text_area :caption, placeholder: "caption", class: "input captionEditor", data: {behavior: "autocomplete"} %>
     </div>
     <div class="options">
       <div class="view-nsfw flex flex-space-between">
