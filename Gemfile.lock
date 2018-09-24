@@ -237,6 +237,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.2)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    simple_hashtag (0.1.9)
+      rails (> 3.2.0)
     soxi-wrapper (0.0.2)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -309,6 +311,7 @@ DEPENDENCIES
   rb-fsevent (~> 0.10.3)
   sass-rails
   sidekiq (~> 5.2, >= 5.2.1)
+  simple_hashtag
   spring
   spring-watcher-listen (~> 2.0.0)
   storext

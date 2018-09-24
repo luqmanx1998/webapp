@@ -26,6 +26,7 @@ gem 'devise', '~> 4.5'
 gem 'devise_invitable', '~> 1.7', '>= 1.7.4'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+gem 'simple_hashtag'
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'

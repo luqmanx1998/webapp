@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
 
   authenticated :user do
     root 'user#index' ,                     as: :authenticated_root
@@ -96,8 +99,9 @@ Rails.application.routes.draw do
   post 'post/:url/comments',                 to: 'comments#create',   as: :post_comments
   delete 'post/:url/comment/:comment_id',    to: 'comments#destroy',  as: :post_comment
 
-    require 'sidekiq/web'
-   mount Sidekiq::Web => '/sidekiq'
+  get "hashtags/:hashtag",                  to: "hashtags#show",          as: :hashtag
+
+
 
   resources :notifications do
     collection do

@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  
   before_create :set_url
   after_create :notified_users
 

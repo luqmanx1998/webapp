@@ -1,0 +1,20 @@
+<div id="discover">
+    <div class="header">
+        <div class="heading">
+        #<%= params[:hashtag] %>
+        </div>
+    </div>
+    <% if @hashtagged %>
+        <%= render 'post/posts', posts: @hashtagged %>
+    <% else %>
+        <p>
+            There is no match for the
+            <em>
+                <%= params[:hashtag] %>
+            </em> 
+            hashtag.
+        </p>
+    <% end %>
+
+</div>
+

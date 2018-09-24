@@ -1,3 +1,19 @@
+#discover{
+
+  .header{
+    font-size: 2em;
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: $sans-serif;
+  }
+}
+
+
+
 #post-all{
   background: white;
   
