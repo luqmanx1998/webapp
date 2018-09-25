@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :authenticate_admin
+  
 
 protected
 
 def configure_permitted_parameters
   devise_parameter_sanitizer.permit(:account_update, keys: [:username ,:name, :bio, :password, :password_confirmation, :hide_nsfw])
   devise_parameter_sanitizer.permit(:accept_invitation, keys: [ :username, :name])
+  devise_parameter_sanitizer.permit(:invite, keys: [ :email])
 end
 
 private

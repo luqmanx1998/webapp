@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   match "/500",                             :to => "errors#internal_server_error",  :via => :all
   match "/422",                             :to => "errors#denied",       :via => :all
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  authenticate :user, lambda { |u| u.super_admin? } do
+    require 'sidekiq/web'
+   mount Sidekiq::Web => '/sidekiq'
+end
 
 
   authenticated :user do

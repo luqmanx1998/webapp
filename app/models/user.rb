@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable,:async
+         :recoverable, :rememberable, :validatable, :confirmable,:async, :validate_on_invite => true
 
 
   enum access_level: { user: 0, admin: 1, super_admin: 2}
@@ -22,7 +22,7 @@ class User < ApplicationRecord
    true
   end
 
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, allow_blank: true
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password
   

@@ -21,6 +21,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+
+/config/redis.yml
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

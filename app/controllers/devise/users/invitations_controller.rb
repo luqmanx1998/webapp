@@ -3,7 +3,7 @@ class Devise::Users::InvitationsController < DeviseController
   prepend_before_action :has_invitations_left?, :only => [:create]
   prepend_before_action :require_no_authentication, :only => [:edit, :update, :destroy]
   prepend_before_action :resource_from_invitation_token, :only => [:edit, :destroy]
-  layout 'home', :only => [:edit]
+  layout 'home', :only => [:edit, :update]
 
   if respond_to? :helper_method
     helper_method :after_sign_in_path_for
