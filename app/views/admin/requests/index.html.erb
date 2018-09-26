@@ -1,0 +1,40 @@
+<div id="admin">
+    <div class="main flex flex-center-x">
+        <h1>
+            Requests
+        </h1>
+        <div class="request ">
+            <div class="data flex flex-center-xy">
+                <div class="number">
+                    <%= @datas.count %>
+                </div> 
+                <div class="header">
+                    Requests
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart">
+                <h1> Week </h1>
+                <%= area_chart @data.group_by_week(:created_at).count %>
+                </div>
+                <div class="chart">
+                <h1> Month </h1>
+                <%= area_chart @data.group_by_month(:created_at).count %>
+                </div>
+            </div>
+
+            <div class="list">
+            <h1>
+                Emails 
+            </h1>
+                <div class="emails flex">
+                    <% @datas.each do |request| %>
+                        <div class="email">
+                            <%= request.email %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

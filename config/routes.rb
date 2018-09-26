@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+  namespace :admin do
+    get '/', to: "main#index"
+    get 'requests', to: 'requests#index'
+    get 'users', to: 'users#index'
+    get 'posts', to: 'posts#index'
+  end
+
   match "/404",                             :to => "errors#not_found",              :via => :all
   match "/500",                             :to => "errors#internal_server_error",  :via => :all
   match "/422",                             :to => "errors#denied",       :via => :all

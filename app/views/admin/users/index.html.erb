@@ -1,0 +1,73 @@
+<div id="admin">
+    <div class="main flex flex-center-x">
+        <h1>
+            Users
+        </h1>
+        <div class="request ">
+            <div class="overview flex flex-center-xy">
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @registered_users.count %>
+                    </div> 
+                    <div class="header">
+                        Users
+                    </div>
+                </div>
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @active_daily_users.count %>
+                    </div> 
+                    <div class="header">
+                        Active Daily Users
+                    </div>
+                </div>
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @active_weekly_users.count %>
+                    </div> 
+                    <div class="header">
+                        Active Weekly Users
+                    </div>
+                </div>
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @active_monthly_users.count %>
+                    </div> 
+                    <div class="header">
+                        Active Monthly Users
+                    </div>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <div class="chart">
+                    <h1> Total Monthly Registered Users </h1>
+                    <%= area_chart @registered_users.group_by_month(:invitation_accepted_at).count %>
+                </div>
+                <div class="chart">
+                    <h1> Total Daily Active Users </h1>
+                    <%= area_chart @registered_users.group_by_day(:last_seen_at).count %>
+                </div>
+                <div class="chart">
+                    <h1> Total Weekly Active Users </h1>
+                    <%= area_chart @registered_users.group_by_week(:last_seen_at).count %>
+                </div>
+                <div class="chart">
+                    <h1> Total Monthly Active Users </h1>
+                    <%= area_chart @registered_users.group_by_month(:last_seen_at).count %>
+                </div>
+            </div>
+            <div class="list">
+                <h1>
+                    usernames
+                </h1>
+                <div class="emails flex">
+                    <% @registered_users.each do |request| %>
+                        <div class="username">
+                            @<%= request.username %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

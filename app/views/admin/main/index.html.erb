@@ -1,0 +1,39 @@
+<div id="admin">
+    <div class="main flex flex-center-x">
+        <h1>
+            Overview
+        </h1>
+        <div class="overview flex flex-center-x">
+            <a href="/admin/users">
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @users.count %>
+                    </div> 
+                    <div class="header">
+                        Users
+                    </div>
+                </div>
+            </a>
+            <a href="/admin/requests">
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @requests.count %>
+                    </div> 
+                    <div class="header">
+                        Requests
+                    </div>
+                </div>
+            </a>
+            <a href="/admin/posts">
+                <div class="data flex flex-center-xy">
+                    <div class="number">
+                        <%= @posts.count %>
+                    </div> 
+                    <div class="header">
+                        Posts
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

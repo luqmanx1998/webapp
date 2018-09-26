@@ -43,6 +43,9 @@ gem 'fog-aws', '~> 2.0', '>= 2.0.1'
 
 gem 'rack-cors'
 
+gem 'chartkick', '~> 2.3', '>= 2.3.4'
+gem 'groupdate'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

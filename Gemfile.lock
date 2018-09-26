@@ -79,6 +79,7 @@ GEM
       carrierwave (>= 0.10.0)
       ruby-sox (>= 0.0.3)
       soxi-wrapper (>= 0.0.1)
+    chartkick (2.3.5)
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -133,6 +134,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.0.1)
+      activesupport (>= 4.2)
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -328,11 +331,13 @@ DEPENDENCIES
   carrierwave (~> 1.2, >= 1.2.3)
   carrierwave-audio
   carrierwave_backgrounder!
+  chartkick (~> 2.3, >= 2.3.4)
   coffee-rails
   devise (~> 4.5)
   devise-async
   devise_invitable (~> 1.7, >= 1.7.4)
   fog-aws (~> 2.0, >= 2.0.1)
+  groupdate
   guard (~> 2.8)
   guard-livereload (~> 2.5, >= 2.5.2)
   jbuilder (~> 2.5)
