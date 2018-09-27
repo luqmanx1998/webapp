@@ -37,8 +37,21 @@
                     <%= ((truncate_html (render_with_hashtags render_with_mention(post.caption)).html_safe, length: 200)) %>
                 </div>
             <% end %>
-            <div class="icons">
-                <a href="/post/<%= post.url %>" class="comment"></a>
+            <div id="post-icon" class=" flex">
+                <a href="/post/<%= post.url %>" class="flex flex-center-y icon view-icon">
+                    <div class="views"></div> 
+                    <div class="view-counter">
+                        <%= post.views%>
+                    </div>
+                </a>
+                <a href="/post/<%= post.url %>" class="flex flex-center-y icon">
+                    <div class="comment"></div>
+                </a>
+                <% if post.user == current_user %>
+                    <a href="/post/<%= post.url %>/edit" class="flex flex-center-y icon">
+                        <div class="edit"></div>
+                    </a>
+                <% end %>
             </div>
         </div>
     </div>

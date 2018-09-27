@@ -30,11 +30,13 @@ gem 'devise-async'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'simple_hashtag'
+gem 'impressionist'
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
 gem 'carrierwave-audio'
 gem 'mini_magick', '~> 4.8'
+
 
 gem 'nokogiri_truncate_html', '~> 0.0.5'
 gem 'sidekiq', '~> 5.2', '>= 5.2.1'

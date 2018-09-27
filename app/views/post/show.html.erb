@@ -30,20 +30,25 @@
                 <%= "#{time_ago_in_words(@post.created_at)} " %>
                 </div>
             </div>
+            <div id="post-icon" class=" flex">
+                <div class="flex flex-center-y icon view-icon">
+                    <div class="views"></div> 
+                    <div class="view-counter">
+                        <%= @post.views%>
+                    </div>
+                </div>
+                <% if @post.user == current_user %>
+                    <a href="/post/<%= @post.url %>/edit" class="flex flex-center-y icon">
+                        <div class="edit"></div>
+                    </a>
+                <% end %>
+            </div>
             <% if @post.caption? %>
                 <div class="details">
                     <%= (render_with_hashtags render_with_mention(@post.caption).html_safe) %>
                 </div>
             <% end %>
-            <% if @post.user == current_user %>
-                <div class="buttons">
-                    <div class="edit">
-                        <a href="/post/<%= @post.url %>/edit">
-                            <button type="button" name="button">edit</button>
-                        </a>
-                    </div>
-                </div>
-            <% end %>
+            
         </div>
         <%= render 'comments/comment'%>
     </div>

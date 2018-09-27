@@ -14,6 +14,7 @@ class PostController < ApplicationController
 
   def show
     raise ActionController::RoutingError.new('Not Found') if @post.blank?
+   impressionist(@post, :unique => [:impressionable_type, :impressionable_id, :session_hash]  ) 
   end
 
   def new

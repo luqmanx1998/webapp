@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
-  
   before_create :set_url
   after_create :notified_users
+  is_impressionable :counter_cache => true, :column_name => :views, :unique => :user_id
+
 
   belongs_to :user
   

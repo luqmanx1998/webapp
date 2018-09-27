@@ -155,6 +155,8 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
+    impressionist (1.6.1)
+      nokogiri (~> 1)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -340,6 +342,7 @@ DEPENDENCIES
   groupdate
   guard (~> 2.8)
   guard-livereload (~> 2.5, >= 2.5.2)
+  impressionist
   jbuilder (~> 2.5)
   jquery-atwho-rails
   jquery-fileupload-rails

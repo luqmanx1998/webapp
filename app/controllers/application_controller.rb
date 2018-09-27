@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :authenticate_admin
   before_action :set_last_seen_at, if: proc { user_signed_in? && (current_user.last_seen_at.nil? || current_user.last_seen_at < 1.day.ago) }
-  
+  helper_method :authenticate_admin
 
 protected
 

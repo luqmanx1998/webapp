@@ -355,3 +355,56 @@ textarea:not(:placeholder-shown) + span.form-label{
   content: "Yes";
   }
   
+
+  /*   Icons 
+  -------------------------*/
+
+  #post-icon{
+      .icon{
+        margin-right: 1rem;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      }
+
+    .comment{
+      content: image-url("icons/comment");
+      display: inline;
+      &:hover{
+          content: image-url("icons/comment-hover");
+      }
+      height: 15px;
+    }
+
+    .edit{
+      content: image-url("icons/edit");
+      display: inline;
+      &:hover{
+          content: image-url("icons/edit-hover");
+      }
+      height: 15px;
+      margin-top: -3px;
+    }
+
+    .view-icon{
+      color: #aaa;
+      
+      .views{
+        content: image-url("icons/view");
+        display: inline;
+        height: 20px;
+        margin-right: 0.5rem;
+      }
+
+      &:hover > .views {
+          content: image-url("icons/view-hover");
+      }
+
+      &:hover > .view-counter{
+        color: black;
+      }
+
+      
+    }
+
+
+  }
