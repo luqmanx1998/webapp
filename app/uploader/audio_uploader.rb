@@ -14,12 +14,12 @@ class AudioUploader < CarrierWave::Uploader::Base
   end
 
   version :mp3 do
-  process :convert => [{output_format: :mp3}]
+    process :convert => [{output_format: :mp3}]
 
-  def full_filename(for_file)
-    "#{super.chomp(File.extname(super))}.mp3"
+    def full_filename(for_file)
+      "#{super.chomp(File.extname(super))}.mp3"
+    end
   end
-end
 
 
   def extension_whitelist

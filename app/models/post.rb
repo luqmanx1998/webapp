@@ -6,7 +6,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
   
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   include Storext.model
   store_attributes :preferences do

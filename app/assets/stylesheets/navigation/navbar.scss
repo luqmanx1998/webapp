@@ -63,11 +63,20 @@
     }
 
     .noti-dot {
-      height: 7px;
-      width: 7px;
+      height: 5px;
+      width: 5px;
       background-color: black;
       border-radius: 50%;
       display: inline-block;
+    }
+
+    .icons{
+
+      .icon{
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      }
+
     }
 
 
@@ -98,6 +107,7 @@
       }
       .user-links li{
           margin: 0 0.5rem !important;
+          min-width: 30px;
       }
 
       .user-links, .brand{
