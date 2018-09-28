@@ -1,0 +1,26 @@
+<% if controller_name == 'videos' %>
+  <div class="video-content">
+    <div class="content flex flex-center-xy">
+      <div class="video-ready hidden flex flex-center-xy">
+        File selected.
+      </div>
+      <div id="upload-wrapper" class="video_upload">
+        <%= f.file_field :content, id:"video-upload", class: "inputfile", :required => 'required', accept: 'video/mp4 ,video/quicktime, video/x-m4v, video/avi' %>
+        <label for="video-upload" class="uploadButton">
+          <span> Upload video</span>
+        </label>
+      </div>
+    </div>
+    <div id="progress">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+  </div>
+<% elsif controller_name == "post" && @post.type == "Post::Video" && action_name == "edit" %>
+<div class="video-content">
+  <div class="content">
+    <div class="video-preview">
+      <video id="player" src="<%= @post.content.url %>">
+    </div>
+  </div>
+</div>
+<% end %>

@@ -368,16 +368,14 @@ textarea:not(:placeholder-shown) + span.form-label{
 
     .comment{
       content: image-url("icons/comment");
-      display: inline;
+      height: 15px;
       &:hover{
           content: image-url("icons/comment-hover");
       }
-      height: 15px;
     }
 
     .edit{
       content: image-url("icons/edit");
-      display: inline;
       &:hover{
           content: image-url("icons/edit-hover");
       }
@@ -390,7 +388,6 @@ textarea:not(:placeholder-shown) + span.form-label{
       
       .views{
         content: image-url("icons/view");
-        display: inline;
         height: 20px;
         margin-right: 0.5rem;
       }

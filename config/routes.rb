@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   get '/robots.:format' => 'home#robots'
   get '/sitemap.xml' => 'home#sitemaps', :format => "xml"
 
+
   authenticate :user, lambda { |u| u.super_admin? } do
     require 'sidekiq/web'
-   mount Sidekiq::Web => '/sidekiq'
+    mount Sidekiq::Web => '/sidekiq'
   end
 
 
@@ -112,6 +113,10 @@ Rails.application.routes.draw do
   post 'audios',                            to: 'post/audios#create',     as: :post_audios
   get 'new/audio',                          to: 'post/audios#new',        as: :new_audio
   patch 'post/:url',                         to: 'post#update' ,          as: :post_audio
+
+  post 'videos',                            to: 'post/videos#create',     as: :post_videos
+  get 'new/video',                          to: 'post/videos#new',        as: :new_video
+  patch 'post/:url',                         to: 'post#update' ,          as: :post_video
 
   post 'post/:url/comments',                 to: 'comments#create',   as: :post_comments
   delete 'post/:url/comment/:comment_id',    to: 'comments#destroy',  as: :post_comment

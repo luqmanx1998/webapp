@@ -35,6 +35,8 @@ gem 'impressionist'
 gem 'carrierwave', '~> 1.2', '>= 1.2.3'
 gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
 gem 'carrierwave-audio'
+gem 'carrierwave-video'
+gem 'carrierwave-ffmpeg'
 gem 'mini_magick', '~> 4.8'
 
 

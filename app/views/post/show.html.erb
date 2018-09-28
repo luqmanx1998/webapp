@@ -13,7 +13,13 @@
                         <audio id="playerAudio" >
                             <source src="<%= @post.content.url %>" type="audio/mp3">
                         </audio>    
-                    <% end %>    
+                    <% end %>  
+                <% elsif @post.type == "Post::Video" %>
+                    <% if @post.content.url.present? %>
+                        <video poster="" id="player" playsinline controls>
+                            <source src="<%= @post.content.url %>" type="video/mp4">
+                        </video>
+                    <% end %>   
                 <% end %>
             <% else %>    
                 <div class="processing">

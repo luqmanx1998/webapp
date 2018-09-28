@@ -29,6 +29,12 @@
                         <source src="<%= post.content.url %>" type="audio/mp3">
                     </audio>    
                 <% end %> 
+            <% elsif post.type == "Post::Video" %>
+                <% if post.content.url.present? %>
+                  <div class="box">
+                    <video id="player" src="<%= post.content.url %>">
+                  </div>
+                <% end %>  
             <% end %>   
         </div>
         <div class="foot">
