@@ -8,6 +8,7 @@ if Rails.env.production?
       region:                'ap-southeast-1',
     }
     config.fog_directory  = ENV['fog_directory']
+    config.asset_host = ENV['CLOUDFRONT_ENDPOINT']
     config.fog_public     = false                                                 # optional, defaults to true
   end
 end
