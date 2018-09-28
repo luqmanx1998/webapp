@@ -1,6 +1,8 @@
 
 #post-new {
     @media only screen{
+
+        .field_with_errors { display: inline; }
     
         .form{
             max-width: 40em;
@@ -11,7 +13,7 @@
             min-height: 200px;
         }
 
-        .content{
+        .content, .video-ready{
             min-height: 240px;
         }
 
@@ -92,9 +94,10 @@
           input[type="file"]{
             display: none;
           }
+          
           .inputfile + label {
-          font-size: 1.25em;
-          font-weight: 700;
+          font-size: 1.25em !important;
+          font-weight: 700 !important;
           color: black;
           display: inline-block;
       

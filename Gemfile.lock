@@ -79,6 +79,13 @@ GEM
       carrierwave (>= 0.10.0)
       ruby-sox (>= 0.0.3)
       soxi-wrapper (>= 0.0.1)
+    carrierwave-ffmpeg (1.0.0)
+      carrierwave
+      streamio-ffmpeg
+    carrierwave-video (0.6.0)
+      carrierwave
+      streamio-ffmpeg
+    chartkick (2.3.5)
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -133,6 +140,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.0.1)
+      activesupport (>= 4.2)
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -152,6 +161,8 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
+    impressionist (1.6.1)
+      nokogiri (~> 1)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -290,6 +301,8 @@ GEM
     storext (2.2.2)
       rails (>= 4.0, < 6.0)
       virtus
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -327,14 +340,19 @@ DEPENDENCIES
   byebug
   carrierwave (~> 1.2, >= 1.2.3)
   carrierwave-audio
+  carrierwave-ffmpeg
+  carrierwave-video
   carrierwave_backgrounder!
+  chartkick (~> 2.3, >= 2.3.4)
   coffee-rails
   devise (~> 4.5)
   devise-async
   devise_invitable (~> 1.7, >= 1.7.4)
   fog-aws (~> 2.0, >= 2.0.1)
+  groupdate
   guard (~> 2.8)
   guard-livereload (~> 2.5, >= 2.5.2)
+  impressionist
   jbuilder (~> 2.5)
   jquery-atwho-rails
   jquery-fileupload-rails

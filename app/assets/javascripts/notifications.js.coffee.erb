@@ -34,7 +34,7 @@ class Notifications
   handleSuccess: (data) =>
     console.log(data)
     unread = $.map data, (notification) ->
-      "<img src='<%= asset_path 'icons/notification' %>' ><sup class='noti-dot'></sup>"
+      "<img src='<%= asset_path 'icons/notification-hover' %>' ><sup class='noti-dot'></sup>"
 
     $("[data-behavior='unread-notification']").html(unread)  if data.unread_count > 0
 

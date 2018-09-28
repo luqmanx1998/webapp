@@ -1,11 +1,13 @@
 class Post < ApplicationRecord
-  
   before_create :set_url
   after_create :notified_users
+  is_impressionable :counter_cache => true, :column_name => :views, :unique => :user_id
+
 
   belongs_to :user
   
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
 
   include Storext.model
   store_attributes :preferences do

@@ -38,4 +38,12 @@ document.addEventListener("turbolinks:load", function() {
     });
    });
 
+   $(function() {
+    $("#video-upload").change(function(){
+      $('.video-ready').removeClass('hidden');
+      $('#upload-wrapper').addClass('hidden');
+      readURL(this);
+    });
+   });
+
 })
