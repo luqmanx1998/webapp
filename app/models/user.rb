@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :user_interests, dependent: :destroy
+  has_many :interests, through: :user_interests
 
   ## => Rememberable by default
   def remember_me

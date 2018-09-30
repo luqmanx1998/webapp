@@ -1,0 +1,26 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "profile"}) do |f| %>
+<div class="heading">
+    Profile
+</div>
+<div class="field">
+    <%= f.text_field :name, class: "input", placeholder: "Name" ,  required: true, :maxlength => 24%>
+    <span class="form-label">
+    Name
+    </span>
+</div>
+<div class="field">
+    <%= f.text_field :username, class: "input", placeholder: "Username" , pattern: "[A-Za-z0-9]+",  required: true,:maxlength => 14%>
+    <span class="form-label">
+    Username
+    </span>
+</div>
+<div class="field">
+    <%= f.text_area :bio, class: "input", placeholder: "Bio", :maxlength => 240 %>
+    <span class="form-label">
+    Bio
+    </span>
+</div>
+<div class="actions">
+    <%= f.submit "Update", class: 'btn' %>
+</div>
+<% end %>

@@ -15,7 +15,7 @@ Rails.application.config.assets.precompile += %w(
     home.js
     home.css
     wtf.css
-    user/preferences.js
+    user/ajax.js
     admin/main.css
     admin/main.js
 )

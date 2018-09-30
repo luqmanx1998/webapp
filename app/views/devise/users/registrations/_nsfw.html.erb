@@ -1,0 +1,18 @@
+<div class="collapsible">
+    NSFW
+</div>
+<div class="collapse-content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "preference"}, remote: true, :authenticity_token => true) do |f| %>
+        <div class="nsfw ">
+        <div class="view-nsfw flex flex-space-between">
+                <div class="wrapper">
+                    <div class="heading"> Hide adult content </div> <br/>
+                    </div>
+                    <label class="switch">
+                    <%= f.check_box :hide_nsfw, id: "hide_nsfw", onchange: 'submitPreferenceAjax();' %>
+                    <span class="slider"></span>
+            </label>
+        </div>
+        </div>
+    <% end %>
+</div>

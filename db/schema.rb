@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_051400) do
+ActiveRecord::Schema.define(version: 2018_09_30_071702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "from_user_id"
@@ -118,6 +124,15 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.index ["name"], name: "index_simple_hashtag_hashtags_on_name"
   end
 
+  create_table "user_interests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
+    t.index ["user_id"], name: "index_user_interests_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -160,4 +175,6 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"
   add_foreign_key "posts", "users"
+  add_foreign_key "user_interests", "interests"
+  add_foreign_key "user_interests", "users"
 end

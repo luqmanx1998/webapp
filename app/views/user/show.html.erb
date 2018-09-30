@@ -12,6 +12,13 @@
           <div class="bio">
             <%= @user.bio %>
           </div>
+          <div class="interests flex">
+            <% @user.interests.each do |interest| %>
+              <div class="interest">
+                <%= interest.name%>
+              </div>
+            <% end %>
+          </div>
           <div class="buttons">
             <% if user_signed_in? %>
               <% unless @user != current_user %>
