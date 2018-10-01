@@ -1,0 +1,49 @@
+
+#challenge-show {
+    @media only screen{
+        
+    
+        .header, .details, .cta{
+            padding: 1rem;
+            font-family: $sans-serif;
+        }
+
+        .title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            max-width: 25rem;
+        }
+
+        button{
+            width: 100%;
+            max-width: 25em;
+        }
+        
+    }
+  
+    @media #{$medium-and-up}{
+        
+        .cover-or-video{
+            padding: 1rem;
+        }
+
+        .challenge{
+            max-width: 40em;
+        }
+
+        .wrapper{
+            width: 40em;
+        }
+
+        .title{
+            max-width: 32rem;
+            font-size: 2rem;
+        }
+ 
+    
+    
+    }
+  
+
+  }
+  

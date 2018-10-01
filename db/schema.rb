@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_30_071702) do
+ActiveRecord::Schema.define(version: 2018_09_30_114914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "cover"
+    t.string "video"
+    t.bigint "user_id"
+    t.integer "challenge_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
+    t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -70,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_071702) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_interests_on_name", unique: true
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -171,6 +185,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_071702) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "challenges", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"

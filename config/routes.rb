@@ -133,4 +133,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'challenges',             to: 'challenges#index',   as: :challenges
+  post 'new/challenge',         to: 'challenges#create'
+  get 'new/challenge',          to: 'challenges#new'
+  get 'challenge/:id/edit',     to: 'challenges#edit',    as: :edit_challenge
+  get 'challenge/:id',          to: 'challenges#show',    as: :challenge
+  patch 'challenge/:id',        to: 'challenges#update'
+  put 'challenge/:id',          to: 'challenges#update'
+  delete 'challenge/:id',        to: 'challenges#destroy'
+
 end

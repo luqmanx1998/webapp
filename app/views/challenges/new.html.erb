@@ -1,0 +1,106 @@
+<div id="new-challenge">
+    <% if params["type"] %>
+        <%= form_for @challenge, as: :challenge, url: new_challenge_path(@post) do |f|%>
+            <%= render 'form', f: f %>
+        <% end %>
+    <% else %>
+    
+        <div class="challenge-navigation flex flex-center-xy">
+            <div class="wrapper ">
+                <div class="header">
+                    Choose Challenge Type
+                </div>
+                <div class="types flex">
+                        <a  href="?type=Writing">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/writing' %>
+                        </div> 
+                        <div class="type ">
+                            Writing
+                        </div>
+                    </a> 
+                    <a  href="?type=Screenwriting">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/screenwriting' %>
+                        </div> 
+                        <div class="type ">
+                            Screenwriting
+                        </div>
+                    </a> 
+                    <a  href="?type=Poetry">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/poem' %>
+                        </div> 
+                        <div class="type ">
+                            Poetry
+                        </div>
+                    </a> 
+                    <a href="?type=Graphic Design">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/graphic-design' %>
+                        </div> 
+                        <div class="type ">
+                            Graphic Design
+                        </div>
+                    </a> 
+                    <a href="?type=Illustration">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/illustration' %>
+                        </div> 
+                        <div class="type ">
+                            Illustration
+                        </div>
+                    </a> 
+                    <a href="?type=Music">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/music' %>
+                        </div> 
+                        <div class="type ">
+                            Music
+                        </div>
+                    </a> 
+                    <a href="?type=Vocal">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/vocal' %>
+                        </div> 
+                        <div class="type ">
+                            Vocal
+                        </div>
+                    </a> 
+                    <a href="?type=Photography">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/photography' %>
+                        </div> 
+                        <div class="type ">
+                            Photography
+                        </div>
+                    </a> 
+                    <a href="?type=Cinematography">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/cinematography' %>
+                        </div> 
+                        <div class="type ">
+                            Cinematography
+                        </div>
+                    </a> 
+                    <a href="?type=Voice Acting">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/voice-acting' %>
+                        </div> 
+                        <div class="type ">
+                            Voice Acting
+                        </div>
+                    </a> 
+                    <a href="?type=Acting">
+                        <div class="icon flex flex-center-xy">
+                            <%= image_tag 'icons/challenges/acting' %>
+                        </div> 
+                        <div class="type ">
+                            Acting
+                        </div>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>    

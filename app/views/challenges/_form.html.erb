@@ -1,0 +1,42 @@
+<div id="challenge-new">
+    <div class="form">
+        <div class="header">
+            <%= params["type"] %> Challenge
+        </div>
+        <div class="imageAndVideo flex flex-space-around">  
+            <div class="image">
+                <div class="image-preview">
+                    <img  id="image-prev"  class="hidden">
+                </div>
+                <div id="upload-wrapper" class="image_upload">
+                    <%= f.file_field :cover, id:"image-upload", class: "inputfile", accept: 'image/png,image/gif,image/jpeg' %>
+                    <label for="image-upload" class="flex flex-center-xy">
+                        <span> Add<br/>Cover Art</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <%= f.text_field :title, placeholder: "Give it a Title",  :required => 'required',class: "input",:maxlength => 120%>
+        </div>
+        <div class="field">
+            <%= f.hidden_field :challenge_type_id,  :required => 'required' %>
+        </div>
+        <div class="field">
+            <%= f.text_area :description,  :required => 'required', class: "input description Editor",:maxlength => 500%>
+        </div>
+        <div class="actions">
+            <%= f.submit "Create Challenge", class: "btn"%>
+        </div>
+    </div>
+
+<script type="text/javascript">
+var editor = new MediumEditor('.Editor', {
+placeholder: {
+  text: 'Tell us more about this challenge and how we can participate!'
+},
+toolbar: {
+  buttons: ['bold', 'italic', 'underline', 'strikethrough']
+}
+});
+</script>
