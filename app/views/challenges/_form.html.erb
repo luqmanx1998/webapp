@@ -17,26 +17,16 @@
             </div>
         </div>
         <div class="field">
-            <%= f.text_field :title, placeholder: "Give it a Title",  :required => 'required',class: "input",:maxlength => 120%>
+            <%= f.text_field :title, placeholder: "Give it a Title",  :required => 'required',class: "input",:maxlength => 45%>
         </div>
         <div class="field">
             <%= f.hidden_field :challenge_type_id,  :required => 'required' %>
         </div>
         <div class="field">
-            <%= f.text_area :description,  :required => 'required', class: "input description Editor",:maxlength => 500%>
+            <%= f.text_area :description,  :required => 'required', class: "input description",:maxlength => 140%>
         </div>
         <div class="actions">
             <%= f.submit "Create Challenge", class: "btn"%>
         </div>
     </div>
-
-<script type="text/javascript">
-var editor = new MediumEditor('.Editor', {
-placeholder: {
-  text: 'Tell us more about this challenge and how we can participate!'
-},
-toolbar: {
-  buttons: ['bold', 'italic', 'underline', 'strikethrough']
-}
-});
-</script>
+</div>

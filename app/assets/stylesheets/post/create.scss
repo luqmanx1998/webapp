@@ -5,7 +5,6 @@
         .create-navigation{
             min-height: $height-full;
             margin: 0 auto;
-            max-width: 250px;
             text-align: center;
             font-size: 2rem;
             font-family: sans-serif
@@ -23,13 +22,10 @@
         }
 
         .media .icon{
-            border: $border;
             border-color: #575757 !important;
             padding: 1em;
-            border-radius: 100px;
-            margin: 1rem auto;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
 
             &:hover{
                 border-color: black !important;
@@ -44,7 +40,7 @@
             border: $border;
             border-color: #575757 !important;
             padding: 1em;
-            margin: 1rem auto;
+            margin: 0.8rem auto;
             width: 100%;
 
 
@@ -70,16 +66,15 @@
         }
         .create-navigation{
             margin: 0 auto;
-            max-width: 528px;
+            max-width: 40em;
         }
 
         .media .icon{
-            border: $border;
             padding: 1em;
-            border-radius: 100px;
             margin: 1rem auto;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
+            
         }
 
     }

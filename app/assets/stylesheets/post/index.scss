@@ -16,7 +16,6 @@
 
 #post-all{
   background: white;
-  
   padding: 0.5rem;
 
   @media only screen{
@@ -24,12 +23,14 @@
     .post{
       width:  calc(( 100% / 2) - 0.3rem);
       background: white;
+      word-wrap: break-word;
       margin: 1rem 0;
     }
 
 
     .body, .info{
       padding-top: 0.5rem ;
+      
     }
 
     .text{
@@ -72,7 +73,35 @@
     height: 101%;
     }
 
+    .submit {
+      color: #c9c9c9;
+      margin: 0.3rem 0; 
+      font-size: 0.7rem;
+    }
+
+    .submit a{
+        color: #c9c9c9;
+        text-decoration: underline;
+        &:hover{
+            color: black;
+        }
+    }
+
+    .head{
+      width: 100%;
+    }
+
+    .title{
+      font-size: 12px;
+      font-family: $sans-serif;
+      font-weight: 700;
+    }
     
+    .challenge{
+      font-family: $sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
     
     
 
@@ -87,6 +116,9 @@
     }
     .user-and-time, .body, .foot{
       font-size: 0.85em
+    }
+    .submit {
+      font-size: 0.85rem;
     }
 
   }

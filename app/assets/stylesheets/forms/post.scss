@@ -111,6 +111,13 @@
             }
       
           }
+
+          .challenge{
+              padding: 1rem;
+              border: $border;
+              margin: 1rem;
+              max-width: 40rem;
+          }
   
     }
   
@@ -144,6 +151,10 @@
         }
         .actions{
             padding:  0;
+        }
+
+        .challenge{
+            margin: 1rem auto;
         }
 
     }

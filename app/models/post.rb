@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :notifications, as: :notifiable, dependent: :destroy
+  belongs_to :submission, polymorphic: true, optional: true;
 
   include Storext.model
   store_attributes :preferences do

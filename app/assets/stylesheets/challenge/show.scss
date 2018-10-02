@@ -6,6 +6,7 @@
         .header, .details, .cta{
             padding: 1rem;
             font-family: $sans-serif;
+            word-wrap: break-word
         }
 
         .title{
@@ -17,6 +18,13 @@
         button{
             width: 100%;
             max-width: 25em;
+        }
+
+        #submission{
+            .header{
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
         }
         
     }

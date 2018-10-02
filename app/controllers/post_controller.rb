@@ -5,9 +5,9 @@ class PostController < ApplicationController
 
   def index
     if current_user.hide_nsfw == true
-      @posts = Post.all.where.not(user: current_user, preferences: {"nsfw"=>true}).order('created_at DESC')
+      @posts = Post.all.where.not(user: current_user, preferences: {"nsfw"=>true}, content_processing: true).order('created_at DESC')
     else
-      @posts = Post.all.where.not(user: current_user).order('created_at DESC')
+      @posts = Post.all.where.not(user: current_user, content_processing: true).order('created_at DESC')
     end
   end
 
@@ -18,6 +18,7 @@ class PostController < ApplicationController
   end
 
   def new
+    
   end
 
   def edit
@@ -72,11 +73,11 @@ class PostController < ApplicationController
     def post_params
       @post = Post.find_by_url(params[:url])
       if  @post.type == "Post::Text"
-        params.require(:post_text).permit( :caption  , :type, :user_id, :content, :nsfw)
+        params.require(:post_text).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)
       elsif @post.type == "Post::Image"
-        params.require(:post_image).permit( :caption  , :type, :user_id, :content, :nsfw)
+        params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)
       elsif @post.type == "Post::Audio"
-        params.require(:post_audio).permit( :caption  , :type, :user_id, :content, :nsfw)  
+        params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)  
       end
     end
 

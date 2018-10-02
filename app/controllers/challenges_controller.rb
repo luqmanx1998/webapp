@@ -1,8 +1,8 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :submit]
 
   def index
-    @challenges = Challenge.all
+    @posts = Challenge.all
   end
 
   def show
@@ -51,6 +51,9 @@ class ChallengesController < ApplicationController
       format.html { redirect_to challenges_url, notice: 'Challenge was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def submit 
   end
 
   private

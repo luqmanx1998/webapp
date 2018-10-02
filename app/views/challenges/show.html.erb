@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="cta">
-                <a> 
+                <a href="/challenge/<%= @challenge.id %>/submit"> 
                     <button>
                         Take the challenge
                     </button>
@@ -26,7 +26,16 @@
             </div>
         </div>
         <div class="details">
-            <%= @challenge.description %>
+            <%= raw(@challenge.description) %>
         </div>
     </div>
+    <% if @challenge.posts.count > 0 %>
+        <hr/>
+        <div id="submission">
+            <div class="header flex flex-center-xy">
+                Submissions
+            </div>
+            <%= render 'post/posts', posts: @posts%>
+        </div>
+    <% end %>
 </div>
