@@ -22,6 +22,19 @@
             }
         }
 
+        .submit {
+            color: #c9c9c9;
+            margin: 0.5rem 0; 
+        }
+
+        .submit a{
+            color: #c9c9c9;
+            text-decoration: underline;
+            &:hover{
+                color: black;
+            }
+        }
+
         
 
         .user-and-time, .details, .buttons{

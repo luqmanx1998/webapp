@@ -120,7 +120,8 @@ fill: #d3d3d3;
 /*  
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .flex{
-  display: flex
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .flex-center-x{

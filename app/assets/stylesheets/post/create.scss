@@ -1,32 +1,59 @@
 
 #create {
     @media only screen{
+
         .create-navigation{
-            height: $height-full;
+            min-height: $height-full;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 2rem;
+            font-family: sans-serif
         }
-        .media{
+
+
+        .media, .challenge{
             max-width: 45em;
             flex-wrap: wrap;
         }
-        .media a{
+        .media a, .challenge a{
             text-align: center;
             margin: 1rem;
             font-size: 1.2rem;
         }
 
-        .icon{
-            border: $border;
+        .media .icon{
             border-color: #575757 !important;
             padding: 1em;
-            border-radius: 100px;
-            margin: 1rem;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
 
             &:hover{
                 border-color: black !important;
             }
         }
+
+        .challenge a{
+            width: 100%
+        }
+
+        .challenge .icon{
+            border: $border;
+            border-color: #575757 !important;
+            padding: 1em;
+            margin: 0.8rem auto;
+            width: 100%;
+
+
+            &:hover{
+                border-color: black !important;
+            }
+
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
 
   
     }
@@ -37,15 +64,19 @@
             margin: 1rem;
             font-size: 1.2rem;
         }
-
-        .icon{
-            border: $border;
-            padding: 1em;
-            border-radius: 100px;
-            margin: 1rem;
-            width: 100px;
-            height: 100px;
+        .create-navigation{
+            margin: 0 auto;
+            max-width: 40em;
         }
+
+        .media .icon{
+            padding: 1em;
+            margin: 1rem auto;
+            width: 120px;
+            height: 120px;
+            
+        }
+
     }
   
 

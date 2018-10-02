@@ -36,6 +36,14 @@
                 <%= "#{time_ago_in_words(@post.created_at)} " %>
                 </div>
             </div>
+            <% if @post.submission_type == "Challenge"%>
+                <div class="submit">
+                    Submitted to 
+                    <a href="/challenge/<%= @post.submission.id %>">
+                        <%= @post.submission.challenge_type.name %> Challenge
+                    </a>
+                </div>
+            <% end %>
             <div id="post-icon" class=" flex">
                 <div class="flex flex-center-y icon view-icon">
                     <div class="views"></div> 

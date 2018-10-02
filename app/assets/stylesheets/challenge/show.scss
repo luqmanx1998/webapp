@@ -1,0 +1,57 @@
+
+#challenge-show {
+    @media only screen{
+        
+    
+        .header, .details, .cta{
+            padding: 1rem;
+            font-family: $sans-serif;
+            word-wrap: break-word
+        }
+
+        .title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            max-width: 25rem;
+        }
+
+        button{
+            width: 100%;
+            max-width: 25em;
+        }
+
+        #submission{
+            .header{
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+        }
+        
+    }
+  
+    @media #{$medium-and-up}{
+        
+        .cover-or-video{
+            padding: 1rem;
+        }
+
+        .challenge{
+            max-width: 40em;
+        }
+
+        .wrapper{
+            width: 40em;
+        }
+
+        .title{
+            max-width: 32rem;
+            font-size: 2rem;
+        }
+ 
+    
+    
+    }
+  
+
+  }
+  
