@@ -1,34 +1,51 @@
-<div id="post-all">
-    <div class="posts masonry transitions-enabled">
-            <% @posts.each do |post| %>
-                <div class="post">
-                    <a href="/challenge/<%= post.id %>" >
-                        <div class="head">
-                            <div class="title">
-                                <%= post.challenge_type.name %> Challenge: <%= post.title %>
-                            </div>
-                        </div>            
-                        <div class="body">
-                            <%if post.cover? %>
-                                <div class="cover">
-                                    <%= image_tag post.cover.url %>
+<%= render '/navigation/mobile-home'%>
+<div id="discover">
+    <div class="header">
+        <div class="heading">
+            Take Up A Challenge
+        </div>
+        <div class="text">
+            Be challenged, motivated, and inspired.
+        </div>
+    </div>
+    <% unless @posts.blank? %>
+        <div id="post-all">
+            <div class="posts masonry transitions-enabled">
+                <% @posts.each do |post| %>
+                    <div class="post challenge-wrapper">
+                        <a href="/challenge/<%= post.id %>" >
+                            <div class="head">
+                                <div class="title">
+                                    <%= post.challenge_type.name %> Challenge: <br/><%= post.title %>
                                 </div>
-                            <% end %>
-                            <div class="challenge">
-                                <%= post.description %>
+                            </div>            
+                            <div class="body">
+                                <%if post.cover? %>
+                                    <div class="cover">
+                                        <%= image_tag post.cover.url %>
+                                    </div>
+                                <% end %>
+                                <div class="challenge">
+                                    <%= post.description %>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <div class="foot">
-                        <div class="user">
-                            <a href="/user/<%= post.user.username %>">
-                                by @<%= post.user.username%>
-                            </a>
+                        </a>
+                        <div class="foot">
+                            <div class="user">
+                                <a href="/user/<%= post.user.username %>">
+                                    by @<%= post.user.username%>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <% end %>
+                <% end %>
+            </div>
         </div>
+    <% else %>
+        <div class=" blank flex flex-center-xy">
+            There are no challenges. Start one !    
+        </div>
+    <% end %>
 </div>
 
 

@@ -1,30 +1,34 @@
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable,:async, :validate_on_invite => true
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :async, :validate_on_invite => true
 
+  has_many :posts,          dependent:  :destroy
+  has_many :comments,       dependent:  :destroy
+  has_many :notifications,  dependent:  :destroy
+  has_many :user_interests, dependent:  :destroy
+  has_many :interests,      dependent:  :destroy, through:    :user_interests
 
+  validates_uniqueness_of :username, allow_blank: true
+
+  #Role
   enum access_level: { user: 0, admin: 1, super_admin: 2}
 
+  #JSONB Storext
   include Storext.model
   store_attributes :preferences do
     hide_nsfw Boolean, default: true
   end
 
+  #Followable
   acts_as_follower
   acts_as_followable
 
-  has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :notifications, dependent: :destroy
-  has_many :user_interests, dependent: :destroy
-  has_many :interests, through: :user_interests
-
-  ## => Rememberable by default
+  #Rememberable by default
   def remember_me
    true
   end
 
-  validates_uniqueness_of :username, allow_blank: true
   ## => Only require current password for Email and Password change
   validates_confirmation_of :password
   

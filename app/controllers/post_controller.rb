@@ -5,9 +5,9 @@ class PostController < ApplicationController
 
   def index
     if current_user.hide_nsfw == true
-      @posts = Post.all.where.not(user: current_user, preferences: {"nsfw"=>true}, content_processing: true).order('created_at DESC')
+      @posts = Post.safe.except_who(current_user)
     else
-      @posts = Post.all.where.not(user: current_user, content_processing: true).order('created_at DESC')
+      @posts = Post.nsfw.except_who(current_user)
     end
   end
 
@@ -22,9 +22,6 @@ class PostController < ApplicationController
   end
 
   def edit
-    if @post.user != current_user
-      redirect_to root_path
-    end
   end
 
   def create
@@ -51,9 +48,7 @@ class PostController < ApplicationController
 
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Your post has been deleted' }
-    end
+    redirect_to root_path, notice: 'Your post has been deleted'
   end
 
   private
@@ -78,6 +73,8 @@ class PostController < ApplicationController
         params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)
       elsif @post.type == "Post::Audio"
         params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)  
+      elsif @post.type == "Post::Video"
+        params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)  
       end
     end
 

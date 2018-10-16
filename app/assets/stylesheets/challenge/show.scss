@@ -1,57 +1,47 @@
-
 #challenge-show {
-    @media only screen{
-        
-    
-        .header, .details, .cta{
-            padding: 1rem;
-            font-family: $sans-serif;
-            word-wrap: break-word
-        }
+	@media only screen {
+		.challenge{
+			max-width: 40em;
+			margin: 0 auto;
+			padding: 1rem;
+			word-wrap: break-word;
+		}
 
-        .title{
-            font-size: 1.5rem;
-            font-weight: 700;
-            max-width: 25rem;
-        }
+		.title{
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin: 1rem 0;
+		}
+		.cta{
+			margin: 1rem;
+		}
 
-        button{
-            width: 100%;
-            max-width: 25em;
-        }
+		.username{
+			font-size: 0.8rem;
+		}
 
-        #submission{
-            .header{
-                font-weight: 700;
-                font-size: 1.2rem;
-            }
-        }
-        
-    }
-  
-    @media #{$medium-and-up}{
-        
-        .cover-or-video{
-            padding: 1rem;
-        }
+		.description{
+			font-family: monospace;
+			font-weight: 300;
+		}
 
-        .challenge{
-            max-width: 40em;
-        }
+		button{
+			margin: 0.5rem;
+		}
+		
+	}
+	@media #{$medium-and-up} {
+		.title{
+			text-align: center;
+			font-size: 1.8rem;
+		}
+		.username{
+			font-size: 0.9rem;
+		}
 
-        .wrapper{
-            width: 40em;
-        }
+		.description{
+			font-size: 1.2rem
+		}
 
-        .title{
-            max-width: 32rem;
-            font-size: 2rem;
-        }
- 
-    
-    
-    }
-  
-
-  }
-  
+	}
+}

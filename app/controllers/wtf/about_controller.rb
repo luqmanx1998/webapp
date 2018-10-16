@@ -1,6 +1,4 @@
 class Wtf::AboutController < WtfController
-
-  def index
+  def index 
   end
-
 end

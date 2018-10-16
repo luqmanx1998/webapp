@@ -29,11 +29,11 @@
                             <% else %>
                                 <% if current_user.following?(user) %>
                                 <a class="settings" href="<%= unfollow_user_path(user) %>">
-                                    <button type="button" name="button"> Unfollow </button>
+                                    <button type="button" name="button"> Unsubscribe</button>
                                 </a>
                                 <% else %>
                                 <a class="settings" href="<%= follow_user_path(user) %>">
-                                    <button type="button" name="button"> Follow </button>
+                                    <button type="button" name="button"> Subscribe </button>
                                 </a>
                                 <% end %>
                             <% end %>

@@ -1,130 +1,119 @@
-#discover{
+#discover {
+	.header {
+		@media only screen {
+			margin-top: 24px;
+			text-align: center;
+			position: relative;
+			font-family: $sans-serif;
+			padding: 2rem 0;
+		}
+		@media #{$medium-and-up} {
+			margin: 0;
+		}
 
-  .header{
-    font-size: 2em;
-    text-align: center;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    font-family: $sans-serif;
-  }
+		.heading{
+			font-size: 2em;
+			font-weight: 700;
+		}
+	}
 }
+#post-all {
+	@media only screen {
+		padding: 0 0.5rem;
+		.post, .challenge-wrapper {
+			width: calc(( 100% / 2) - 0.3rem);
+			border-radius: 5px;
+			word-wrap: break-word;
+			margin: 1rem 0;
+		}
 
-
-
-#post-all{
-  background: white;
-  padding: 0.5rem;
-
-  @media only screen{
-
-    .post{
-      width:  calc(( 100% / 2) - 0.3rem);
-      background: white;
-      word-wrap: break-word;
-      margin: 1rem 0;
-    }
-
-
-    .body, .info{
-      padding-top: 0.5rem ;
-      
-    }
-
-    .text{
-      min-height: 100px;
-      background: #e7e7e7;
-      padding: 1rem;
-    }
-
-    .user-and-time, .body, .foot{
-      font-size: 0.7em
-    }
-
-
-
-    .blank{
-      min-height: $height-full;
-    }
-
-    .blank-2{
-      height: 200px;
-    }
-
-    video{
-      width: 100%;
-    }
-
-    .box{
-      background-color:black;
-      width: 100%;
-      padding-top: 56.25%;
-      position: relative; /* If you want text inside of it */
-    }
-
-    .plyr--video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 101%;
-    }
-
-    .submit {
-      color: #c9c9c9;
-      margin: 0.3rem 0; 
-      font-size: 0.7rem;
-    }
-
-    .submit a{
-        color: #c9c9c9;
-        text-decoration: underline;
-        &:hover{
-            color: black;
-        }
-    }
-
-    .head{
-      width: 100%;
-    }
-
-    .title{
-      font-size: 12px;
-      font-family: $sans-serif;
-      font-weight: 700;
-    }
-    
-    .challenge{
-      font-family: $sans-serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    
-    
-
-    
-
-
-
-  }
-  @media #{$medium-and-up}{
-    .post{
-      width:  calc(( 100% / 3) - 0.5rem);
-    }
-    .user-and-time, .body, .foot{
-      font-size: 0.85em
-    }
-    .submit {
-      font-size: 0.85rem;
-    }
-
-  }
-    @media #{$large-and-up}{
-      .post{
-        width:  calc(( 100% / 4) - 0.5rem);
-      }
-    }
+		.challenge-wrapper{
+			padding: 1rem;
+			border: $border;
+		}
+		.body, .info {
+			padding-top: 0.5rem;
+		}
+		.text {
+			min-height: 100px;
+			background: #e4e4e4;
+			padding: 1rem;
+			font-family: $monospace;
+			color: black !important
+		}
+		.user-and-time, .body, .foot {
+			font-size: 0.7em
+		}
+		.blank {
+			min-height: $height-full;
+		}
+		.blank-2 {
+			height: 200px;
+		}
+		video {
+			width: 100%;
+		}
+		.box {
+			background-color: black;
+			width: 100%;
+			padding-top: 56.25%;
+			position: relative;
+			/* If you want text inside of it */
+		}
+		.plyr--video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 101%;
+		}
+		.submit {
+			color: #c9c9c9;
+			margin: 0.3rem 0;
+			font-size: 0.7rem;
+		}
+		.submit a {
+			color: #c9c9c9;
+			text-decoration: underline;
+			&:hover {
+				color: black;
+			}
+		}
+		.head {
+			width: 100%;
+		}
+		.title {
+			font-family: $sans-serif;
+			font-weight: 700;
+			font-size: 0.7rem;
+			color: black;
+		}
+		.challenge {
+			font-family: $sans-serif;
+			color: black;
+			margin-bottom: 1rem;
+		}
+	}
+	@media #{$medium-and-up} {
+		padding: 0 2rem;
+		
+		.post, .challenge-wrapper {
+			width: calc(( 100% / 3) - 0.5rem);
+		}
+		.user-and-time, .body, .foot {
+			font-size: 0.85em
+		}
+		.submit {
+			font-size: 0.85rem;
+		}
+		.title {
+			font-size: 0.9rem;
+		}
+	}
+	@media #{$large-and-up} {
+		.post , .challenge-wrapper{
+			width: calc(( 100% / 4) - 0.5rem);
+		}
+	}
 }

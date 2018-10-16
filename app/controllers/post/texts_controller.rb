@@ -4,6 +4,8 @@ class Post::TextsController < PostController
   def new
     @post = @media.create
     @post.user = current_user
+    
+    # For posts that's submitting to a challenge
     @post.submission_id = params["id"]
     if @post.submission_id?
       @post.submission_type = Challenge
@@ -14,7 +16,7 @@ class Post::TextsController < PostController
   private
 
     def set_media
-        @media = Post::Text
+      @media = Post::Text
     end
 
     def post_params

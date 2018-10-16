@@ -1,98 +1,75 @@
-
 #post-show {
-    @media only screen{
-        .wrapper{
-            padding: 1rem;
-            max-width: 40em;
-        }
-
-        .content{
-            min-height: 200px;
-        
-            .text{
-                min-height: 200px;
-                background: #e7e7e7;
-                padding: 1rem;
-                border-radius: 5px;
-                width: 100%;
-            }
-
-            .plyr{
-                width: 100%;
-            }
-        }
-
-        .submit {
-            color: #c9c9c9;
-            margin: 0.5rem 0; 
-        }
-
-        .submit a{
-            color: #c9c9c9;
-            text-decoration: underline;
-            &:hover{
-                color: black;
-            }
-        }
-
-        
-
-        .user-and-time, .details, .buttons{
-            margin-top: 1em ;
-        }
-
-        .processing{
-            width: 100%;
-            text-align: center;
-        }
-
-        .header{
-            color: #9d9d9d;
-            border-bottom: 1px solid #e7e7e5;
-            margin-bottom: 1rem;
-          }
-
-        #comment{
-            margin-top: 4rem;
-
-            .comment-form{
-                overflow: auto;
-                margin-bottom: 1rem;
-            }
-        
-            .block{
-                margin: 1rem 0;
-                position: relative;
-                width: 100%;
-                justify-content: space-between
-            }
-        
-        
-            .action{
-                width: 100% !important;
-                justify-content: flex-end
-
-            }
-            .username{
-                font-family: $sans-serif;
-                font-weight: 600;
-                margin-right: 0.2rem;
-            }
-
-            .delete{
-                content: image-url("icons/delete-outline");
-                display: inline;
-                &:hover{
-                    content: image-url("icons/delete");
-                }
-            }
-
-        }
-
-
-  
-    }
-  
-
-  }
-  
+	@media only screen {
+		.wrapper {
+			padding: 1rem;
+			max-width: 40em;
+		}
+		.content {
+			min-height: 200px;
+			.text {
+				min-height: 200px;
+				background: #e7e7e7;
+				padding: 1rem;
+				border-radius: 5px;
+				width: 100%;
+				font-family: $monospace;
+				color: black !important
+			}
+			.plyr {
+				width: 100%;
+			}
+		}
+		.submit {
+			color: #c9c9c9;
+			margin: 0.5rem 0;
+		}
+		.submit a {
+			color: #c9c9c9;
+			text-decoration: underline;
+			&:hover {
+				color: black;
+			}
+		}
+		.user-and-time, .details, .buttons {
+			margin-top: 1em;
+		}
+		.processing {
+			width: 100%;
+			text-align: center;
+		}
+		.header {
+			color: #9d9d9d;
+			border-bottom: 1px solid #e7e7e5;
+			margin-bottom: 1rem;
+		}
+		#comment {
+			margin-top: 4rem;
+			.comment-form {
+				overflow: auto;
+				margin-bottom: 1rem;
+			}
+			.block {
+				margin: 1rem 0;
+				position: relative;
+				width: 100%;
+				justify-content: space-between
+			}
+			.action {
+				width: 100% !important;
+				justify-content: flex-end
+			}
+			.username {
+				font-family: $sans-serif;
+				font-weight: 600;
+				margin-right: 0.2rem;
+			}
+			.delete {
+				content: image-url("icons/delete-outline");
+				display: inline;
+				&:hover {
+					content: image-url("icons/delete");
+				}
+			}
+		}
+	}
+}

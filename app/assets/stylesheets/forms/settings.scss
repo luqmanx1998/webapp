@@ -1,94 +1,76 @@
-
-#settings{
-
-  @media only screen{
-    .user-settings{
-      padding: 2rem 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .input{
-      background: #f2f2f2;
-      &:focus{
-        background: white;
-      }
-    }
-
-    .field{
-      margin: 1rem 0;
-    }
- 
-
-    .heading, .collapsible{
-      font-size: 1.5rem;
-      font-weight: 900;
-      font-family: $sans-serif
-    }
-
-
-    .label{
-      width: 150px
-    }
-
-    .warning, .span{
-      font-size: 0.8rem
-    }
-    .cancel  input[type="submit"]{
-      background: red !important
-    }
-
-
-    .nsfw .heading{
-      font-family: $sans-serif;
-      font-size: 1rem;
-      line-height: 28px;
-      font-weight: 400;
-    }
-
-    .cancel{
-      .btn{
-        border-color: red !important;
-        color: black !important;
-        margin-top: 1rem;
-        &:hover{
-          border-color: black !important;
-        }
-      }
-    }
-
-    .interest-label{
-      display: block;
-      padding: 0.5rem;
-      border:$border;
-      margin-right: 1rem;
-      margin-bottom: 1rem;
-      &:hover{
-        cursor: pointer;
-      }
-    }
-    input[type=checkbox].interest-checkbox{ display: none; }
-
-    input[type=checkbox].interest-checkbox:checked + label.interest-label {
-      background: black;
-      color: white;
-    }
-
-    .interest{
-      margin: 1rem 0;
-    }
-
-    .view-nsfw{
-      flex-wrap: wrap
-    }
-
-  }
-
-  @media #{$medium-and-up}{
-    .interest-label{
-      padding: 1rem;
-    }
-
-  }
-
+#settings {
+	@media only screen {
+		.user-settings {
+			padding: 2rem 1rem;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.input {
+			background: #f2f2f2;
+			&:focus {
+				background: white;
+			}
+		}
+		.field {
+			margin: 1rem 0;
+		}
+		.heading, .collapsible {
+			font-size: 1.5rem;
+			font-weight: 900;
+			font-family: $sans-serif
+		}
+		.label {
+			width: 150px
+		}
+		.warning, .span {
+			font-size: 0.8rem
+		}
+		.cancel input[type="submit"] {
+			background: red !important
+		}
+		.nsfw .heading {
+			font-family: $sans-serif;
+			font-size: 1rem;
+			line-height: 28px;
+			font-weight: 400;
+		}
+		.cancel {
+			.btn {
+				border-color: red !important;
+				color: black !important;
+				margin-top: 1rem;
+				&:hover {
+					border-color: black !important;
+				}
+			}
+		}
+		.interest-label {
+			display: block;
+			padding: 0.5rem;
+			border: $border;
+			margin-right: 1rem;
+			margin-bottom: 1rem;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		input[type=checkbox].interest-checkbox {
+			display: none;
+		}
+		input[type=checkbox].interest-checkbox:checked+label.interest-label {
+			background: black;
+			color: white;
+		}
+		.interest {
+			margin: 1rem 0;
+		}
+		.view-nsfw {
+			flex-wrap: wrap
+		}
+	}
+	@media #{$medium-and-up} {
+		.interest-label {
+			padding: 1rem;
+		}
+	}
 }

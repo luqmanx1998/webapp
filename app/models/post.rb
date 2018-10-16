@@ -1,19 +1,28 @@
 class Post < ApplicationRecord
   before_create :set_url
   after_create :notified_users
+
+  #Views
   is_impressionable :counter_cache => true, :column_name => :views, :unique => :user_id
 
-
   belongs_to :user
+  belongs_to :submission,     polymorphic: true,  optional: true
+  has_many :comments,         as: :commentable,   dependent: :destroy
+  has_many :notifications,    as: :notifiable,    dependent: :destroy
   
-  has_many :comments, as: :commentable, dependent: :destroy
-  has_many :notifications, as: :notifiable, dependent: :destroy
-  belongs_to :submission, polymorphic: true, optional: true;
 
+  scope :submitted,   ->  (challenge_id)  { where(  submission_type: 'Challenge', :submission_id => challenge_id).order("created_at DESC") }
+  scope :followed,    ->  (users)         { where(  user: users)}
+  scope :except_who , ->  (user)          { where.not(  user: user) }
+  scope :safe,        ->                  { where.not(  preferences: {"nsfw"=>true}, content_processing: true).order('created_at DESC') }
+  scope :nsfw,        ->                  { where.not(  content_processing: true).order('created_at DESC') }
+
+  #JSONB STOREXT  
   include Storext.model
   store_attributes :preferences do
     nsfw Boolean, default: false
   end
+  
   
   def mention
     @mentions ||= begin

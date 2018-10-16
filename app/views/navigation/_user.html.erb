@@ -1,32 +1,31 @@
 <nav id="nav" >
   <div class="nav-wrapper flex flex-space-between">
-    <a href="/" class="brand"> Indielab.</a>
+    <a href="/" class="brand"> INDIELAB.</a>
     <ul class="main-links flex flex-space-around hide-on-small-only" >
       <li>
         <a href="/discover"> Discover</a>
       </li>
       <li>
-        <a href="/followings"> Followings</a>
+        <a href="/"> Followings</a>
       </li>
       <li>
-        <a href="/create"> Create </a>
+        <a href="/challenges"> Challenge </a>
       </li>
       
     </ul>
-    <ul class="user-links icons">
-      <li class="hide-on-small-only ">
+    <ul class="user-links icons hide-on-small-only">
+      <li>
         <a href="/search" class="icon">
           <%= image_tag 'icons/search-hover' %>
         </a>
       </li>
-      <li data-behavior="notifications" class="hide-on-small-only notification">
+      <li data-behavior="notifications" class="notification">
         <a data-behavior="unread-notification" href="/notifications" class="icon">
           <%= image_tag 'icons/notification-hover' %>
         </a>
       </li>
       <li>
-        <a onclick="dropdownDesktop()" class="dropbtn">@<%= current_user.username %></a>
-
+        <a onclick="dropdownDesktop()" class="icon"><%= image_tag 'icons/profile',  class: "dropbtn" %></a>
         <div class="dropdown-content right" id="desktopDropdown">
           <a href="/user/<%= current_user.username %>" >
             Profile
@@ -44,7 +43,13 @@
             logout
           </a>
         </div>
-
+      </li>
+      <li>
+        <a href="/create">
+          <button class="create">
+            Create
+          </button>
+        </a>
       </li>
     </ul>
   </div>
@@ -60,9 +65,8 @@
         </a>
       </li>
       <li>
-        
-        <a  href="/discover">
-          <%= image_tag 'icons/explore-tool' %>
+        <a  href="/search">
+          <%= image_tag 'icons/search-hover' %>
         </a>
       </li>
       <li>
@@ -71,16 +75,24 @@
           <%= image_tag 'icons/add' %>
         </a>
       </li>
-      <li>
-        <a href="/search">
-          <%= image_tag 'icons/search-hover' %>
-        </a>
-      </li>
       <li data-behavior="notifications" class="notification">
         <a data-behavior="unread-notification" href="/notifications">
           <%= image_tag 'icons/notification-hover' %>
         </a>
       </li>
+      <li>
+        <a href="/user/<%= current_user.username %>">
+          <%= image_tag 'icons/profile' %>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
+
+<script>
+$(".main-links [href]").each(function() {
+    if (this.href == window.location.href) {
+        $(this).addClass("active");
+        }
+    });
+</script>
