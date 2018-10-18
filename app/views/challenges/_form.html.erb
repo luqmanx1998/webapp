@@ -33,7 +33,7 @@
             <%= f.hidden_field :challenge_type_id,  :required => 'required' %>
         </div>
         <div class="field">
-            <%= f.text_area :description,  :required => 'required', class: "input description",:maxlength => 140%>
+            <%= f.text_area :description,  :required => 'required', class: "input description",placeholder: "Short summary of your challenge (Max 140 words)", :maxlength => 140%>
         </div>
         <div class="actions">
             <%= f.submit "Create Challenge", class: "btn"%>
