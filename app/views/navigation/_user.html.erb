@@ -28,7 +28,7 @@
         <a onclick="dropdownDesktop()" class="icon"><%= image_tag 'icons/profile',  class: "dropbtn" %></a>
         <div class="dropdown-content right" id="desktopDropdown">
           <a href="/user/<%= current_user.username %>" >
-            Profile
+            @<%= current_user.username %>
           <a href="/userinfo">
             settings
           </a>
