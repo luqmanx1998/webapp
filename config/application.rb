@@ -28,6 +28,7 @@ module Indielab
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.web_console.whiny_requests = false
     config.generators.system_tests = nil
   end
 end

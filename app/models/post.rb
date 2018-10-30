@@ -16,6 +16,8 @@ class Post < ApplicationRecord
   scope :except_who , ->  (user)          { where.not(  user: user) }
   scope :safe,        ->                  { where.not(  preferences: {"nsfw"=>true}, content_processing: true).order('created_at DESC') }
   scope :nsfw,        ->                  { where.not(  content_processing: true).order('created_at DESC') }
+  scope :drafts, -> { where(draft: true) }
+  scope :published, -> { where(draft: false) }
 
   #JSONB STOREXT  
   include Storext.model
