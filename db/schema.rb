@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_134509) do
+ActiveRecord::Schema.define(version: 2018_10_30_103617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,8 @@ ActiveRecord::Schema.define(version: 2018_10_01_134509) do
     t.integer "views", default: 0, null: false
     t.string "submission_type"
     t.bigint "submission_id"
+    t.boolean "draft", default: false, null: false
+    t.integer "post_id"
     t.index ["submission_type", "submission_id"], name: "index_posts_on_submission_type_and_submission_id"
     t.index ["type"], name: "index_posts_on_type"
     t.index ["url"], name: "index_posts_on_url", unique: true

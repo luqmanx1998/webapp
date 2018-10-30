@@ -131,6 +131,12 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
+  
+  resources :post do
+    member do
+      post :repost
+    end
+  end
 
   get 'challenges',             to: 'challenges#index',   as: :challenges
   post 'new/challenge',         to: 'challenges#create'

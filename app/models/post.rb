@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   is_impressionable :counter_cache => true, :column_name => :views, :unique => :user_id
 
   belongs_to :user
+  belongs_to :post, optional: true
   belongs_to :submission,     polymorphic: true,  optional: true
   has_many :comments,         as: :commentable,   dependent: :destroy
   has_many :notifications,    as: :notifiable,    dependent: :destroy
@@ -25,6 +26,7 @@ class Post < ApplicationRecord
   
   
   def mention
+    return if self.post_id  != nil
     @mentions ||= begin
       regex = /@([\w]+)/i
       caption.scan(regex).flatten
@@ -32,12 +34,11 @@ class Post < ApplicationRecord
   end
 
 
-
   private
 
     def notified_users
       mentioned_users.each do |mention|
-        return if mention.id == self.user.id
+        return if mention.id == self.user.id 
         Notification.create(user_id: mention.id,
         from_user_id: self.user.id, action: "mentioned", notifiable: self )
       end

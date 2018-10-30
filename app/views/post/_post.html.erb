@@ -61,6 +61,7 @@
                 <a href="/post/<%= post.url %>" class="flex flex-center-y icon">
                     <div class="comment"></div>
                 </a>
+                <%= link_to "Repost", repost_post_path(post), method: :post if user_signed_in? && post.user_id != current_user.id %>
                 <% if post.user == current_user %>
                     <a href="/post/<%= post.url %>/edit" class="flex flex-center-y icon">
                         <div class="edit"></div>
