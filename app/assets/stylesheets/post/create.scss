@@ -1,53 +1,67 @@
-
 #create {
-    @media only screen{
-        .create-navigation{
-            height: $height-full;
-        }
-        .media{
-            max-width: 45em;
-            flex-wrap: wrap;
-        }
-        .media a{
-            text-align: center;
-            margin: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .icon{
-            border: $border;
-            border-color: #575757 !important;
-            padding: 1em;
-            border-radius: 100px;
-            margin: 1rem;
-            width: 80px;
-            height: 80px;
-
-            &:hover{
-                border-color: black !important;
-            }
-        }
-
-  
-    }
-  
-    @media #{$medium-and-up}{
-        .media a{
-            text-align: center;
-            margin: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .icon{
-            border: $border;
-            padding: 1em;
-            border-radius: 100px;
-            margin: 1rem;
-            width: 100px;
-            height: 100px;
-        }
-    }
-  
-
-  }
-  
+	@media only screen {
+		.create-navigation {
+			min-height: $height-full;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 2rem;
+			font-family: sans-serif
+		}
+		.media, .challenge {
+			max-width: 300px;
+			flex-wrap: wrap;
+		}
+		.media a, .challenge a {
+			text-align: center;
+			margin: 1rem;
+			font-size: 1rem;
+		}
+		.media .icon {
+			border-color: #575757 !important;
+			padding: 1em;
+			width: 80px;
+			height: 80px;
+			&:hover {
+				border-color: black !important;
+			}
+		}
+		.challenge a {
+			width: 100%
+		}
+		.challenge .icon {
+			border: $border;
+			border-color: #575757 !important;
+			padding: 1em;
+			margin: 0.8rem auto;
+			width: 100%;
+			&:hover {
+				border-color: black !important;
+			}
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+	@media #{$medium-and-up} {
+		.media a {
+			text-align: center;
+			margin: 1rem;
+			font-size: 1.2rem;
+		}
+		.create-navigation {
+			margin: 0 auto;
+			max-width: 40em;
+		}
+		.media .icon {
+			padding: 1em;
+			margin: 0.5rem auto;
+			width: 90px;
+			height: 90px;
+		}
+		.media, .challenge {
+			max-width: 45em;
+			flex-wrap: wrap;
+		}
+	}
+}

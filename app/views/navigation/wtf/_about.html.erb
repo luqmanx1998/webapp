@@ -4,9 +4,24 @@
       <li >
         <a href="/wtf"> WTF</a>
       </li>
-      <li class="active">
-        <a href="/wtf/policies/rules"> About </a>
+      <li >
+        <a href="/wtf/about"> About </a>
       </li>
     </ul>
   </div>
 </nav> 
+
+<script>
+$(" [href]").each(function() {
+    if (this.href == window.location.href) {
+        $(this).addClass("active");
+    }
+});
+</script>
+
+<style>
+  .active{
+    border-bottom: black solid 1px;
+    color: black !important;
+  }
+</style>

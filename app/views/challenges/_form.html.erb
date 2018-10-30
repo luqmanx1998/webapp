@@ -1,0 +1,42 @@
+<div id="challenge-new">
+    <div class="form">
+        <div class="header">
+        <% if action_name == "edit" && %>
+            <%= @challenge.challenge_type.name %> Challenge
+        <% else %>   
+            <%= params["type"] %> Challenge 
+        <% end %>
+        </div>
+
+        <div class="imageAndVideo flex flex-space-around">  
+            <div class="image">
+                <% if action_name == "edit" && @challenge.cover?%>
+                    <div class="image-preview">
+                        <%= image_tag @challenge.cover.url %>
+                    </div>
+                <% end %>
+                <div class="image-preview">
+                    <img  id="image-prev"  class="hidden">
+                </div>
+                <div id="upload-wrapper" class="image_upload">
+                    <%= f.file_field :cover, id:"image-upload", class: "inputfile", accept: 'image/png,image/gif,image/jpeg' %>
+                    <label for="image-upload" class="flex flex-center-xy">
+                        <span> Add<br/>Cover Art</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <%= f.text_field :title, placeholder: "Give it a Title",  :required => 'required',class: "input",:maxlength => 45%>
+        </div>
+        <div class="field">
+            <%= f.hidden_field :challenge_type_id,  :required => 'required' %>
+        </div>
+        <div class="field">
+            <%= f.text_area :description,  :required => 'required', class: "input description",placeholder: "Short summary of your challenge (Max 140 words)", :maxlength => 140%>
+        </div>
+        <div class="actions">
+            <%= f.submit "Create Challenge", class: "btn"%>
+        </div>
+    </div>
+</div>

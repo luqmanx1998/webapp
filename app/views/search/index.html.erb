@@ -28,5 +28,14 @@
     </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() { $(function() { if (document.location.href.indexOf('type=human') > -1 ) { $('#searchNav .post').removeClass('isActive'); $('#searchNav .human').addClass('isActive'); } else { $('#searchNav .post').addClass('isActive'); $('#searchNav .human').removeClass('isActive'); } }); });
-</script>
+$(document).ready(function() {
+	$(function() {
+		if (document.location.href.indexOf('type=human') > -1) {
+			$('#searchNav .post').removeClass('isActive');
+			$('#searchNav .human').addClass('isActive');
+		} else {
+			$('#searchNav .post').addClass('isActive');
+			$('#searchNav .human').removeClass('isActive');
+		}
+	});
+});</script>

@@ -1,177 +1,176 @@
-#nav{
-    @media only screen{
-      position: fixed;
-      top:0;
-      left: 0;
-      width: 100%;
-      background: white;
-      z-index: 999;
-      box-sizing: border-box !important;
-      -moz-box-sizing: border-box!important;
-      -webkit-box-sizing: border-box!important;
-  
-      ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-      }
-  
-      li{
-        display: inline;
-        font-size: 1rem;
-      }
-  
-      .nav-wrapper{
-        height:$height-nav;
-        line-height: $height-nav;
-        padding: 0 0.5em;
-        overflow: auto;
-        background: white;
-      }
-  
-      .brand{
-        font-family: $sans-serif;
-        font-weight: 600;
-        font-size: 1.5em;
-        height:$height-nav;
-        line-height: $height-nav;
-      }
-  
-      .main-nav li{
-          font-family: $sans-serif;
-          margin-left: 1rem;
-      }
+#nav {
+	@media only screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: white;
+		z-index: 999;
+		box-sizing: border-box !important;
+		-moz-box-sizing: border-box!important;
+		-webkit-box-sizing: border-box!important;
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: inline;
+			font-size: 1rem;
+		}
+		.nav-wrapper {
+			height: $height-nav;
+			line-height: $height-nav;
+			padding: 0 0.5em;
+			overflow: auto;
+			background: white;
+		}
+		.brand {
+			font-family: $sans-serif;
+			font-weight: 600;
+			font-size: 1.5em;
+			text-align: center;
+			width: 100%;
+			letter-spacing: 6px;
+			color: black !important;
+		}
 
-        /* Dropdown Content (Hidden by Default) */
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        min-width: 160px;
-        z-index: 99999999;
-        right: 1rem;
-        border: $border;
-        background: white;
-        top: 40px;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: #1B1B1B;
-        padding: 0 16px;
-        display: block;
-        background: white;
-    }
-
-    .noti-dot {
-      height: 5px;
-      width: 5px;
-      background-color: black;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .icons{
-
-      .icon{
-      font-size: 0.8rem;
-      margin-top: 1rem;
-      }
-
-    }
-
-
-
-
-
-  
-    }
-  
-    @media #{$medium-and-up}{
-      li{
-        img{
-          width: 24px;
-          height: 24px;
-          margin-top: 13px;
-        }
-      }
-      .nav-wrapper{
-        height:$height-nav;
-        line-height: $height-nav;
-        padding: 0 2em;
-        overflow: auto;
-        background: white;
-      }
-
-      .user-links{
-        justify-content: flex-end
-      }
-      .user-links li{
-          margin: 0 0.5rem !important;
-          min-width: 30px;
-      }
-
-      .user-links, .brand{
-        width: 220px;
-        display:flex;
-      }
-
-      .main-links a, .user-links a, i{
-        cursor: pointer;
-        color: #585858;
-        font-size: 0.9rem;
-        &:hover{
-          color: black;
-        }
-      }
-  
-      .main-links li,  .user-links li{
-        margin: 0 0.5rem
-      }
-
-  
-    }
-  }
-  
-  
-
-
-  #mobile{
-    position: fixed;
-      bottom:0;
-      left: 0;
-      width: 100%;
-      background: white;
-      z-index: 999;
-      box-sizing: border-box !important;
-      -moz-box-sizing: border-box!important;
-      -webkit-box-sizing: border-box!important;
-      border-top: $border;
-
-      .nav-wrapper{
-        height:$height-nav;
-        line-height: $height-nav;
-        padding: 0 0.5em;
-        overflow: auto;
-        background: white;
-      }
-
-      img{
-        width: 24px;
-        height: 24px;
-        margin-top: 13px;
-      }
-
-      .noti-dot {
-        height: 7px;
-        width: 7px;
-        background-color: black;
-        border-radius: 50%;
-        display: inline-block;
-      }
-  
-      li{
-        height: 50px;
-      }
-  
-  }
-
+		.wtf-brand{
+			width: 300px !important;
+		}
+		/* Dropdown Content (Hidden by Default) */
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			min-width: 160px;
+			z-index: 99999999;
+			right: 5rem;
+			border: $border;
+			background: white;
+			top: 45px;
+		}
+		/* Links inside the dropdown */
+		.dropdown-content a {
+			color: #aaa !important;
+			padding: 0 16px;
+			display: block;
+			background: white;
+			&:hover {
+				color: black !important;
+			}
+		}
+		.noti-dot {
+			height: 5px;
+			width: 5px;
+			background-color: black;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.active {
+			border-bottom: $border;
+			color: black !important;
+		}
+		.create {
+			padding: 0.3rem 1rem !important;
+			background: black;
+			border: none;
+			color: white !important;
+		}
+	}
+	@media #{$medium-and-up} {
+		li {
+			img {
+				width: 21px;
+				height: 21px;
+				margin-top: 16px;
+			}
+		}
+		.nav-wrapper {
+			height: $height-nav;
+			line-height: $height-nav;
+			padding: 0 2em;
+			overflow: auto;
+			background: white;
+		}
+		.user-links {
+			justify-content: flex-end
+		}
+		.user-links li {
+			margin: 0 0.2rem !important;
+			min-width: 30px;
+		}
+		.user-links, .brand {
+			width: 210px;
+			display: flex;
+		}
+		.main-links a, .user-links a, i {
+			cursor: pointer;
+			color: #585858;
+			font-size: 0.9rem;
+			letter-spacing: 2px;
+			&:hover {
+				color: black;
+			}
+		}
+		.main-links li, .user-links li {
+			margin: 0 0.5rem
+		}
+	}
+}
+#mobile {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: white;
+	z-index: 999;
+	box-sizing: border-box !important;
+	-moz-box-sizing: border-box!important;
+	-webkit-box-sizing: border-box!important;
+	border-top: $border;
+	.nav-wrapper {
+		height: $height-nav;
+		line-height: $height-nav;
+		padding: 0 0.5em;
+		overflow: auto;
+		background: white;
+	}
+	img {
+		width: 24px;
+		height: 24px;
+		margin-top: 13px;
+	}
+	.noti-dot {
+		height: 7px;
+		width: 7px;
+		background-color: black;
+		border-radius: 50%;
+		display: inline-block;
+	}
+	li {
+		height: 50px;
+	}
+}
+#mobile-home {
+	position: fixed;
+	top: calc( #{$height-nav} - 5px);
+	;
+	left: 0;
+	width: 100%;
+	background: white;
+	z-index: 999;
+	height: calc( #{$height-nav} - 10px);
+	line-height: calc( #{$height-nav} - 10px);
+	.main-links a {
+		border-bottom: $border;
+		border-color: #aaa;
+		width: calc( (100vw / 3) - 6px);
+		text-align: center;
+		margin: 0 1px;
+	}
+	.active {
+		border-bottom: $border;
+		color: black !important;
+		border-color: black !important;
+	}
+}

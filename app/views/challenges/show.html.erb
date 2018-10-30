@@ -1,0 +1,49 @@
+<div id="challenge-show">
+    <div class="challenge">
+        <% if @challenge.cover? %>
+            <div class="cover-or-video">
+                <%= image_tag @challenge.cover.url %>
+            </div>
+        <% end %>
+        <div class="title">
+            <%= @challenge.title %><br/>
+            <a href="/user/<%= @challenge.user.username %>" class="username"> 
+                    by @<%= @challenge.user.username %>
+            </a>    
+        </div>
+        <div class="description">
+            <%= @challenge.description%>
+        </div>
+        <div class="cta flex flex-center-xy">
+            <a href="/challenge/<%= @challenge.id %>/submit"> 
+                <button>
+                    Take the challenge
+                </button>
+            </a>
+            <% if @challenge.user == current_user %>
+                <a href="/challenge/<%= @challenge.id %>/edit"> 
+                    <button>
+                        Edit
+                    </button>
+                </a>
+            <% end %>
+        </div>
+    </div>
+    <hr/>
+    <div id="submission">
+        <% if @challenge.posts.count > 0 %>
+            <div class="header flex flex-center-xy">
+                <% if @challenge.posts.count == 1 %>
+                    <%= @challenge.posts.count %> Submission
+                 <% else %>
+                    <%= @challenge.posts.count %> Submissions
+                 <% end %>   
+            </div>
+            <%= render 'post/posts', posts: @posts%>
+        <% else %>
+            <div class="header flex flex-center-xy">
+                There are no submissions yet
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,16 +1,24 @@
-<% unless post.content_processing? %>
+
     <div class="post">
         <div class="head">
             <div class="user-and-time flex flex-space-between">
-                <div class="user">
-                    <a href="/user/<%= post.user.username %> ">
-                        @<%= post.user.username %>
+                    <div class="user">
+                        <a href="/user/<%= post.user.username %> ">
+                            @<%= post.user.username %>
+                        </a>
+                    </div>
+                    <div class="time">
+                    <%= "#{time_ago_in_words(post.created_at)} " %>
+                    </div>
+            </div>
+            <% unless post.submission.blank? %>
+                <div class="submit">
+                    Submitted to 
+                    <a href="/challenge/<%= post.submission.id %>">
+                        <%= post.submission.challenge_type.name %> Challenge
                     </a>
                 </div>
-                <div class="time">
-                <%= "#{time_ago_in_words(post.created_at)} " %>
-                </div>
-            </div>
+            <% end %>
         </div>
         <div class="body">
             <% if post.type == "Post::Text"%>
@@ -53,6 +61,7 @@
                 <a href="/post/<%= post.url %>" class="flex flex-center-y icon">
                     <div class="comment"></div>
                 </a>
+                <%= link_to "Repost", repost_post_path(post), method: :post if user_signed_in? && post.user_id != current_user.id %>
                 <% if post.user == current_user %>
                     <a href="/post/<%= post.url %>/edit" class="flex flex-center-y icon">
                         <div class="edit"></div>
@@ -61,4 +70,4 @@
             </div>
         </div>
     </div>
-<% end %>
+

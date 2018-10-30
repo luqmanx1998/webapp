@@ -21,6 +21,11 @@
             <div class="blank flex flex-center-xy">
                 There are nothing to discover. Start creating !
             </div>
+        <% elsif controller_name == "user" && action_name == "index"%>
+             <div class="blank flex flex-center-xy">
+                This page is empty. <br/> 
+                Start following people that inspire you !
+            </div>
         <% else %>   
              <div class="blank-2 flex flex-center-xy">
                 This user has not posted anything
@@ -34,5 +39,3 @@
         </div>
     <% end %>
 </div>
-
-

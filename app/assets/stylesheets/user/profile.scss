@@ -39,6 +39,25 @@
       font-size: 0.8rem !important;
     }
 
+    .interests{
+      margin: 1.5em 0;
+      flex-wrap: wrap;
+      max-width: 38em;
+      letter-spacing: 2px;
+    }
+
+    .interest{
+      padding: 0.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: $border;
+      background: black;
+      color: white;
+      font-size: 0.7rem;
+    }
+
+
+
 
   }
 
@@ -58,6 +77,13 @@
     button{
       font-size: 1rem !important;
     }
+
+    .interest{
+      margin-right: 0.9rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.85rem;
+    }
+
 
   }
 }

@@ -1,0 +1,47 @@
+#challenge-show {
+	@media only screen {
+		.challenge{
+			max-width: 40em;
+			margin: 0 auto;
+			padding: 1rem;
+			word-wrap: break-word;
+		}
+
+		.title{
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin: 1rem 0;
+		}
+		.cta{
+			margin: 1rem;
+		}
+
+		.username{
+			font-size: 0.8rem;
+		}
+
+		.description{
+			font-family: monospace;
+			font-weight: 300;
+		}
+
+		button{
+			margin: 0.5rem;
+		}
+		
+	}
+	@media #{$medium-and-up} {
+		.title{
+			text-align: center;
+			font-size: 1.8rem;
+		}
+		.username{
+			font-size: 0.9rem;
+		}
+
+		.description{
+			font-size: 1.2rem
+		}
+
+	}
+}

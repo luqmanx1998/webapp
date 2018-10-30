@@ -1,407 +1,421 @@
-
 @import 'components/variables';
 @import 'components/reset';
 
-
 /* Global
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-body{
-  margin: 0;
-  font-family: $monospace;
-  position: absolute;
-  width: 100vw;
-  min-height: $height-full;
-  position: relative;
+
+body {
+	margin: 0;
+	font-family: $sans-serif;
+	position: absolute;
+	width: 100vw;
+	min-height: $height-full;
+	position: relative;
+	background: #fff
+}
+#indielab {
+	padding-top: $height-nav;
+	background: #fff;
+	padding-bottom: $height-nav;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #aaa !important;
+	&:hover {
+		color: black !important
+	}
+}
+svg {
+	fill: #d3d3d3;
+	&:hover {
+		fill: #343434;
+	}
+}
+#error-code {
+	.error {
+		padding: 1em;
+		height: $height-full;
+		p {
+			max-width: 400px;
+		}
+		.button-wrapper {
+			margin: 1rem 0;
+		}
+	}
 }
 
+/* Font
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-#indielab{
-  padding-top: $height-nav;
-  padding-bottom: $height-nav;
-}
-
-a{
-  text-decoration: none;
-  cursor: pointer;
-  color: #585858 ;
-  &:hover{
-    color: black
-  }
-}
-svg{
-fill: #d3d3d3;
-  &:hover{
-    fill: #343434 ;
-  }
-}
-
-#error-code{
-  .error{
-    padding: 1em;
-    height: $height-full;
-
-    p{
-      max-width: 400px;
-    }
-
-    .button-wrapper{
-      margin: 1rem 0;
-    }
-}
-}
-
-
-
+@font-face {
+	font-family: 'Circular Std ';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Circular Std Book'), url('/font/CircularStd-Book.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std Book Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Circular Std Book Italic'), url('/font/CircularStd-BookItalic.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std ';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Circular Std Medium'), url('/font/CircularStd-Medium.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std Medium Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Circular Std Medium Italic'), url('/font/CircularStd-MediumItalic.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std';
+	font-style: normal;
+	font-weight: 800;
+	src: local('Circular Std Bold'), url('/font/CircularStd-Bold.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std Bold Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Circular Std Bold Italic'), url('/font/CircularStd-BoldItalic.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std ';
+	font-style: normal;
+	font-weight: 900;
+	src: local('Circular Std Black'), url('/font/CircularStd-Black.woff') format('woff');
+	}
+	
+	
+	@font-face {
+	font-family: 'Circular Std Black Italic';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Circular Std Black Italic'), url('/font/CircularStd-BlackItalic.woff') format('woff');
+	}
+	
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+
 .hide-on-small-only, .hide-on-small-and-down {
-  @media #{$small-and-down} {
-    display: none !important;
-  }
+	@media #{$small-and-down} {
+		display: none !important;
+	}
 }
 .hide-on-med-and-down {
-  @media #{$medium-and-down} {
-    display: none !important;
-  }
+	@media #{$medium-and-down} {
+		display: none !important;
+	}
 }
 .hide-on-med-and-up {
-  @media #{$medium-and-up} {
-    display: none !important;
-  }
+	@media #{$medium-and-up} {
+		display: none !important;
+	}
 }
 .hide-on-med-only {
-  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
-    display: none !important;
-  }
+	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+		display: none !important;
+	}
 }
 .hide-on-large-only {
-  @media #{$large-and-up} {
-    display: none !important;
-  }
+	@media #{$large-and-up} {
+		display: none !important;
+	}
 }
 .hide-on-extra-large-only {
-  @media #{$extra-large-and-up} {
-    display: none !important;
-  }
+	@media #{$extra-large-and-up} {
+		display: none !important;
+	}
 }
 .show-on-extra-large {
-  @media #{$extra-large-and-up} {
-    display: block !important;
-  }
+	@media #{$extra-large-and-up} {
+		display: block !important;
+	}
 }
 .show-on-large {
-  @media #{$large-and-up} {
-    display: block !important;
-  }
+	@media #{$large-and-up} {
+		display: block !important;
+	}
 }
 .show-on-medium {
-  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
-    display: block !important;
-  }
+	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+		display: block !important;
+	}
 }
 .show-on-small {
-  @media #{$small-and-down} {
-    display: block !important;
-  }
+	@media #{$small-and-down} {
+		display: block !important;
+	}
 }
 .show-on-medium-and-up {
-  @media #{$medium-and-up} {
-    display: block !important;
-  }
+	@media #{$medium-and-up} {
+		display: block !important;
+	}
 }
 .show-on-medium-and-down {
-  @media #{$medium-and-down} {
-    display: block !important;
-  }
+	@media #{$medium-and-down} {
+		display: block !important;
+	}
 }
-
-
-
 /*  
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.flex{
-  display: flex
-}
 
-.flex-center-x{
-  justify-content: center;
+.flex {
+	display: flex;
+	flex-wrap: wrap;
 }
-
-.flex-center-y{
-  align-items: center;
+.flex-center-x {
+	justify-content: center;
 }
-
-.flex-center-xy{
-  justify-content: center;
-  align-items: center
+.flex-center-y {
+	align-items: center;
 }
-
-.flex-space-between{
-  justify-content: space-between
+.flex-center-xy {
+	justify-content: center;
+	align-items: center
 }
-.flex-space-around{
-  justify-content: space-around
+.flex-space-between {
+	justify-content: space-between
 }
-
-.flex-end{
-  justify-content: flex-end
+.flex-space-around {
+	justify-content: space-around
 }
-
-
+.flex-end {
+	justify-content: flex-end
+}
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-button, .button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button a, .button a {
-  background: white;
-  color: #585858!important;
-  padding: 0.5em 2.3em;
-  font-family: $sans-serif;
-  font-weight: 300;
-  letter-spacing: 3px;
-  border-radius: 2px !important;
-  -webkit-border-radius: 2px!important;
-  -webkit-appearance: none!important;
-  font-size: 1em;
-  border: $border;
-  border-color: #b9b9b9 !important;
-  cursor: pointer; }
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-  border-color: #1B1B1B !important;
-  box-shadow: none;
-  outline: none;
-}
 
-.actions{
-  display: flex;
-  justify-content: flex-end
+button, .button, input[type="submit"], input[type="reset"], input[type="button"], button a, .button a {
+	background: white;
+	color: #aaa!important;
+	padding: 0.5em 2.3em;
+	font-family: $sans-serif;
+	font-weight: 300;
+	letter-spacing: 3px;
+	border-radius: 2px !important;
+	-webkit-border-radius: 2px!important;
+	-webkit-appearance: none!important;
+	font-size: 1em;
+	border: $border;
+	border-color: #b9b9b9 !important;
+	cursor: pointer;
 }
-
+.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, .button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+	border-color: #1B1B1B !important;
+	box-shadow: none;
+	outline: none;
+	color: black !important;
+}
+.actions {
+	display: flex;
+	justify-content: flex-end
+}
 /* Input
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-textarea:focus, input:focus{
-    outline: none;
+
+textarea:focus, input:focus {
+	outline: none;
 }
 input {
-    border-radius: 0;
-
+	border-radius: 0;
 }
-
-.input{
-  font-size: 1em;
-  padding: 1rem;
-  width: 100%;
-  border: none;
-  background: #f1f1f1!important;
-  border-radius: 5px;
-
+.input {
+	font-size: 1em;
+	padding: 1rem;
+	width: 100%;
+	border: none;
+	background: #f1f1f1!important;
+	border-radius: 5px;
 }
-
-img{
-  width: 100%;
-  height: auto;
+img {
+	width: 100%;
+	height: auto;
 }
-
 textarea {
-  resize: none;
-  border-radius: 0;
-  background-color: transparent;
-  outline: none;
+	resize: none;
+	border-radius: 0;
+	background-color: transparent;
+	outline: none;
 }
-.field{
-  position: relative;
-  margin: 1rem 0;
+.field {
+	position: relative;
+	margin: 1rem 0;
 }
-input:placeholder-shown  + span.form-label,
-textarea:placeholder-shown + span.form-label{
-  display:none
+input:placeholder-shown+span.form-label, textarea:placeholder-shown+span.form-label {
+	display: none
 }
-input:not(:placeholder-shown)  + span.form-label,
-textarea:not(:placeholder-shown) + span.form-label{
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  z-index: 2;
-  color: rgb(117,117,117);
+input:not(:placeholder-shown)+span.form-label, textarea:not(:placeholder-shown)+span.form-label {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	z-index: 2;
+	color: rgb(117, 117, 117);
 }
-
-
-
 /* Float
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.clearfix{
-  overflow: auto;
+.clearfix {
+	overflow: auto;
 }
 .left {
-  float: left
+	float: left
 }
-
-.right{
-  float: right
+.right {
+	float: right
 }
 /* Collapse
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  color: rgba(0,0,0,0.4);
-  cursor: pointer;
-  margin: 2rem 0;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 2rem;
-  font-family: $sans-serif;
-  
-  }
-  
-  .collapsible:before{
-  content: image-url("icons/arrow-right.svg");
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .collapse-active, .collapsible:hover {
-  color: #1B1B1B;
-  }
-  
-  .collapse-active{
-  
-  border-bottom: $border
-  }
-  
-  .collapse-active:before{
-    content: image-url("icons/arrow-down.svg");
-  }
-  /* Style the collapsible content. Note: hidden by default */
-  .collapse-content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  }
 
-  /* Dropdown
+/* Style the button that is used to open and close the collapsible content */
+
+.collapsible {
+	color: rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	margin: 2rem 0;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 2rem;
+	font-family: $sans-serif;
+}
+.collapsible:before {
+	content: image-url("icons/arrow-right.svg");
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+.collapse-active, .collapsible:hover {
+	color: #1B1B1B;
+}
+.collapse-active {
+	border-bottom: $border
+}
+.collapse-active:before {
+	content: image-url("icons/arrow-down.svg");
+}
+/* Style the collapsible content. Note: hidden by default */
+
+.collapse-content {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+}
+/* Dropdown
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 
-
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {
-    display:block !important;
-  }
+.show {
+	display: block !important;
+}
 /* Switch
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 65px;
-  height: 28px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {display:none;}
-  
-  /* The slider */
-  .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-  
-  }
-  
-  .slider:before {
-  content: "No";
-  text-align:center;
-  line-height: 28px;
-  color: white;
-  font-family: $sans-serif;
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transition: .4s;
-  transition: .4s;
-  }
-  
-  input:checked + .slider {
-  background-color: rgb(0, 204, 0);
-  }
-  
-  input:focus + .slider {
-  box-shadow: 0 0 1px rgb(0, 204, 0);
-  }
-  
-  input:checked + .slider:before {
-  content: "Yes";
-  }
-  
 
-  /*   Icons 
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 65px;
+	height: 28px;
+}
+/* Hide default HTML checkbox */
+
+.switch input {
+	display: none;
+}
+/* The slider */
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 34px;
+}
+.slider:before {
+	content: "No";
+	text-align: center;
+	line-height: 28px;
+	color: white;
+	font-family: $sans-serif;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+input:checked+.slider {
+	background-color: rgb(0, 204, 0);
+}
+input:focus+.slider {
+	box-shadow: 0 0 1px rgb(0, 204, 0);
+}
+input:checked+.slider:before {
+	content: "Yes";
+}
+/*   Icons 
   -------------------------*/
 
-  #post-icon{
-      .icon{
-        margin-right: 1rem;
-      font-size: 0.8rem;
-      margin-top: 1rem;
-      }
-
-    .comment{
-      content: image-url("icons/comment");
-      height: 15px;
-      &:hover{
-          content: image-url("icons/comment-hover");
-      }
-    }
-
-    .edit{
-      content: image-url("icons/edit");
-      &:hover{
-          content: image-url("icons/edit-hover");
-      }
-      height: 15px;
-      margin-top: -3px;
-    }
-
-    .view-icon{
-      color: #aaa;
-      
-      .views{
-        content: image-url("icons/view");
-        height: 20px;
-        margin-right: 0.5rem;
-      }
-
-      &:hover > .views {
-          content: image-url("icons/view-hover");
-      }
-
-      &:hover > .view-counter{
-        color: black;
-      }
-
-      
-    }
-
-
-  }
+#post-icon {
+	.icon {
+		margin-right: 1rem;
+		font-size: 0.8rem;
+		margin-top: 1rem;
+	}
+	.comment {
+		content: image-url("icons/comment");
+		height: 15px;
+		&:hover {
+			content: image-url("icons/comment-hover");
+		}
+	}
+	.edit {
+		content: image-url("icons/edit");
+		&:hover {
+			content: image-url("icons/edit-hover");
+		}
+		height: 15px;
+		margin-top: -3px;
+	}
+	.view-icon {
+		color: #aaa;
+		.views {
+			content: image-url("icons/view");
+			height: 20px;
+			margin-right: 0.5rem;
+		}
+		&:hover>.views {
+			content: image-url("icons/view-hover");
+		}
+		&:hover>.view-counter {
+			color: black;
+		}
+	}
+}

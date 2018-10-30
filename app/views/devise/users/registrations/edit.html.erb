@@ -3,99 +3,16 @@
   <div class="user-settings">
     <div class="wrapper">
       <%= devise_error_messages! %>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "profile"}) do |f| %>
-        <div class="heading">
-          Profile
-        </div>
-        <div class="field">
-          <%= f.text_field :name, class: "input", placeholder: "Name" ,  required: true, :maxlength => 24%>
-          <span class="form-label">
-            Name
-          </span>
-        </div>
-        <div class="field">
-          <%= f.text_field :username, class: "input", placeholder: "Username" , pattern: "[A-Za-z0-9]+",  required: true,:maxlength => 14%>
-          <span class="form-label">
-            Username
-          </span>
-        </div>
-        <div class="field">
-          <%= f.text_area :bio, class: "input", placeholder: "Bio", :maxlength => 240 %>
-          <span class="form-label">
-            Bio
-          </span>
-        </div>
-        <div class="actions">
-          <%= f.submit "Update", class: 'btn' %>
-        </div>
-      <% end %>
-      <div class="collapsible">
-        NSFW
-      </div>
-      <div class="collapse-content">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "preference"}, remote: true, :authenticity_token => true) do |f| %>
-          <div class="nsfw ">
-            <div class="view-nsfw flex flex-space-between">
-              <div class="wrapper">
-              <div class="heading"> Hide adult content </div> <br/>
-              </div>
-              <label class="switch">
-                <%= f.check_box :hide_nsfw, id: "hide_nsfw" %>
-                <span class="slider"></span>
-              </label>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <div class="collapsible">
-        Account Settings
-      </div>
-      <div class="collapse-content">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "account"}) do |f| %>
-          <div class="field">
-            <%= f.email_field :email, class: "input", placeholder: "Email" %>
-            <span class="form-label">
-              Email
-            </span>
-          </div>
-          <div class="field">
-            <%= f.password_field :password, autocomplete: "off", class: "input", placeholder: "New Password" %>
-            <span class="form-label">
-              New Password
-            </span>
-          </div>
-          <span>
-            Enter current password to change email/password.
-          </span>
-          <div class="field">
-            <%= f.password_field :current_password, autocomplete: "off", class: "input", placeholder: "Current Password" ,  required: true%>
-            <span class="form-label">
-              Current Password
-            </span>
-          </div>
-            <div class="actions">
-              <%= f.submit "Update", class: 'btn' %>
-            </div>
-        <% end %>
-      </div>
-      <div class="collapsible">
-        Do Not Open.
-      </div>
-      <div class="collapse-content">
-        <div class="warning">
-          By deleting your account, you are removing your personal information from Indielab.
-          <br/>
-          Your account cannot be restored.
-        </div>
-        <div class="cancel">
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn' %>
-        </div>
-      </div>
+      <%= render 'profile'%>
+      <%= render 'interest'%>
+      <%= render 'nsfw' %>
+      <%= render 'account' %>
+      <%= render 'delete'%>
     </div>
   </div>
 </div>
 
-<%= javascript_include_tag 'user/preferences', 'data-turbolinks-track': 'reload'%>
+<%= javascript_include_tag 'user/ajax', 'data-turbolinks-track': 'reload'%>
 
 <script type="text/javascript">
   var coll = document.getElementsByClassName("collapsible"); var i; for (i = 0; i < coll.length; i++) { coll[i].addEventListener("click", function() { this.classList.toggle("collapse-active"); var content = this.nextElementSibling; if (content.style.display === "block") { content.style.display = "none"; } else { content.style.display = "block"; } }); }

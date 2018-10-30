@@ -13,9 +13,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @commentable.comments.find(params[:comment_id])
     @comment.destroy
-    respond_to do |format|
-      format.html {redirect_to post_url(@commentable.url) }
-    end
+    redirect_to post_url(@commentable.url) 
   end
 
   private

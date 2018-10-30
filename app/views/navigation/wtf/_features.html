@@ -10,3 +10,18 @@
     </ul>
   </div>
 </nav> 
+
+<script>
+  $(" [href]").each(function() {
+      if (this.href == window.location.href) {
+          $(this).addClass("active");
+      }
+  });
+  </script>
+  
+  <style>
+    .active{
+      border-bottom: black solid 1px;
+      color: black !important;
+    }
+  </style>

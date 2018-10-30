@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_051400) do
+ActiveRecord::Schema.define(version: 2018_10_30_103617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "cover"
+    t.string "video"
+    t.bigint "user_id"
+    t.integer "challenge_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
+    t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -66,6 +79,13 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_interests_on_name", unique: true
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "from_user_id"
@@ -91,6 +111,11 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "views", default: 0, null: false
+    t.string "submission_type"
+    t.bigint "submission_id"
+    t.boolean "draft", default: false, null: false
+    t.integer "post_id"
+    t.index ["submission_type", "submission_id"], name: "index_posts_on_submission_type_and_submission_id"
     t.index ["type"], name: "index_posts_on_type"
     t.index ["url"], name: "index_posts_on_url", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -116,6 +141,15 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_simple_hashtag_hashtags_on_name"
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "interest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interest_id"], name: "index_user_interests_on_interest_id"
+    t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -156,8 +190,11 @@ ActiveRecord::Schema.define(version: 2018_09_27_051400) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "challenges", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"
   add_foreign_key "posts", "users"
+  add_foreign_key "user_interests", "interests"
+  add_foreign_key "user_interests", "users"
 end

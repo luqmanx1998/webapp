@@ -1,0 +1,31 @@
+<div class="collapsible">
+    Account Settings
+</div>
+<div class="collapse-content">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, html: {id: "account"}) do |f| %>
+    <div class="field">
+    <%= f.email_field :email, class: "input", placeholder: "Email" %>
+    <span class="form-label">
+        Email
+    </span>
+    </div>
+    <div class="field">
+    <%= f.password_field :password, autocomplete: "off", class: "input", placeholder: "New Password" %>
+    <span class="form-label">
+        New Password
+    </span>
+    </div>
+    <span>
+    Enter current password to change email/password.
+    </span>
+    <div class="field">
+    <%= f.password_field :current_password, autocomplete: "off", class: "input", placeholder: "Current Password" ,  required: true%>
+    <span class="form-label">
+        Current Password
+    </span>
+    </div>
+    <div class="actions">
+        <%= f.submit "Update", class: 'btn' %>
+    </div>
+<% end %>
+</div>

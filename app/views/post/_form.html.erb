@@ -22,6 +22,13 @@ $(function() {
 });
 </script>
 
+<% if action_name == "new" && @post.submission_type == "Challenge" %>
+  <div class="challenge flex flex-center-xy">
+    <%= @challenge.challenge_type.name %> Challenge: <%= @challenge.title %>
+    <%= f.hidden_field :submission_type %>
+    <%= f.hidden_field :submission_id %>
+  </div>
+<% end %>
 <div class="form">
   <div class="content">
     <%= render 'post/text', f: f %>

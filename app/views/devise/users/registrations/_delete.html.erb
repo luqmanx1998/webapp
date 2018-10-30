@@ -1,0 +1,13 @@
+<div class="collapsible">
+        Do Not Open.
+      </div>
+      <div class="collapse-content">
+        <div class="warning">
+          By deleting your account, you are removing your personal information from Indielab.
+          <br/>
+          Your account cannot be restored.
+        </div>
+        <div class="cancel">
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn' %>
+        </div>
+      </div>

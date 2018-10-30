@@ -1,0 +1,20 @@
+<nav id="mobile-home" class="hide-on-med-and-up">
+    <div class=" home-nav">
+        <div class="main-links flex" >
+            <a href="/discover"> Discover</a>
+            <a href="/"> Followings</a>
+            <a href="/challenges"> Challenge </a>
+        </div>
+
+    </div>
+</nav>
+
+
+
+<script>
+$(".main-links [href]").each(function() {
+    if (this.href == window.location.href) {
+        $(this).addClass("active");
+        }
+    });
+</script>
