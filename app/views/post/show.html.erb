@@ -2,6 +2,11 @@
     <div class="wrapper">
         <div class="content flex flex-center-y">
             <% unless @post.content_processing? %>
+                <% if @post.draft == true %>
+                    <div class="draft">
+                        Draft
+                    </div>
+                <% end %>
                 <% if @post.type == "Post::Text"%>
                     <div class="text">
                         <%= raw(@post.content) %>

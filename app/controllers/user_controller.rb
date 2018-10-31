@@ -1,7 +1,8 @@
 class UserController < ApplicationController
   before_action :find_user
   before_action :authenticate_user!
-
+  
+  # Followings page
   def index
     @users = current_user.all_following
     if current_user.hide_nsfw == true
@@ -10,21 +11,26 @@ class UserController < ApplicationController
       @posts = Post.nsfw.except_who(current_user).followed(@users)
     end
   end
-
+  
+  # Profile Page 
   def show
       raise ActionController::RoutingError.new('Not Found') if @user.blank?
+
       if current_user.hide_nsfw == true && current_user != @user
         @posts = @user.posts.safe
-      else
+    
+      else 
         @posts = @user.posts.nsfw
       end
 
+      # Follow button 
       def follow
         @user = User.find(params[:id])
         current_user.follow(@user)
         redirect_back(fallback_location: root_path)
       end
-
+      
+      # Unfollow button
       def unfollow
         @user = User.find(params[:id])
         current_user.stop_following(@user)

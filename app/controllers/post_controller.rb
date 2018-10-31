@@ -27,6 +27,7 @@ class PostController < ApplicationController
   def create
     @post = @media.new(post_params)
     @post.user = current_user
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to post_url(@post.url) }
@@ -35,6 +36,7 @@ class PostController < ApplicationController
       end
     end
   end
+
 
   def update
     respond_to do |format|
@@ -68,15 +70,17 @@ class PostController < ApplicationController
     def post_params
       @post = Post.find_by_url(params[:url])
       if  @post.type == "Post::Text"
-        params.require(:post_text).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)
+        params.require(:post_text).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft )
       elsif @post.type == "Post::Image"
-        params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)
+        params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)
       elsif @post.type == "Post::Audio"
-        params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)  
+        params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)  
       elsif @post.type == "Post::Video"
-        params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw)  
+        params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)  
       end
     end
 
-
 end
+
+
+
