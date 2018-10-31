@@ -4,13 +4,12 @@ class PostController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if current_user.hide_nsfw == true
-      @posts = Post.safe.except_who(current_user)
+    if current_user.hide_nsfw 
+      @posts = Post.safe.except_who(current_user).public
     else
-      @posts = Post.nsfw.except_who(current_user)
+      @posts = Post.posted.except_who(current_user).public
     end
   end
-
 
   def show
     raise ActionController::RoutingError.new('Not Found') if @post.blank?

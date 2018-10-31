@@ -15,7 +15,10 @@ class Post < ApplicationRecord
   scope :followed,    ->  (users)         { where(  user: users)}
   scope :except_who , ->  (user)          { where.not(  user: user) }
   scope :safe,        ->                  { where.not(  preferences: {"nsfw"=>true}, content_processing: true).order('created_at DESC') }
-  scope :nsfw,        ->                  { where.not(  content_processing: true).order('created_at DESC') }
+  scope :posted,        ->                  { where.not(  content_processing: true).order('created_at DESC') }
+  scope :private,     ->                  { where(private: true) }
+  scope :public,      ->                  { where(private: false)}
+  
 
   #JSONB STOREXT  
   include Storext.model
@@ -49,5 +52,5 @@ class Post < ApplicationRecord
     def set_url
        self.url = "#{ SecureRandom.hex(4)}"
     end
-  end
+end
   
