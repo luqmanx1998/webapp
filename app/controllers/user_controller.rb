@@ -3,6 +3,8 @@ class UserController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @users = User.all
+    
     @users = current_user.all_following
     if current_user.hide_nsfw == true
       @posts = Post.safe.except_who(current_user).followed(@users)
