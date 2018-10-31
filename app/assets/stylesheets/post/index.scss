@@ -68,9 +68,15 @@
 			right: 0;
 			height: 101%;
 		}
-		.submit {
+		.submit{
 			color: #c9c9c9;
 			margin: 0.3rem 0;
+			font-size: 0.7rem;
+		}
+
+		.draft{
+			background: lightgray;
+			padding: 0.3rem;
 			font-size: 0.7rem;
 		}
 		.submit a {

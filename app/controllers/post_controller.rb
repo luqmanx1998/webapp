@@ -30,7 +30,6 @@ class PostController < ApplicationController
     
     respond_to do |format|
       if @post.save
-        @post.update(draft: true) if set_as_draft
         format.html { redirect_to post_url(@post.url) }
       else
         format.html { render :new }
@@ -42,7 +41,6 @@ class PostController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        @post.update(draft: false, created_at: Time.zone.now ) if publishing?
         format.html { redirect_to post_url(@post.url) }
       else
         format.html { render :edit }
@@ -81,15 +79,6 @@ class PostController < ApplicationController
         params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)  
       end
     end
-    
-    def set_as_draft
-      params[:commit] == 'Save as draft'
-    end
-    
-    def publishing?
-      params[:commit] == 'Publish'
-    end
-
 
 end
 

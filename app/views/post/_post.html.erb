@@ -19,8 +19,14 @@
                     </a>
                 </div>
             <% end %>
+            
         </div>
         <div class="body">
+            <% if post.draft == true %>
+                <div class="draft">
+                    Draft
+                </div>
+            <% end %>
             <% if post.type == "Post::Text"%>
                 <a href="/post/<%= post.url %>" >
                     <div class="content text">

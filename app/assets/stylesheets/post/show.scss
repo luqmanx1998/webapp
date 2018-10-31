@@ -10,7 +10,6 @@
 				min-height: 200px;
 				background: #e7e7e7;
 				padding: 1rem;
-				border-radius: 5px;
 				width: 100%;
 				font-family: $monospace;
 				color: black !important
@@ -19,7 +18,7 @@
 				width: 100%;
 			}
 		}
-		.submit {
+		.submit{
 			color: #c9c9c9;
 			margin: 0.5rem 0;
 		}
@@ -29,6 +28,12 @@
 			&:hover {
 				color: black;
 			}
+		}
+		.draft{
+			background: lightgray;
+			padding: 0.5rem;
+			font-size: 0.7rem;
+			width: 100%;
 		}
 		.user-and-time, .details, .buttons {
 			margin-top: 1em;

@@ -15,18 +15,12 @@ class UserController < ApplicationController
   # Profile Page 
   def show
       raise ActionController::RoutingError.new('Not Found') if @user.blank?
-      
-      # If current user hides nsfw contents and current user not user
-      if current_user.hide_nsfw == true && current_user != @user
-        @posts = @user.posts.safe.published
-      
-      # current user is not user and nsfw contents
-      elsif current_user != @user
-        @posts = @user.posts.nsfw.published
 
-      # current user is current user 
-      elsif
-        @posts = @user.posts
+      if current_user.hide_nsfw == true && current_user != @user
+        @posts = @user.posts.safe
+    
+      else 
+        @posts = @user.posts.nsfw
       end
 
       # Follow button 

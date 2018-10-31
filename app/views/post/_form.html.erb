@@ -43,10 +43,19 @@ $(function() {
     <div class="options">
       <div class="view-nsfw flex flex-space-between">
         <div class="wrapper">
-          <div class="heading"> NSFW Content</div> <br/>
+          <div class="heading"> NSFW content</div> <br/>
         </div>
         <label class="switch">
           <%= f.check_box :nsfw, id: "hide_nsfw" %>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="view-draft flex flex-space-between">
+        <div class="wrapper">
+          <div class="heading"> Mask as draft </div> <br/>
+        </div>
+        <label class="switch">
+          <%= f.check_box :draft, id: "set_draft" %>
           <span class="slider"></span>
         </label>
       </div>
@@ -59,7 +68,6 @@ $(function() {
           </a>
         <% end %>  
         <%= f.submit "Publish", class: "btn ", id: "button" %>
-        <%= f.submit "Save as draft", class: "btn ", id: "button" %>
       </div>
     </div>
   </div>
