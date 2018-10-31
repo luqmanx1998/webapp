@@ -1,7 +1,8 @@
 class PostController < ApplicationController
-  before_action :set_post_url
+  before_action :set_post_url, except: [:repost]
   before_action :owner, only: [:edit]
   before_action :authenticate_user!
+  
 
   def index
     if current_user.hide_nsfw == true
@@ -9,6 +10,7 @@ class PostController < ApplicationController
     else
       @posts = Post.nsfw.except_who(current_user)
     end
+    
   end
 
 
@@ -36,6 +38,17 @@ class PostController < ApplicationController
       end
     end
   end
+  
+  def repost
+    @post = Post.find(params[:id])
+    post = current_user.posts.new(post_id: @post.id)
+    if post.save
+      redirect_to post_url(@post.url)
+    else
+    redirect_to :back, alert: 'Unable to repost'
+    end
+  end
+
 
 
   def update

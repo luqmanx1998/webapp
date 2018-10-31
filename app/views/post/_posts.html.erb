@@ -34,7 +34,7 @@
     <% else %>
         <div class="posts masonry transitions-enabled">
             <% posts.each do |post| %>
-                <%= render 'post/post', post: post%>
+                <%= render partial: "post/#{post.post_type}", locals: {post: post} %>
             <% end %>
         </div>
     <% end %>

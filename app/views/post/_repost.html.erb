@@ -1,0 +1,93 @@
+
+    <div class="post">
+        <div class="head">
+            <div class="user-and-time flex flex-space-between">
+                    <div class="user">
+                        <a href="/user/<%= post.post.user.username %> ">
+                            @<%= post.post.user.username %>
+                        </a>
+                    </div>
+                    <div class="time">
+                    <%= "#{time_ago_in_words(post.created_at)} " %>
+                    </div>
+            </div>
+            <div class="reposted">
+                Reposted by
+                <a href="/user/<%= post.user.username %>">
+                    @<%= post.user.username %> 
+                </a>
+            </div>
+            <% unless post.post.submission.blank? %>
+                <div class="submit">
+                    Submitted to 
+                    <a href="/challenge/<%= post.submission.id %>">
+                        <%= post.post.submission.challenge_type.name %> Challenge
+                    </a>
+                </div>
+            <% end %>
+        </div>
+        <div class="body">
+            <% if post.post.type == "Post::Text"%>
+                <a href="/post/<%= post.post.url %>" >
+                    <div class="content text">
+                        <%= ((truncate_html post.post.content, :length => 480)) %>
+                    </div>
+                </a>
+            <% elsif post.post.type == "Post::Image"%>
+                <a href="/post/<%= post.post.url %>" >
+                    <%= image_tag post.post.content.url %>    
+                </a>    
+            <% elsif post.post.type == "Post::Audio" %>
+                <% if post.post.content.url.present? %>
+                    <audio id="playerAudio" >
+                        <source src="<%= post.post.content.url %>" type="audio/mp3">
+                    </audio>    
+                <% end %> 
+            <% elsif post.post.type == "Post::Video" %>
+                <% if post.post.content.url.present? %>
+                  <div class="box">
+                    <video id="player" src="<%= post.post.content.url %>">
+                  </div>
+                <% end %>  
+            <% end %>   
+        </div>
+        <div class="foot">
+            <% if post.post.caption? %>
+                <div class="info">
+                    <%= ((truncate_html (render_with_hashtags render_with_mention(post.post.caption)).html_safe, length: 200)) %>
+                </div>
+            <% end %>
+            <div id="post-icon" class=" flex">
+                <a href="/post/<%= post.post.url %>" class="flex flex-center-y icon view-icon">
+                    <div class="views"></div> 
+                    <div class="view-counter">
+                        <%= post.post.views%>
+                    </div>
+                </a>
+                <a href="/post/<%= post.post.url %>" class="flex flex-center-y icon">
+                    <div class="comment"></div>
+                </a>
+                <% if post.post.user.id != current_user.id && current_user.posts.where( post_id: post.post.id).exists? %>
+                    <a href="/post/<% current_user.posts.where( post_id: post.post.id).each do | repost|%><%= repost.url %><% end %> " data-method="delete" class="flex flex-center-y icon">
+                        <div class="repost"></div>
+                        <div class="view-counter">
+                            <%= post.post.posts.count%>
+                        </div>
+                    </a>
+                <% elsif post.post.user.id != current_user.id  %>
+                    <a href="/post/<%= post.id %>/repost" class="flex flex-center-y icon" data-method="post" >
+                        <div class="repost"></div>
+                        <div class="view-counter">
+                            <%= post.post.posts.count%>
+                        </div>
+                    </a>                       
+                <% end%>
+                <% if post.user == current_user %>
+                    <a href="/post/<%= post.post.url %>/edit" class="flex flex-center-y icon">
+                        <div class="edit"></div>
+                    </a>
+                <% end %>
+            </div>
+        </div>
+    </div>
+

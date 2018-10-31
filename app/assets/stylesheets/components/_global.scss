@@ -396,6 +396,14 @@ input:checked+.slider:before {
 			content: image-url("icons/comment-hover");
 		}
 	}
+
+	.repost {
+		content: image-url("icons/repost");
+		height: 15px;
+		&:hover {
+			content: image-url("icons/repost-hover");
+		}
+	}
 	.edit {
 		content: image-url("icons/edit");
 		&:hover {
