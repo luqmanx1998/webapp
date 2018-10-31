@@ -68,10 +68,10 @@
 			right: 0;
 			height: 101%;
 		}
-		.submit .reposted {
+		.submit, .reposted, .private {
 			color: #c9c9c9;
 			margin: 0.3rem 0;
-			font-size: 0.7rem;
+			font-size: 0.7em;
 		}
 
 		.draft{
@@ -108,11 +108,8 @@
 		.post, .challenge-wrapper {
 			width: calc(( 100% / 3) - 0.5rem);
 		}
-		.user-and-time, .body, .foot {
+		.user-and-time, .body, .foot, .submit, .reposted, .private {
 			font-size: 0.85em
-		}
-		.submit, .reposted {
-			font-size: 0.85rem;
 		}
 		.title {
 			font-size: 0.9rem;

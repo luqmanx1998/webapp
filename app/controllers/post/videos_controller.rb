@@ -20,6 +20,6 @@ class Post::VideosController < PostController
     end
 
     def post_params
-      params.require(:post_video).permit(:caption, :content, :type, :user_id, :nsfw,:submission_type ,:submission_id, :draft)
+      params.require(:post_video).permit(:caption, :content, :type, :user_id, :nsfw,:submission_type ,:submission_id, :draft, :private)
     end
 end

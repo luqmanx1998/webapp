@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_31_100518) do
+=======
+ActiveRecord::Schema.define(version: 2018_10_31_171653) do
+>>>>>>> feature/privatepost
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,9 +137,14 @@ ActiveRecord::Schema.define(version: 2018_10_31_100518) do
     t.bigint "submission_id"
     t.boolean "draft", default: false, null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     t.integer "post_id"
 >>>>>>> feature/repost
+=======
+    t.integer "post_id"
+    t.boolean "private", default: false, null: false
+>>>>>>> feature/privatepost
     t.index ["submission_type", "submission_id"], name: "index_posts_on_submission_type_and_submission_id"
     t.index ["type"], name: "index_posts_on_type"
     t.index ["url"], name: "index_posts_on_url", unique: true

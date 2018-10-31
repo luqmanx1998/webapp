@@ -19,6 +19,11 @@
                     </a>
                 </div>
             <% end %>
+            <% if post.private? %>
+                <div class="private">
+                    This post is private
+                </div>
+            <% end %>
             
         </div>
         <div class="body">

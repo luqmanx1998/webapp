@@ -5,18 +5,23 @@ class PostController < ApplicationController
   
 
   def index
-    if current_user.hide_nsfw == true
-      @posts = Post.safe.except_who(current_user)
+    if current_user.hide_nsfw 
+      @posts = Post.safe.except_who(current_user).public_post
     else
-      @posts = Post.nsfw.except_who(current_user)
+      @posts = Post.posted.except_who(current_user).public_post
     end
     
   end
 
-
   def show
     raise ActionController::RoutingError.new('Not Found') if @post.blank?
-   impressionist(@post, :unique => [:impressionable_type, :impressionable_id, :session_hash]  ) 
+    impressionist(@post, :unique => [:impressionable_type, :impressionable_id, :session_hash]  ) 
+
+    if @post.private == true
+      unless @post.user == current_user
+        redirect_to :root
+      end
+    end
   end
 
   def new
@@ -83,13 +88,13 @@ class PostController < ApplicationController
     def post_params
       @post = Post.find_by_url(params[:url])
       if  @post.type == "Post::Text"
-        params.require(:post_text).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft )
+        params.require(:post_text).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft, :private )
       elsif @post.type == "Post::Image"
-        params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)
+        params.require(:post_image).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft, :private)
       elsif @post.type == "Post::Audio"
-        params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)  
+        params.require(:post_audio).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft, :private)  
       elsif @post.type == "Post::Video"
-        params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft)  
+        params.require(:post_video).permit( :caption  , :type, :user_id, :content,:submission_type ,:submission_id, :nsfw,:draft, :private)  
       end
     end
 
