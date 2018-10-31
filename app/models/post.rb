@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   belongs_to :submission,     polymorphic: true,  optional: true
   has_many :comments,         as: :commentable,   dependent: :destroy
   has_many :notifications,    as: :notifiable,    dependent: :destroy
+  has_many :posts,    dependent: :destroy
   
 
   scope :submitted,   ->  (challenge_id)  { where(  submission_type: 'Challenge', :submission_id => challenge_id).order("created_at DESC") }
@@ -32,6 +33,16 @@ class Post < ApplicationRecord
       caption.scan(regex).flatten
     end
   end
+
+  def post_type
+    if post_id? 
+      "repost"
+    else
+      "post"
+    end
+  end
+
+
 
 
   private

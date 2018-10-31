@@ -10,6 +10,7 @@ class PostController < ApplicationController
     else
       @posts = Post.nsfw.except_who(current_user)
     end
+    
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_103617) do
+ActiveRecord::Schema.define(version: 2018_10_31_100518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,24 @@ ActiveRecord::Schema.define(version: 2018_10_30_103617) do
     t.index ["from_user_id"], name: "index_notifications_on_from_user_id"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
+  end
+
+  create_table "post_playlists", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "playlist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_post_playlists_on_playlist_id"
+    t.index ["post_id"], name: "index_post_playlists_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -194,6 +212,9 @@ ActiveRecord::Schema.define(version: 2018_10_30_103617) do
   add_foreign_key "comments", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"
+  add_foreign_key "playlists", "users"
+  add_foreign_key "post_playlists", "playlists"
+  add_foreign_key "post_playlists", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
