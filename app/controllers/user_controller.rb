@@ -5,16 +5,16 @@ class UserController < ApplicationController
   def index
     @users = current_user.all_following
     if current_user.hide_nsfw == true
-      @posts = Post.safe.except_who(current_user).followed(@users).public
+      @posts = Post.safe.except_who(current_user).followed(@users).public_post
     else
-      @posts = Post.posted.except_who(current_user).followed(@users).public
+      @posts = Post.posted.except_who(current_user).followed(@users).public_post
     end
   end
 
   def show
       raise ActionController::RoutingError.new('Not Found') if @user.blank?
       if current_user.hide_nsfw == true && current_user != @user
-        @posts = @user.posts.safe.public
+        @posts = @user.posts.safe.public_post
       else
         @posts = @user.posts.posted
       end

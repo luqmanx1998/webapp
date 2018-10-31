@@ -20,6 +20,6 @@ class Post::AudiosController < PostController
     end
 
     def post_params
-      params.require(:post_audio).permit(:caption, :content, :type, :user_id, :nsfw, :submission_type ,:submission_id)
+      params.require(:post_audio).permit(:caption, :content, :type, :user_id, :nsfw, :submission_type ,:submission_id, :private)
     end
 end

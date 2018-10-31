@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_134509) do
+ActiveRecord::Schema.define(version: 2018_10_31_171653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,24 @@ ActiveRecord::Schema.define(version: 2018_10_01_134509) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "playlists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
+  end
+
+  create_table "post_playlists", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "playlist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_post_playlists_on_playlist_id"
+    t.index ["post_id"], name: "index_post_playlists_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "caption"
     t.text "content"
@@ -113,6 +131,9 @@ ActiveRecord::Schema.define(version: 2018_10_01_134509) do
     t.integer "views", default: 0, null: false
     t.string "submission_type"
     t.bigint "submission_id"
+    t.boolean "draft", default: false, null: false
+    t.integer "post_id"
+    t.boolean "private", default: false, null: false
     t.index ["submission_type", "submission_id"], name: "index_posts_on_submission_type_and_submission_id"
     t.index ["type"], name: "index_posts_on_type"
     t.index ["url"], name: "index_posts_on_url", unique: true
@@ -192,6 +213,9 @@ ActiveRecord::Schema.define(version: 2018_10_01_134509) do
   add_foreign_key "comments", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"
+  add_foreign_key "playlists", "users"
+  add_foreign_key "post_playlists", "playlists"
+  add_foreign_key "post_playlists", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"

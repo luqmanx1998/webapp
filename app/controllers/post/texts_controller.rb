@@ -20,6 +20,6 @@ class Post::TextsController < PostController
     end
 
     def post_params
-      params.require(:post_text).permit( :caption  , :type, :user_id, :content, :nsfw, :submission_type ,:submission_id)
+      params.require(:post_text).permit( :caption  , :type, :user_id, :content, :nsfw, :submission_type ,:submission_id, :private)
     end
 end
