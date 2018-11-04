@@ -80,7 +80,7 @@
                         </div>
                     </a>
                 <% elsif post.user.id != current_user.id  %>
-                    <a href="/post/<%= post.id %>/repost" class="flex flex-center-y icon" data-method="post" >
+                    <a href="/post/<%= post.id %>/repost" class="flex flex-center-y icon repost-icon" data-method="post" >
                         <div class="repost"></div>
                         <div class="view-counter">
                             <%= post.posts.count%>

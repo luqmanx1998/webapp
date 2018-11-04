@@ -68,21 +68,21 @@
                     <div class="comment"></div>
                 </a>
                 <% if post.post.user.id != current_user.id && current_user.posts.where( post_id: post.post.id).exists? %>
-                    <a href="/post/<% current_user.posts.where( post_id: post.post.id).each do | repost|%><%= repost.url %><% end %> " data-method="delete" class="flex flex-center-y icon">
-                        <div class="repost"></div>
+                    <a href="/post/<% current_user.posts.where( post_id: post.post.id).each do | repost|%><%= repost.url %><% end %> " data-method="delete" class="flex flex-center-y icon reposted-icon">
+                        <div class="reposted"></div>
                         <div class="view-counter">
                             <%= post.post.posts.count%>
                         </div>
                     </a>
                 <% elsif post.post.user.id != current_user.id  %>
-                    <a href="/post/<%= post.id %>/repost" class="flex flex-center-y icon" data-method="post" >
+                    <a href="/post/<%= post.id %>/repost" class="flex flex-center-y icon repost-icon" data-method="post" >
                         <div class="repost"></div>
-                        <div class="view-counter">
+                        <div class="view-counter reposted-view-counter">
                             <%= post.post.posts.count%>
                         </div>
                     </a>                       
                 <% end%>
-                <% if post.user == current_user %>
+                <% if post.post.user == current_user %>
                     <a href="/post/<%= post.post.url %>/edit" class="flex flex-center-y icon">
                         <div class="edit"></div>
                     </a>

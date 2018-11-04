@@ -397,11 +397,27 @@ input:checked+.slider:before {
 		}
 	}
 
-	.repost {
-		content: image-url("icons/repost");
-		height: 15px;
-		&:hover {
+	.repost-icon{
+		.repost {
+			content: image-url("icons/repost");
+			height: 15px;
+		}
+
+		&:hover> .repost {
 			content: image-url("icons/repost-hover");
+		}
+		&:hover>.view-counter {
+			color: black;
+		}
+	}
+
+	.reposted-icon{
+		.reposted{
+			content: image-url("icons/repost-hover");
+			height: 15px;
+		}
+		.view-counter {
+			color: black;
 		}
 	}
 	.edit {
