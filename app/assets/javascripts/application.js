@@ -7,9 +7,9 @@
 //= require plyr-custom.js
 //= require masonry/imageloaded.pkgd.min.js
 //= require masonry/masonry.pkgd.min.js
-//= require notifications.js.coffee
 //= require jquery.atwho
 //= require mention.coffee
+//= require cable.js
 //= require jquery-fileupload/basic
 //= require activestorage
 //= require turbolinks
