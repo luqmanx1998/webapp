@@ -21,7 +21,12 @@
       </li>
       <li data-behavior="notifications" class="notification">
         <a data-behavior="unread-notification" href="/notifications" class="icon">
-          <%= image_tag 'icons/notification-hover' %>
+          <div>
+            <%= image_tag 'icons/notification-hover' %>
+          <% if current_user.notifications.unread.count > 0 %>
+            <sup class='noti-dot'></sup>
+          <% end %> 
+          </div>
         </a>
       </li>
       <li>
@@ -78,6 +83,9 @@
       <li data-behavior="notifications" class="notification">
         <a data-behavior="unread-notification" href="/notifications">
           <%= image_tag 'icons/notification-hover' %>
+          <% if current_user.notifications.unread.count > 0 %>
+            <sup class='noti-dot'></sup>
+          <% end %> 
         </a>
       </li>
       <li>
@@ -95,4 +103,18 @@ $(".main-links [href]").each(function() {
         $(this).addClass("active");
         }
     });
+</script>
+
+
+<script>
+$(function () {
+    $("[data-behavior='unread-notification']").on('click', function () {
+        $.ajax({
+            url: "/notifications/mark_as_read",
+            headers: {"Authorization": "Token wsredts85dsd89s0odpl"},
+            method: "POST",
+            dataType: "JSON",
+        });
+    });
+});
 </script>
