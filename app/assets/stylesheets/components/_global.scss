@@ -80,19 +80,12 @@ svg {
 	}
 	
 	
+	
 	@font-face {
-	font-family: 'Circular Std';
+	font-family: 'Circular Std ';
 	font-style: normal;
 	font-weight: 800;
-	src: local('Circular Std Bold'), url('/font/CircularStd-Bold.woff') format('woff');
-	}
-	
-	
-	@font-face {
-	font-family: 'Circular Std Bold Italic';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Circular Std Bold Italic'), url('/font/CircularStd-BoldItalic.woff') format('woff');
+	src: local('Circular Std Bold '), url('/font/CircularStd-Bold.woff') format('woff');
 	}
 	
 	
