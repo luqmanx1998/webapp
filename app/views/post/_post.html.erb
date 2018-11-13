@@ -73,8 +73,8 @@
                     <div class="comment"></div>
                 </a>
                  <% if post.user.id != current_user.id && current_user.posts.where( post_id: post.id).exists? %>
-                    <a href="/post/<% current_user.posts.where( post_id: post.id).each do | repost|%><%= repost.url %><% end %> " data-method="delete" class="flex flex-center-y icon">
-                        <div class="repost"></div>
+                    <a href="/post/<% current_user.posts.where( post_id: post.id).each do | repost|%><%= repost.url %><% end %> " data-method="delete" class="flex flex-center-y icon reposted-icon">
+                        <div class="reposted"></div>
                         <div class="view-counter">
                             <%= post.posts.count%>
                         </div>

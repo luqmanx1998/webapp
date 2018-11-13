@@ -21,10 +21,10 @@
 	@media only screen {
 		padding: 0 0.5rem;
 		.post, .challenge-wrapper {
-			width: calc(( 100% / 2) - 0.3rem);
+			width: calc(( 100% / 2) - 1.25rem);
 			border-radius: 5px;
 			word-wrap: break-word;
-			margin: 1rem 0;
+			margin: 2.5rem 0;
 		}
 
 		.challenge-wrapper{
@@ -33,6 +33,15 @@
 		}
 		.body, .info {
 			padding-top: 0.5rem;
+		}
+
+		.info a{
+			color: black !important;
+			text-decoration: underline;
+
+			&:hover{
+				color: #aaa !important;
+			}
 		}
 		.text {
 			min-height: 100px;
@@ -106,10 +115,10 @@
 		padding: 0 2rem;
 		
 		.post, .challenge-wrapper {
-			width: calc(( 100% / 3) - 0.5rem);
+			width: calc(( 100% / 3) - 2rem);
 		}
 		.user-and-time, .body, .foot, .submit, .reposted, .private {
-			font-size: 0.85em
+			font-size: 0.9em
 		}
 		.title {
 			font-size: 0.9rem;
@@ -117,7 +126,7 @@
 	}
 	@media #{$large-and-up} {
 		.post , .challenge-wrapper{
-			width: calc(( 100% / 4) - 0.5rem);
+			width: calc(( 100% / 4) - 2rem);
 		}
 	}
 }
