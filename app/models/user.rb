@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :challenges,  dependent:  :destroy
   has_many :user_interests, dependent:  :destroy
   has_many :interests,      dependent:  :destroy, through:    :user_interests
+  has_one :crate
 
   validates_uniqueness_of :username, allow_blank: true
 

@@ -11,6 +11,9 @@ class Post < ApplicationRecord
   has_many :comments,         as: :commentable,   dependent: :destroy
   has_many :notifications,    as: :notifiable,    dependent: :destroy
   has_many :posts,    dependent: :destroy
+  has_many :posts, through: :remix
+  has_many :remix
+  has_many :crate, through: :crate_post
   
 
   scope :submitted,   ->  (challenge_id)  { where(  submission_type: 'Challenge', :submission_id => challenge_id).order("created_at DESC") }
