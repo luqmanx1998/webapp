@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_171653) do
+ActiveRecord::Schema.define(version: 2018_11_23_081828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2018_10_31_171653) do
     t.integer "challenge_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "project_id"
     t.index ["challenge_type_id"], name: "index_challenges_on_challenge_type_id"
+    t.index ["project_id"], name: "index_challenges_on_project_id"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
@@ -37,6 +39,39 @@ ActiveRecord::Schema.define(version: 2018_10_31_171653) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "crate_posts", force: :cascade do |t|
+    t.bigint "crate_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crate_id"], name: "index_crate_posts_on_crate_id"
+    t.index ["post_id"], name: "index_crate_posts_on_post_id"
+  end
+
+  create_table "crates", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_crates_on_user_id"
+  end
+
+  create_table "flagged_posts", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "flag_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flag_id"], name: "index_flagged_posts_on_flag_id"
+    t.index ["post_id"], name: "index_flagged_posts_on_post_id"
+    t.index ["user_id"], name: "index_flagged_posts_on_user_id"
+  end
+
+  create_table "flags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "follows", force: :cascade do |t|
@@ -100,24 +135,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_171653) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "playlists", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_playlists_on_user_id"
-  end
-
-  create_table "post_playlists", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "playlist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_post_playlists_on_playlist_id"
-    t.index ["post_id"], name: "index_post_playlists_on_post_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.text "caption"
     t.text "content"
@@ -132,19 +149,33 @@ ActiveRecord::Schema.define(version: 2018_10_31_171653) do
     t.string "submission_type"
     t.bigint "submission_id"
     t.boolean "draft", default: false, null: false
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    t.integer "post_id"
->>>>>>> feature/repost
-=======
+    t.boolean "staff_pick"
     t.integer "post_id"
     t.boolean "private", default: false, null: false
->>>>>>> feature/privatepost
+    t.boolean "remix", default: false, null: false
+    t.boolean "downloadable", default: false, null: false
     t.index ["submission_type", "submission_id"], name: "index_posts_on_submission_type_and_submission_id"
     t.index ["type"], name: "index_posts_on_type"
     t.index ["url"], name: "index_posts_on_url", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "remixes", force: :cascade do |t|
+    t.bigint "original_post_id"
+    t.bigint "remix_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["original_post_id"], name: "index_remixes_on_original_post_id"
+    t.index ["remix_post_id"], name: "index_remixes_on_remix_post_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -216,14 +247,21 @@ ActiveRecord::Schema.define(version: 2018_10_31_171653) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "challenges", "projects"
   add_foreign_key "challenges", "users"
   add_foreign_key "comments", "users"
+  add_foreign_key "crate_posts", "crates"
+  add_foreign_key "crate_posts", "posts"
+  add_foreign_key "crates", "users"
+  add_foreign_key "flagged_posts", "flags"
+  add_foreign_key "flagged_posts", "posts"
+  add_foreign_key "flagged_posts", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "notifications", "users", column: "from_user_id"
-  add_foreign_key "playlists", "users"
-  add_foreign_key "post_playlists", "playlists"
-  add_foreign_key "post_playlists", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "remixes", "posts", column: "original_post_id"
+  add_foreign_key "remixes", "posts", column: "remix_post_id"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
 end
